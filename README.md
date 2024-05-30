@@ -38,5 +38,6 @@ pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts --html=report.html --l
     - [ ] test response against schema
     - [ ] test well-formedness of returned XML document/fragment
     - [ ] test (some) requests for different media-types
+- [ ] provide example configuration for integration with CI workflows, e.g. GH Actions
 
 
