@@ -31,6 +31,7 @@ pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts --html=report.html --l
     - [ ] test semantic of JSON-LD response
     - [ ] test URI templates 
 - [ ] tests for DTS Collection endpoint
+    - [ ] update the Collection response schema (copied the old one by @monotasker)
     - [ ] test response against schema
 - [ ] tests for DTS Navigation endpoint
     - [ ] test response against schema
