@@ -1,0 +1,8 @@
+{
+    "@context": "dts/EntryPoint.jsonld",
+    "@id": "/",
+    "@type": "EntryPoint",
+    "collections": "/collections",
+    "documents": "/documents",
+    "navigation": "/navigation"
+    }
