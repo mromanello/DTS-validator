@@ -18,10 +18,10 @@ Additionally, an HTML test report can be output; just provide the path of the HT
 pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts --html=report.html
 ```
 
-For a more verbose report, change the `--log-level` to `INFO`:
+For a more verbose report, change the `--log-level` to `DEBUG`:
 
 ```bash
-pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts --html=report.html --log-cli-level=info
+pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts --html=report.html --log-cli-level=debug
 ```
 
 If no `--entry-endpoint` is provided, a series of mock tests will be executed:
