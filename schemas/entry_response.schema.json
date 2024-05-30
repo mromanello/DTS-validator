@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://mromanello.github.io/dts-validator/schemas/collection_response_schema.json",
+    "type": "object",
+    "properties": {
+        "@context": {"type": "string"},
+        "@id": {"type": "string"},
+        "@type": {"type": "string"},
+        "dtsVersion": {"type": "string"},
+        "collection": {"type": "string"},
+        "document": {"type": "string"},
+        "navigation": {"type": "string"}
+    },
+    "required": [
+        "@context", "@id", "@type", "dtsVersion", "collection", "document", "navigation"
+    ]
+}

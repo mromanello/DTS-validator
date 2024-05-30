@@ -1,0 +1,71 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://mromanello.github.io/dts-validator/schemas/collection_response_schema.json",
+    "type": "object",
+    "properties": {
+        "title": {"type": "string"},
+        "@id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "@type": {
+            "type": "string",
+            "pattern": "^(Collection|Resource)$"
+        },
+        "totalItems": {"type": "number"},
+        "totalChildren": {"type": "number"},
+        "totalParents": {"type": "number"},
+        "maxCiteDepth": {"type": "number"},
+        "description": {"type": "string"},
+        "member": {
+            "type": "array",
+            "items": {
+                "$ref": "#"
+            }
+        },
+        "dublincore": {
+            "type": "object"
+        },
+        "extensions": {
+            "type": "object"
+        },
+        "references": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "passage": {
+            "type": "string",
+            "format": "uri"
+        },
+        "download": {
+            "anyOf": [
+                {"type": "string",
+                 "format": "uri"},
+                {"type": "array",
+                 "items": {
+                    "type": "string",
+                    "format": "uri"
+                 }
+                }
+            ]
+        },
+        "citeStructure": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "citeType": { "type": "string" },
+                    "citeStructure": {
+                        "$ref": "#/properties/citeStructure"
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "title", "@id", "@type", "totalItems", "totalChildren", "totalParents"
+    ]
+    }
