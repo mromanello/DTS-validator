@@ -27,9 +27,9 @@ def entry_response_schema(request) -> Dict:
 @pytest.fixture(
         scope='module',
         params=[
-            None, # response is None
-            'invalid_entry_response', # example of an invalid response
-            'old_entry_response', # example of response for an older version of DTS specs 
+            pytest.param(None, marks=pytest.mark.xfail), # response is None
+            pytest.param('invalid_entry_response', marks=pytest.mark.xfail), # example of an invalid response
+            pytest.param('old_entry_response', marks=pytest.mark.xfail), # response corresp. to an older version of DTS specs 
             'entry_response_from_docs', # example response from the documentation
         ]
 )
@@ -52,6 +52,7 @@ def entry_endpoint_response(request):
             
             with open(mock_data_path, 'r') as file:
                 mock_request = json.load(file)
+            LOGGER.info(f'Loaded mock response from file {mock_data_path}')
             return mock_request
         else:
             return None
