@@ -8,22 +8,15 @@ import logging
 LOGGER = logging.getLogger()
 
 def pytest_addoption(parser):
-
     parser.addoption(
         "--entry-endpoint", action="store"
-    ) 
-
-@pytest.fixture()
-def setup(request) -> Dict[str, str]:
-    dts_entry_point = request.config.getoption('--entry-endpoint')
-    LOGGER.info(f"Testing DTS API at {dts_entry_point}")
-    LOGGER.debug(f'Tests configuration: {setup}')
-    return {
-        'entry_endpoint': dts_entry_point
-    }
+    )
 
 @pytest.fixture()
 def entry_response_schema(request) -> Dict:
+    """
+    This fixture returns the JSON schema to validate responses of a DTS Entry endpoint.
+    """
     test_dir = os.path.dirname(request.module.__file__)
     schema_path = '../schemas/entry_response.schema.json'
 
@@ -31,10 +24,17 @@ def entry_response_schema(request) -> Dict:
         json_schema = json.load(schema_file)
     return json_schema
 
-@pytest.fixture()
-def entry_endpoint_response(setup):
-    try:
-        response = requests.get(setup['entry_endpoint']).json()
-    except Exception as e:
-        raise e
-    return response
+@pytest.fixture(scope='module', params=[None, 'invalid', 'docs-example'])
+def entry_endpoint_response(request):
+    """
+    This fixture returns a DTS Entry endpoint response. If no URI is provided
+    via the `--entry-endpoint` parameter, a number of tests on mock data will be
+    performed (otherwise they are skipped).
+    """
+    if request.param is None and request.config.getoption('--entry-endpoint') is not None:
+        entry_endpoint_uri = request.config.getoption('--entry-endpoint')
+        return requests.get(entry_endpoint_uri).json()
+    elif request.config.getoption('--entry-endpoint') is not None:
+        pytest.skip('A remote DTS API is provided; skipping mock tests')
+    else:
+        return request.param

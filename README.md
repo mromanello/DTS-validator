@@ -24,6 +24,12 @@ For a more verbose report, change the `--log-level` to `INFO`:
 pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts --html=report.html --log-cli-level=info
 ```
 
+If no `--entry-endpoint` is provided, a series of mock tests will be executed:
+
+```bash
+pytest --html=report.html
+```
+
 ## TODOs
 
 - [ ] tests for DTS Entry endpoint
@@ -32,6 +38,7 @@ pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts --html=report.html --l
     - [ ] test URI templates 
 - [ ] tests for DTS Collection endpoint
     - [ ] update the Collection response schema (copied the old one by @monotasker)
+    - [ ] add a warning if `totalItems` is still present (it was removed as per this [PR](https://github.com/distributed-text-services/specifications/pull/251#event-12925576483))
     - [ ] test response against schema
 - [ ] tests for DTS Navigation endpoint
     - [ ] test response against schema
