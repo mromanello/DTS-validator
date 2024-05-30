@@ -6,7 +6,10 @@
         "@context": {"type": "string"},
         "@id": {"type": "string"},
         "@type": {"type": "string"},
-        "dtsVersion": {"type": "string"},
+        "dtsVersion": {
+            "type": "string",
+            "enum": ["1-alpha"]
+        },
         "collection": {"type": "string"},
         "document": {"type": "string"},
         "navigation": {"type": "string"}

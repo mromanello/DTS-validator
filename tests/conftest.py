@@ -24,7 +24,15 @@ def entry_response_schema(request) -> Dict:
         json_schema = json.load(schema_file)
     return json_schema
 
-@pytest.fixture(scope='module', params=[None, 'invalid', 'docs-example'])
+@pytest.fixture(
+        scope='module',
+        params=[
+            None, # response is None
+            'invalid_entry_response', # example of an invalid response
+            'old_entry_response', # example of response for an older version of DTS specs 
+            'entry_response_from_docs', # example response from the documentation
+        ]
+)
 def entry_endpoint_response(request):
     """
     This fixture returns a DTS Entry endpoint response. If no URI is provided
@@ -37,4 +45,14 @@ def entry_endpoint_response(request):
     elif request.config.getoption('--entry-endpoint') is not None:
         pytest.skip('A remote DTS API is provided; skipping mock tests')
     else:
-        return request.param
+        if request.param:
+            # load the mock data from a JSON file stored in `tests/data/`
+            test_dir = os.path.dirname(request.module.__file__)
+            mock_data_path = os.path.join(test_dir, f'data/{request.param}.json')
+            
+            with open(mock_data_path, 'r') as file:
+                mock_request = json.load(file)
+            return mock_request
+        else:
+            return None
+        
