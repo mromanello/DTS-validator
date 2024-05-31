@@ -1,0 +1,2 @@
+class URITemplateMissingParameter(Exception):
+    pass
