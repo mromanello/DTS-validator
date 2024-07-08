@@ -4,6 +4,8 @@ import json
 import os
 import requests
 import logging
+from uritemplate import URITemplate
+from dts_validator import DTS_API
 
 LOGGER = logging.getLogger()
 
@@ -44,38 +46,124 @@ def collection_response_schema(request) -> Dict:
 #     Responses-related fixtures     #
 ######################################
 
+def load_mock_data(basedir, filename):
+    # load the mock data from a JSON file stored in `tests/data/`
+    mock_data_path = os.path.join(basedir, f'data/{filename}.json')
+
+    with open(mock_data_path, 'r') as file:
+        mock_request = json.load(file)
+    LOGGER.info(f'Loaded mock response from file {mock_data_path}')
+    return mock_request
+
 @pytest.fixture(
         scope='module',
         params=[
             pytest.param(None), # response is None
-            pytest.param('invalid_entry_response', marks=pytest.mark.xfail), # example of an invalid response
-            pytest.param('old_entry_response', marks=pytest.mark.xfail), # response corresp. to an older version of DTS specs 
-            'entry_response_from_docs', # example response from the documentation
+            pytest.param('entry_invalid_response', marks=pytest.mark.xfail), # example of an invalid response
+            pytest.param('entry_old_response', marks=pytest.mark.xfail), # response corresp. to an older version of DTS specs 
+            'entry_docs_response', # example response from the documentation
         ]
 )
 def entry_endpoint_response(request):
     """
     This fixture returns a DTS Entry endpoint response. If no URI is provided
     via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
-    performed (otherwise they are skipped).
+    performed (otherwise they will be skipped).
     """
     if request.param is None and request.config.getoption('--entry-endpoint') is not None:
         entry_endpoint_uri = request.config.getoption('--entry-endpoint')
-        req  = requests.get(entry_endpoint_uri)
-        assert 'application/ld+json' in req.headers['Content-Type']
-        return req.json()
+        client = DTS_API(entry_endpoint_uri)
+        return client._entry_endpoint_json
     elif request.config.getoption('--entry-endpoint') is not None:
         pytest.skip('A remote DTS API is provided; skipping mock tests')
     else:
         if request.param:
-            # load the mock data from a JSON file stored in `tests/data/`
-            test_dir = os.path.dirname(request.module.__file__)
-            mock_data_path = os.path.join(test_dir, f'data/{request.param}.json')
-            
-            with open(mock_data_path, 'r') as file:
-                mock_request = json.load(file)
-            LOGGER.info(f'Loaded mock response from file {mock_data_path}')
+            tests_dir = os.path.dirname(request.module.__file__)
+            mock_request = load_mock_data(tests_dir, request.param)            
             return mock_request
         else:
             pytest.skip()
-        
+
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            'collection_docs_response_root', # example response from the documentation (all collections)
+        ]
+)      
+def collection_endpoint_response_root(request):
+    """
+    This fixture returns a DTS Collection endpoint response, when no collection is selected. 
+    If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
+    performed (otherwise they will be skipped).
+    """
+    if request.param is None and request.config.getoption('--entry-endpoint') is not None:
+        entry_endpoint_uri = request.config.getoption('--entry-endpoint')
+        client = DTS_API(entry_endpoint_uri)
+        client.collections()
+        collection_req = client._collection_endpoint_json
+        return collection_req
+    elif request.config.getoption('--entry-endpoint') is not None:
+        pytest.skip('A remote DTS API is provided; skipping mock tests')
+    else:
+        if request.param:
+            tests_dir = os.path.dirname(request.module.__file__)
+            mock_request = load_mock_data(tests_dir, request.param)            
+            return mock_request
+        else:
+            pytest.skip()
+
+
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            'collection_docs_response_one', # example response from the documentation (one collection)
+        ]
+)      
+def collection_endpoint_response_one(request):
+    """
+    This fixture returns a DTS Collection endpoint response, when one collection is selected. 
+    If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
+    performed (otherwise they will be skipped).
+    """
+    if request.param is None and request.config.getoption('--entry-endpoint') is not None:
+        entry_endpoint_uri = request.config.getoption('--entry-endpoint')
+        client = DTS_API(entry_endpoint_uri)
+        return client.collections()[-1]._json
+    elif request.config.getoption('--entry-endpoint') is not None:
+        pytest.skip('A remote DTS API is provided; skipping mock tests')
+    else:
+        if request.param:
+            tests_dir = os.path.dirname(request.module.__file__)
+            mock_request = load_mock_data(tests_dir, request.param)            
+            return mock_request
+        else:
+            pytest.skip()
+
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            'collection_docs_response_readable', # example response from the documentation (one readable collection)
+        ]
+)      
+def collection_endpoint_response_readable(request):
+    """
+    This fixture returns a DTS Collection endpoint response, when one collection is selected. 
+    If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
+    performed (otherwise they will be skipped).
+    """
+    if request.param is None and request.config.getoption('--entry-endpoint') is not None:
+        entry_endpoint_uri = request.config.getoption('--entry-endpoint')
+        client = DTS_API(entry_endpoint_uri)
+        return client.get_one_resource()._json
+    elif request.config.getoption('--entry-endpoint') is not None:
+        pytest.skip('A remote DTS API is provided; skipping mock tests')
+    else:
+        if request.param:
+            tests_dir = os.path.dirname(request.module.__file__)
+            mock_request = load_mock_data(tests_dir, request.param)            
+            return mock_request
+        else:
+            pytest.skip()
