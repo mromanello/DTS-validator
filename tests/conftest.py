@@ -82,7 +82,7 @@ def entry_endpoint_response(request):
             mock_request = load_mock_data(tests_dir, request.param)            
             return mock_request
         else:
-            pytest.skip()
+            pytest.skip('No remote DTS API is provided; skipping live tests')
 
 @pytest.fixture(
         scope='module',
@@ -111,7 +111,7 @@ def collection_endpoint_response_root(request):
             mock_request = load_mock_data(tests_dir, request.param)            
             return mock_request
         else:
-            pytest.skip()
+            pytest.skip('No remote DTS API is provided; skipping live tests')
 
 
 @pytest.fixture(
@@ -130,8 +130,9 @@ def collection_endpoint_response_one(request):
     if request.param is None and request.config.getoption('--entry-endpoint') is not None:
         entry_endpoint_uri = request.config.getoption('--entry-endpoint')
         client = DTS_API(entry_endpoint_uri)
-        return client.collections()[-1]._json
-    elif request.config.getoption('--entry-endpoint') is not None:
+        one_collection_id = client.collections()[-1].id
+        return client.collections(id=one_collection_id)._json
+    elif request.param is not None and request.config.getoption('--entry-endpoint') is not None:
         pytest.skip('A remote DTS API is provided; skipping mock tests')
     else:
         if request.param:
@@ -139,7 +140,7 @@ def collection_endpoint_response_one(request):
             mock_request = load_mock_data(tests_dir, request.param)            
             return mock_request
         else:
-            pytest.skip()
+            pytest.skip('No remote DTS API is provided; skipping live tests')
 
 @pytest.fixture(
         scope='module',
@@ -157,7 +158,8 @@ def collection_endpoint_response_readable(request):
     if request.param is None and request.config.getoption('--entry-endpoint') is not None:
         entry_endpoint_uri = request.config.getoption('--entry-endpoint')
         client = DTS_API(entry_endpoint_uri)
-        return client.get_one_resource()._json
+        readable_resource_id = client.get_one_resource().id
+        return client.collections(id=readable_resource_id)._json
     elif request.config.getoption('--entry-endpoint') is not None:
         pytest.skip('A remote DTS API is provided; skipping mock tests')
     else:
@@ -166,4 +168,4 @@ def collection_endpoint_response_readable(request):
             mock_request = load_mock_data(tests_dir, request.param)            
             return mock_request
         else:
-            pytest.skip()
+            pytest.skip('No remote DTS API is provided; skipping live tests')

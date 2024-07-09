@@ -1,23 +1,7 @@
 import logging
 import requests
+from typing import Optional, Union, List
 from uritemplate import URITemplate
-from jsonschema import validate
-from jsonschema.exceptions import ValidationError
-
-LOGGER = logging.getLogger()
-
-def validate_json(json_data, json_schema):
-    LOGGER.info(json_data)
-    try:
-        assert validate(json_data, json_schema) is None
-        LOGGER.info('JSON schema and JSON response are valid.')
-    except ValidationError as e:
-        # TODO catpure more specific exceptions from `jsonschema.validate()`
-        LOGGER.error('Either the JSON schema or the JSON object are invalid.')
-        raise e
-    return None
-
-
 
 class DTS_Collection(object):
     def __init__(self, raw_json) -> None:
@@ -47,6 +31,7 @@ class DTS_Resource(DTS_Collection):
         return f'DTS_Resource(id={self.id})'
 
 
+# TODO: find a cleaner way of triggering the header validation
 class DTS_API(object):
     def __init__(self, entry_endpoint_uri) -> None:
         req  = requests.get(entry_endpoint_uri)
@@ -58,10 +43,20 @@ class DTS_API(object):
         self._document_endpoint_template = URITemplate(self._entry_endpoint_json['document'])
         self._navigation_endpoint_template = URITemplate(self._entry_endpoint_json['navigation'])
 
-    def collections(self, id=None, recursive=False):
+        # TODO pagination can be supported in collection or navigation endpoints => check that
+
+    def collections(
+            self, id: Optional[str] = None,
+            recursive: bool = False,
+            navigation: str = 'children'
+        ) -> Union[List[DTS_Collection], DTS_Collection]:
         # get the root of the collection endpoint
         if id is None:
-            collection_req_uri = self._collection_endpoint_template.expand()
+            if navigation == 'parents':
+                collection_req_uri = self._collection_endpoint_template.expand({'nav': navigation})
+            else:
+                collection_req_uri = self._collection_endpoint_template.expand() # leave the default value of `nav` implicit
+            
             collection_req = requests.get(collection_req_uri)
             self._collection_endpoint_json = collection_req.json()
             try:
@@ -84,7 +79,10 @@ class DTS_API(object):
                 return []
         # get a specific collection, by ID
         else:
-            collection_req_uri = self._collection_endpoint_template.expand({'id': id})
+            if navigation == 'parents':
+                collection_req_uri = self._collection_endpoint_template.expand({'id': id, 'nav': navigation})
+            else:
+                collection_req_uri = self._collection_endpoint_template.expand({'id': id})
             collection_req = requests.get(collection_req_uri)
             return DTS_Collection(collection_req.json())
     
@@ -94,6 +92,8 @@ class DTS_API(object):
             resource  = get_resource_recursively(collection, self)
             if resource:
                 return resource
+            else:
+                return None
             
 
 def get_resource_recursively(collection : DTS_Collection, dts_client : DTS_API) -> DTS_Resource:

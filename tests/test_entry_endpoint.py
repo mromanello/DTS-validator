@@ -1,8 +1,6 @@
 import pytest
 import logging
-from uritemplate import URITemplate
-from dts_validator import validate_json
-from dts_validator.exceptions import URITemplateMissingParameter
+from dts_validator.validation import validate_json, validate_uri_template
 
 LOGGER = logging.getLogger()
 
@@ -25,29 +23,14 @@ def test_json_response_uri_templates(entry_endpoint_response : dict):
     :type entry_endpoint_response: dict
     :raises URITemplateMissingParameter: If a mandatory parameter is missing from the URI template
     """
-    properties = ['collection', 'navigation', 'document']
     
-    for property in properties:    
-        uri_template = URITemplate(entry_endpoint_response[property])
-        
-        if property == 'collection':
-            # expected parameters in `collection`` URI template
-            # TODO: double check whether the `page` param is mandatory
-            params = ['id', 'page', 'nav']
-        elif property == 'navigation':
-            # TODO expected parameters in `document`` URI template
-            # if compliancy_level == 1, `start` and `end` must be there 
-            params = ['resource', 'ref', 'page']
-        elif property == 'document':
-            # expected parameters in `navigation` URI template
-            params = ['resource', 'ref']
-        
-        for param in params:
-            try:
-                assert param in list(uri_template.variable_names)
-                msg = f'[DTS Entry endpoint] Expected parameter `{param}` is contained in the `{property}` URI template {uri_template}'
-                LOGGER.info(msg)
-            except AssertionError:
-                msg = f'[DTS Entry endpoint] Parameter `{param}` must be contained in the `{property}` URI template {uri_template}'
-                LOGGER.error(msg)
-                raise URITemplateMissingParameter(msg)
+    expected_parameters = {
+        'collection': ['id', 'nav'], # NOTE: see question to tech. comm. about `page` param
+        'navigation': ['resource', 'ref', 'start', 'end'], # if compliancy_level == 1, `start` and `end` must be there 
+        'document': ['resource', 'ref', 'start', 'end'] # if compliancy_level == 1, `start` and `end` must be there
+    }
+    
+    for property in expected_parameters.keys():  
+        params = expected_parameters[property]
+        uri_template = entry_endpoint_response[property]
+        validate_uri_template(uri_template, template_name=property, required_parameters=params)
