@@ -31,15 +31,15 @@
         },
         "document": {
             "type": "string",
-            "format": "uri"
+            "format": "uri-template"
         },
         "navigation": {
             "type": "string",
-            "format": "uri"
+            "format": "uri-template"
         },
         "collection": {
             "type": "string",
-            "format": "uri"
+            "format": "uri-template"
         },
         "download": {
             "anyOf": [
@@ -62,21 +62,26 @@
                     "@type": {"type": "string" },
                     "maxCiteDepth": {"type": "number"},
                     "citeStructure": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "citeType": { "type": "string" },
-                                "citeStructure": {
-                                    "$ref": "#/properties/citeStructure"
-                                }
-                            }
-                        }
+                        "$ref": "#/$defs/citeStructure"
                     }
                 },
                 "required":[
                     "@type", "maxCiteDepth", "citeStructure"
                 ]
+            }
+        }
+    },
+    "$defs": {
+        "citeStructure": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "citeType": { "type": "string" },
+                    "citeStructure": {
+                        "$ref": "#/$defs/citeStructure"
+                    }
+                }
             }
         }
     },
