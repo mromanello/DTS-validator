@@ -1,11 +1,39 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/navigation_response_schema.json",
+    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/navigation_response.schema.json",
     "type": "object",
     "properties": {
-
+        "@id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "@type": {
+            "type": "string",
+            "pattern": "^(Collection|Resource)$"
+        },
+        "dtsVersion": {"type": "string"},
+        "document": {
+            "type": "string",
+            "format": "uri-template"
+        },
+        "navigation": {
+            "type": "string",
+            "format": "uri-template"
+        },
+        "resource": {
+            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json"
+        },
+        "ref": {"type": "string"},
+        "start": {"type": "string"},
+        "end": {"type": "string"},
+        "member": {
+            "type": "array",
+            "items": {
+                "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+            }
+        }
     },
     "required": [
-        
+        "@id", "@type", "dtsVersion", "document", "navigation", "resource"
     ]
 }
