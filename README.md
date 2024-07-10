@@ -41,8 +41,8 @@ pytest --html=report.html
     - [ ] check response headers (Content-Type)
     - [ ] update the Collection response schema (copied the old one by @monotasker)
     - [ ] add a warning if `totalItems` is still present (it was removed as per this [PR](https://github.com/distributed-text-services/specifications/pull/251#event-12925576483))
-    - [ ] test response against schema
-    - [ ] check URI templates
+    - [x] test response against schema
+    - [x] check URI templates (especially when collection is readable)
 - [ ] tests for DTS Navigation endpoint
     - [ ] test response against schema
 - [ ] tests for DTS Document endpoint
@@ -55,4 +55,14 @@ pytest --html=report.html
 
 ```python
 warnings.warn('hey user', category=DeprecationWarning)
+
+client = DTS_API('https://dev.dracor.org/api/v1/dts')
+client._entry_endpoint_json 
+client.collections()
+client.media_types -> returns a list (strings) of the supported media types
+client._collection_endpoint_json
+client.collections(readable=True) -> returns DTS_Resource (subclass of DTS_Collection)
+client.collections(id=collection_id) -> returns DTS_Collection
+client.navigate(resource_id) -> returns a list of DTS_CitableUnit
+client.document(resource_id, ref=..., media_type=...)
 ```

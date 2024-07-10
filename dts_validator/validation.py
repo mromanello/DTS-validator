@@ -49,7 +49,7 @@ def check_deprecated_property(json_data, property_name):
         warn_message = f'The property `{property_name}` is present in the JSON but it was deprecated'
         warnings.warn(warn_message, category=DeprecationWarning)
 
-def validate_collection(json_data, json_schema):
+def validate_collection_response(json_data, json_schema):
     validate_json(json_data, json_schema)
     check_deprecated_property(json_data, 'totalItems')
     check_required_property(json_data, 'dtsVersion')

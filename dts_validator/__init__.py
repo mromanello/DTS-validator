@@ -1,7 +1,10 @@
 import logging
 import requests
+from requests.models import Response
 from typing import Optional, Union, List
 from uritemplate import URITemplate
+
+LOGGER = logging.getLogger()
 
 class DTS_Collection(object):
     def __init__(self, raw_json) -> None:
@@ -21,15 +24,33 @@ class DTS_Collection(object):
 
     def __repr__(self) -> str:
         return f'DTS_Collection(id={self.id})'
-    
 
+class DTS_CitableUnit(object):
+    def __init__(self, raw_json) -> None:
+        self._json = raw_json
+        self.id = raw_json["identifier"]
+        self.level = int(raw_json["level"])
+        self.type = raw_json["citeType"]
+
+    def __repr__(self) -> str:
+        return f'DTS_CitableUnit(id={self.id}, type={self.type}, level={self.level})'
+
+class DTS_CitationMap(object):
+    def __init__(self, raw_json) -> None:
+        self._json = raw_json
+        self.citable_units = []
+        if 'member' in self._json: 
+            for unit in self._json['member']:
+                self.citable_units.append(DTS_CitableUnit(unit))
+
+# when this in instantiated (visiting the Collection endpoint)
+# its citationTrees need to be instantiated already
 class DTS_Resource(DTS_Collection):
     def __init__(self, raw_json):
         super().__init__(raw_json)
 
     def __repr__(self) -> str:
         return f'DTS_Resource(id={self.id})'
-
 
 # TODO: find a cleaner way of triggering the header validation
 class DTS_API(object):
@@ -94,7 +115,26 @@ class DTS_API(object):
                 return resource
             else:
                 return None
-            
+    
+    def navigate(
+            self,
+            resource: DTS_Resource,
+            down: int = None,
+            reference: str = None,
+            start: str = None,
+            end: str = None
+    ) -> Response:
+        parameters = {
+            "resource": resource.id,
+            "down": down,
+            "ref": reference,
+            "start": start,
+            "end": end
+        }
+        navigation_endpoint_template = URITemplate(resource._json['navigation'])
+        navigation_endpoint_uri = navigation_endpoint_template.expand(parameters)
+        request = requests.get(navigation_endpoint_uri)
+        return request
 
 def get_resource_recursively(collection : DTS_Collection, dts_client : DTS_API) -> DTS_Resource:
     # get the full metadata from the API    

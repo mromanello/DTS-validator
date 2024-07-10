@@ -1,6 +1,6 @@
 import pytest
 import logging
-from dts_validator.validation import validate_collection, validate_uri_template, check_required_property
+from dts_validator.validation import validate_collection_response, validate_uri_template, check_required_property
 
 LOGGER = logging.getLogger()
 
@@ -12,7 +12,7 @@ def test_json_response_validity(collection_endpoint_response_root : dict, collec
     :param collection_response_schema: The JSON schema for the DTS Collection endpoint
     :type collection_response_schema: dict
     """
-    validate_collection(collection_endpoint_response_root, collection_response_schema)
+    validate_collection_response(collection_endpoint_response_root, collection_response_schema)
 
 def test_one_collection_response_validity(collection_endpoint_response_one : dict, collection_response_schema : dict):
     """Validates the JSON response of a remote DTS Collection endpoint when one collection is selected.
@@ -22,7 +22,7 @@ def test_one_collection_response_validity(collection_endpoint_response_one : dic
     :param collection_response_schema: The JSON schema for the DTS Collection endpoint
     :type collection_response_schema: dict
     """
-    validate_collection(collection_endpoint_response_one, collection_response_schema)
+    validate_collection_response(collection_endpoint_response_one, collection_response_schema)
 
 def test_readable_collection_response_validity(collection_endpoint_response_readable : dict, collection_response_schema : dict):
     """Validates the JSON response of a remote DTS Collection endpoint when one readable collection is selected (@type==Resource).    
@@ -31,7 +31,7 @@ def test_readable_collection_response_validity(collection_endpoint_response_read
     :type collection_endpoint_response_readable: dict
     :param collection_response_schema: The JSON schema for the DTS Collection endpoint
     :type collection_response_schema: dict"""
-    validate_collection(collection_endpoint_response_readable, collection_response_schema)
+    validate_collection_response(collection_endpoint_response_readable, collection_response_schema)
 
 def test_readable_collection_response_additional_required_properties(collection_endpoint_response_readable : dict) -> None:
     """Checks for the presence of additional required properties of a remote

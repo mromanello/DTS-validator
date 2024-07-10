@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/collection_response.schema.json",
     "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
     "dtsVersion": "1-alpha",
     "@id": "urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",

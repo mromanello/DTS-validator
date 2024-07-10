@@ -42,9 +42,9 @@ def collection_response_schema(request) -> Dict:
         json_schema = json.load(schema_file)
     return json_schema
 
-######################################
-#     Responses-related fixtures     #
-######################################
+#####################################################
+#     Response fixtures for Entry Endpoint          #
+#####################################################
 
 def load_mock_data(basedir, filename):
     # load the mock data from a JSON file stored in `tests/data/`
@@ -84,6 +84,10 @@ def entry_endpoint_response(request):
         else:
             pytest.skip('No remote DTS API is provided; skipping live tests')
 
+#####################################################
+#     Response fixtures for Collection Endpoint     #
+#####################################################
+
 @pytest.fixture(
         scope='module',
         params=[
@@ -113,7 +117,6 @@ def collection_endpoint_response_root(request):
         else:
             pytest.skip('No remote DTS API is provided; skipping live tests')
 
-
 @pytest.fixture(
         scope='module',
         params=[
@@ -130,8 +133,8 @@ def collection_endpoint_response_one(request):
     if request.param is None and request.config.getoption('--entry-endpoint') is not None:
         entry_endpoint_uri = request.config.getoption('--entry-endpoint')
         client = DTS_API(entry_endpoint_uri)
-        one_collection_id = client.collections()[-1].id
-        return client.collections(id=one_collection_id)._json
+        one_collection_id = client.collections()[-1].id # let's take always the last one
+        return client.collections(id=one_collection_id)._json # get full collection metadata from the API
     elif request.param is not None and request.config.getoption('--entry-endpoint') is not None:
         pytest.skip('A remote DTS API is provided; skipping mock tests')
     else:
@@ -169,3 +172,7 @@ def collection_endpoint_response_readable(request):
             return mock_request
         else:
             pytest.skip('No remote DTS API is provided; skipping live tests')
+
+#####################################################
+#     Response fixtures for Document Endpoint       #
+#####################################################
