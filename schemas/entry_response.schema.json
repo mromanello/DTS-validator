@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "http://mromanello.github.io/dts-validator/schemas/collection_response_schema.json",
+    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/entry_response_schema.json",
     "type": "object",
     "properties": {
         "@context": {"type": "string"},
