@@ -1,59 +1,21 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/collection_response.schema.json",
+    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json",
     "type": "object",
     "properties": {
-        "title": {"type": "string"},
         "@id": {
             "type": "string",
             "format": "uri"
         },
         "@type": {
             "type": "string",
-            "pattern": "^(Collection|Resource)$"
-        },
-        "dtsVersion": {"type": "string"},
-        "totalChildren": {"type": "number"},
-        "totalParents": {"type": "number"},
-        "maxCiteDepth": {"type": "number"},
-        "description": {"type": "string"},
-        "member": {
-            "type": "array",
-            "items": {
-                "$ref": "#"
-            }
-        },
-        "dublinCore": {
-            "type": "object"
-        },
-        "extensions": {
-            "type": "object"
-        },
-        "document": {
-            "type": "string",
-            "format": "uri-template"
-        },
-        "navigation": {
-            "type": "string",
-            "format": "uri-template"
+            "pattern": "^(Resource)$"
         },
         "collection": {
             "type": "string",
             "format": "uri-template"
         },
-        "download": {
-            "anyOf": [
-                {"type": "string",
-                 "format": "uri"},
-                {"type": "array",
-                 "items": {
-                    "type": "string",
-                    "format": "uri"
-                 }
-                }
-            ]
-        },
-        "citationTrees":{
+        "citationTrees": {
             "type": "array",
             "items": {
                 "type": "object",
@@ -70,6 +32,10 @@
                     "@type", "maxCiteDepth"
                 ]
             }
+        },
+        "mediaTypes": {
+            "type": "array",
+            "items": { "type": "string" }
         }
     },
     "$defs": {
@@ -86,7 +52,5 @@
             }
         }
     },
-    "required": [
-        "title", "@id", "@type", "totalChildren", "totalParents"
-    ]
+    "required": ["@id", "@type", "collection", "citationTrees"]
 }
