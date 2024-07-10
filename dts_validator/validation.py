@@ -53,3 +53,8 @@ def validate_collection_response(json_data, json_schema):
     validate_json(json_data, json_schema)
     check_deprecated_property(json_data, 'totalItems')
     check_required_property(json_data, 'dtsVersion')
+
+# TODO: implement
+def validate_navigation_response(json_data, json_schema):
+    validate_json(json_data, json_schema)
+    # TODO: finish...

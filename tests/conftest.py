@@ -1,11 +1,11 @@
-from typing import Dict
+from typing import Dict, Optional, Tuple
 import pytest 
 import json
 import os
 import requests
 import logging
 from uritemplate import URITemplate
-from dts_validator import DTS_API
+from dts_validator import DTS_API, DTS_Navigation
 
 LOGGER = logging.getLogger()
 
@@ -59,7 +59,7 @@ def navigation_response_schema(request) -> Dict:
 #     Response fixtures for Entry Endpoint          #
 #####################################################
 
-def load_mock_data(basedir, filename):
+def load_mock_data(basedir, filename) -> Dict:
     # load the mock data from a JSON file stored in `tests/data/`
     mock_data_path = os.path.join(basedir, f'data/{filename}.json')
 
@@ -72,12 +72,12 @@ def load_mock_data(basedir, filename):
         scope='module',
         params=[
             pytest.param(None), # response is None
-            pytest.param('entry_invalid_response', marks=pytest.mark.xfail), # example of an invalid response
-            pytest.param('entry_old_response', marks=pytest.mark.xfail), # response corresp. to an older version of DTS specs 
-            'entry_docs_response', # example response from the documentation
+            pytest.param('entry/entry_invalid_response', marks=pytest.mark.xfail), # example of an invalid response
+            pytest.param('entry/entry_old_response', marks=pytest.mark.xfail), # response corresp. to an older version of DTS specs 
+            'entry/entry_docs_response', # example response from the documentation
         ]
 )
-def entry_endpoint_response(request):
+def entry_endpoint_response(request) -> Optional[Dict]:
     """
     This fixture returns a DTS Entry endpoint response. If no URI is provided
     via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -108,7 +108,7 @@ def entry_endpoint_response(request):
             'collection_docs_response_root', # example response from the documentation (all collections)
         ]
 )      
-def collection_endpoint_response_root(request):
+def collection_endpoint_response_root(request) -> Optional[Dict]:
     """
     This fixture returns a DTS Collection endpoint response, when no collection is selected. 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -137,7 +137,7 @@ def collection_endpoint_response_root(request):
             'collection_docs_response_one', # example response from the documentation (one collection)
         ]
 )      
-def collection_endpoint_response_one(request):
+def collection_endpoint_response_one(request) -> Optional[Dict]:
     """
     This fixture returns a DTS Collection endpoint response, when one collection is selected. 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -165,7 +165,7 @@ def collection_endpoint_response_one(request):
             'collection_docs_response_readable', # example response from the documentation (one readable collection)
         ]
 )      
-def collection_endpoint_response_readable(request):
+def collection_endpoint_response_readable(request) -> Optional[Dict]:
     """
     This fixture returns a DTS Collection endpoint response, when one collection is selected. 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -197,7 +197,7 @@ def collection_endpoint_response_readable(request):
             'navigation/navigation_docs_response_down_one', # example response from the documentation
         ]
 )
-def navigation_endpoint_response_down_one(request):
+def navigation_endpoint_response_down_one(request) -> Tuple[Optional[Dict], requests.models.Response]:
     """
     This fixture returns a DTS Navigation endpoint response, when querying the root of a `Resource` (`down=1`). 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -207,17 +207,61 @@ def navigation_endpoint_response_down_one(request):
         entry_endpoint_uri = request.config.getoption('--entry-endpoint')
         client = DTS_API(entry_endpoint_uri)
         readable_resource = client.get_one_resource()
-        navi = client.navigate(resource=readable_resource, down=1)
-        return navi._json
+        navigation_obj, response_obj = client.navigate(resource=readable_resource, down=1)
+        return (navigation_obj._json, response_obj)
     elif request.config.getoption('--entry-endpoint') is not None:
         pytest.skip('A remote DTS API is provided; skipping mock tests')
     else:
         if request.param:
             tests_dir = os.path.dirname(request.module.__file__)
             mock_request = load_mock_data(tests_dir, request.param)            
-            return mock_request
+            return (mock_request, None)
         else:
             pytest.skip('No remote DTS API is provided; skipping live tests')
+
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            'navigation/navigation_docs_response_down_two', # example response from the documentation
+        ]
+)
+def navigation_endpoint_response_down_two(request) -> Tuple[Optional[Dict], requests.models.Response]:
+    """
+    This fixture returns a DTS Navigation endpoint response, when retrieving an array
+    of all `Citable Unit`s for a given `Resource` down to the second level of the `Resource`;s
+    citation tree (`&down=2`).  
+
+    If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
+    performed (otherwise they will be skipped).
+    """
+    if request.param is None and request.config.getoption('--entry-endpoint') is not None:
+        entry_endpoint_uri = request.config.getoption('--entry-endpoint')
+        client = DTS_API(entry_endpoint_uri)
+        readable_resource = client.get_one_resource()
+        navigation_obj, response_obj = client.navigate(resource=readable_resource, down=2)
+        if navigation_obj:
+            return (navigation_obj._json, response_obj)
+        else:
+            return (None, response_obj)
+    elif request.config.getoption('--entry-endpoint') is not None:
+        pytest.skip('A remote DTS API is provided; skipping mock tests')
+    else:
+        if request.param:
+            tests_dir = os.path.dirname(request.module.__file__)
+            mock_request = load_mock_data(tests_dir, request.param)            
+            return(mock_request, None)
+        else:
+            pytest.skip('No remote DTS API is provided; skipping live tests')
+
+"""
+TODO: create the following fixtures
+ERROR tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity
+ERROR tests/test_navigation_endpoint.py::test_navigation_ref_response_validity
+ERROR tests/test_navigation_endpoint.py::test_navigation_top_ref_down_one_response_validity
+ERROR tests/test_navigation_endpoint.py::test_navigation_low_ref_down_one_response_validity
+ERROR tests/test_navigation_endpoint.py::test_navigation_range_plus_down_response_validity
+"""
 
 #####################################################
 #     Response fixtures for Document Endpoint       #

@@ -4,6 +4,14 @@
 
 DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts). Its current support is limited to version `1-alpha` of the specs. The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. 
 
+## Design
+
+TBD
+
+## Manteinance
+
+TBD
+
 ## How to run the validator
 
 Use the `--entry-endpoint` parameter to provide the URI of the API to be validated:
@@ -39,8 +47,8 @@ pytest --html=report.html
     - [ ] test semantic of JSON-LD response
 - [ ] tests for DTS Collection endpoint
     - [ ] check response headers (Content-Type)
-    - [ ] update the Collection response schema (copied the old one by @monotasker)
-    - [ ] add a warning if `totalItems` is still present (it was removed as per this [PR](https://github.com/distributed-text-services/specifications/pull/251#event-12925576483))
+    - [x] update the Collection response schema (copied the old one by @monotasker)
+    - [x] add a warning if `totalItems` is still present (it was removed as per this [PR](https://github.com/distributed-text-services/specifications/pull/251#event-12925576483))
     - [x] test response against schema
     - [x] check URI templates (especially when collection is readable)
 - [ ] tests for DTS Navigation endpoint
