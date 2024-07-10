@@ -54,36 +54,7 @@
             ]
         },
         "citationTrees":{
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "identifier": {"type": "string" },
-                    "@type": {"type": "string" },
-                    "maxCiteDepth": {"type": "number"},
-                    "citeStructure": {
-                        "$ref": "#/$defs/citeStructure"
-                    },
-                    "description": {"type": "string" }
-                },
-                "required":[
-                    "@type", "maxCiteDepth"
-                ]
-            }
-        }
-    },
-    "$defs": {
-        "citeStructure": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "citeType": { "type": "string" },
-                    "citeStructure": {
-                        "$ref": "#/$defs/citeStructure"
-                    }
-                }
-            }
+            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json#/properties/citationTrees"
         }
     },
     "required": [
