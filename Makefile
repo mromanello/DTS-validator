@@ -2,17 +2,33 @@ SHELL:=/bin/bash
 
 REPORTS_DIR?=reports
 
+#####################
+#    Mock tests     #
+#####################
+
 test:
-	pytest tests/test_entry_endpoint.py -s --html=$(REPORTS_DIR)/report.html
+	pytest -s --html=$(REPORTS_DIR)/report.html
 
 test-entry:
-	pytest tests/test_entry_endpoint.py -s --html=$(REPORTS_DIR)/report.html
+	pytest tests/test_entry_endpoint.py -s --html=$(REPORTS_DIR)/report-entry.html
 
 test-collection:
-	pytest tests/test_collection_endpoint.py -s --html=$(REPORTS_DIR)/report.html
+	pytest tests/test_collection_endpoint.py -s --html=$(REPORTS_DIR)/report-collection.html
 
-test-ftsr:
+test-navigation:
+	pytest tests/test_navigation_endpoint.py -s --html=$(REPORTS_DIR)/report-navigation.html
+
+
+#####################
+#    UNIL FTSR API  #
+#####################
+
+test-ftsr-all:
 	pytest --entry-endpoint=http://ftsr-dev.unil.ch:9090/dts/api/v1/ -s --html=$(REPORTS_DIR)/ftsr_unil_report.html
+
+#####################
+#    DraCor API     #
+#####################
 
 test-dracor-all:
 	pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts -s --html=$(REPORTS_DIR)/dracor_all_report.html
