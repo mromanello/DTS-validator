@@ -1,6 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/navigation_response.schema.json",
+    "$comment":"https://distributed-text-services.github.io/specifications/versions/1-alpha/#navigation-object",
     "type": "object",
     "properties": {
         "@id": {
@@ -9,7 +10,7 @@
         },
         "@type": {
             "type": "string",
-            "pattern": "^(Collection|Resource)$"
+            "pattern": "^Navigation$"
         },
         "dtsVersion": {"type": "string"},
         "document": {

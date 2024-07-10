@@ -1,6 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/entry_response_schema.json",
+    "$comment": "https://distributed-text-services.github.io/specifications/versions/1-alpha/#entry-endpoint",
     "type": "object",
     "properties": {
         "@context": {"type": "string"},
