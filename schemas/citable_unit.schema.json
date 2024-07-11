@@ -7,7 +7,7 @@
         "identifier": {"type": "string"},
         "@type": {
             "type": "string",
-            "pattern": "^(citableunit)$"
+            "pattern": "^(CitableUnit)$"
         },
         "level":{"type": "number"},
         "parent": {"type": "string"},

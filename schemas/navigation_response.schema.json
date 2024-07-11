@@ -24,7 +24,7 @@
         "resource": {
             "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json"
         },
-        "ref": {"type": "string"},
+        "ref": {"type": "object"},
         "start": {"type": "string"},
         "end": {"type": "string"},
         "member": {
