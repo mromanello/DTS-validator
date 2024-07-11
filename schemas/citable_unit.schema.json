@@ -10,7 +10,7 @@
             "pattern": "^(CitableUnit)$"
         },
         "level":{"type": "number"},
-        "parent": {"type": "string"},
+        "parent": {"type": ["string", "null"]},
         "citeType": {"type": "string"},
         "dublinCore": {"type": "object"},
         "extensions": {"type": "object"}
