@@ -1,7 +1,8 @@
+import pytest
 import logging
 import requests
 from typing import Dict, Tuple
-from dts_validator import DTS_Navigation
+from dts_validator.client import DTS_Navigation
 from dts_validator.validation import validate_navigation_response
 
 LOGGER = logging.getLogger()
@@ -13,13 +14,13 @@ def test_navigation_one_down_response_validity(
     """
     Validates the JSON response of a remote DTS Navigation endpoint, when retrieving the top-level
     `Citable Unit`s of a given `Resource` (`&down=1`). 
+    See DTS API specs, section "Navigation Endpoint", example #1.
 
-    See specs, section "Navigation Endpoint", example #1.
-
-    :param navigation_endpoint_response_down_one: _description_
+    :param navigation_endpoint_response_down_one: A tuple containing a `DTS_Navigation` object
+        and `requests`' response object.
     :type navigation_endpoint_response_down_one: Tuple[DTS_Navigation, requests.models.Response]
-    :param navigation_response_schema: _description_
-    :type navigation_response_schema: _type_
+    :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
+    :type navigation_response_schema: dict
     """
     response_json, response_object = navigation_endpoint_response_down_one
     
@@ -32,19 +33,19 @@ def test_navigation_one_down_response_validity(
     validate_navigation_response(response_json, navigation_response_schema)
 
 def test_navigation_two_down_response_validity(
-        navigation_endpoint_response_down_two : Dict,
+        navigation_endpoint_response_down_two : Tuple[DTS_Navigation, requests.models.Response],
         navigation_response_schema: Dict
 ):
     """
     Validates the JSON response of a remote DTS Navigation endpoint, when retrieving an array
-    of all `Citable Unit`s for a given `Resource` down to the second level of the `Resource`;s
+    of all `Citable Unit`s for a given `Resource` down to the second level of the `Resource`'s
     citation tree (`&down=2`). 
+    See DTS API specs, section "Navigation Endpoint", example #2.
 
-    See specs, section "Navigation Endpoint", example #1.
-
-    :param navigation_endpoint_response_down_two: _description_
-    :type navigation_endpoint_response_down_two: Dict
-    :param navigation_response_schema: _description_
+    :param navigation_endpoint_response_down_two: A tuple containing a `DTS_Navigation` object
+        and `requests`' response object.
+    :type navigation_endpoint_response_down_two: Tuple[DTS_Navigation, requests.models.Response]
+    :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: Dict
     """
     response_json, response_object = navigation_endpoint_response_down_two
@@ -58,23 +59,46 @@ def test_navigation_two_down_response_validity(
     validate_navigation_response(response_json, navigation_response_schema)
 
 def test_navigation_ref_response_validity(
-        navigation_endpoint_response_ref : Dict,
+        navigation_endpoint_response_ref : Tuple[DTS_Navigation, requests.models.Response],
         navigation_response_schema: Dict
 ):
-    """_summary_
+    """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving the entire
+    citation subtree for a `Citable Unit` of a given `Resource` (`&down=-1`). 
+    See DTS API specs, section "Navigation Endpoint", example #3.
 
-    :param navigation_endpoint_response_ref: _description_
-    :type navigation_endpoint_response_ref: Dict
-    :param navigation_response_schema: _description_
+    :param navigation_endpoint_response_ref: A tuple containing a `DTS_Navigation` object
+        and `requests`' response object.
+    :type navigation_endpoint_response_ref: Tuple[DTS_Navigation, requests.models.Response]
+    :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: Dict
     """
-    validate_navigation_response(navigation_endpoint_response_ref, navigation_response_schema)
+    response_json, response_object = navigation_endpoint_response_ref
+    
+    # if the test input data is static (mock data), then `response_object is None`
+    # so we test this assertion only for tests on a remote endpoint
+    if response_object:
+        # we expect the endpoint not to raise an exception for this request
+        assert response_object.status_code < 400 
+    
+    # if the request was successful, let's validate the response content
+    validate_navigation_response(response_json, navigation_response_schema)
 
+    # the `member` property is expected to contain all citable units 
+    # in the citation subtree, thus it can't be empty. This constraint
+    # can't be enforced in the Navigation response schema, as there are
+    # cases where it may be empty.
+    assert response_json['member'] is not None
+
+# TODO: finish implementation
+@pytest.mark.skip(reason="Not implemented yet")
 def test_navigation_top_ref_down_one_response_validity(
-        navigation_endpoint_response_top_ref_down_one : Dict,
+        navigation_endpoint_response_top_ref_down_one: Dict,
         navigation_response_schema: Dict
 ):
-    """_summary_
+    """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving
+    the citation subtree (children + grand-children) for a `Citable Unit` of a given 
+    `Resource` (`?ref=<citable_unit)id>&down=2`). 
+    See DTS API specs, section "Navigation Endpoint", example #3.
 
     :param navigation_endpoint_response_top_ref_down_one: _description_
     :type navigation_endpoint_response_top_ref_down_one: Dict
@@ -83,6 +107,8 @@ def test_navigation_top_ref_down_one_response_validity(
     """
     validate_navigation_response(navigation_endpoint_response_top_ref_down_one, navigation_response_schema)
 
+# TODO: finish implementation
+@pytest.mark.skip(reason="Not implemented yet; depends on changes to `client.DTS_API`")
 def test_navigation_low_ref_down_one_response_validity(
         navigation_endpoint_response_low_ref_down_one : Dict,
         navigation_response_schema: Dict
@@ -96,6 +122,8 @@ def test_navigation_low_ref_down_one_response_validity(
     """
     validate_navigation_response(navigation_endpoint_response_low_ref_down_one, navigation_response_schema)
 
+# TODO: finish implementation
+@pytest.mark.skip(reason="Not implemented yet; depends on changes to `client.DTS_API`")
 def test_navigation_range_plus_down_response_validity(
         navigation_endpoint_response_range_plus_down : Dict,
         navigation_response_schema: Dict
@@ -109,7 +137,9 @@ def test_navigation_range_plus_down_response_validity(
     """
     validate_navigation_response(navigation_endpoint_response_range_plus_down, navigation_response_schema)
 
-
+# TODO: test for invalid combinations of parameters, as per specs
+# For each invalid combination, the correspondent HTTP exception should be raised
+# `with pytest.raises` is your friend
 
 
 

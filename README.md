@@ -6,11 +6,12 @@ DTS validator is a suite of tests to validate implementations of the [DTS API](h
 
 ## Design
 
-TBD
+- I decided to focus on JSON validation (against JSON schemas) for now and leave for later JSON-LD validation (against SHACL shapes). 
 
-## Manteinance
+## Maintenance
 
-TBD
+- I have derived JSON schemas for all objects defined as per DTS API specs. They schemas can be found in [`schemas/`](./schemas/). If the specs change, the schemas will need to be updated.
+- I'm using the JSON examples provided by the specs to run the tests when no remote DTS API is provided. They can be found in `tests/data/`, and are organised by endpoint. JSON object examples that are taken from the docs are contained in files named `*_docs_*.json`. Comments, if present, were stripped from the JSON. 
 
 ## How to run the validator
 
@@ -37,6 +38,8 @@ If no `--entry-endpoint` is provided, a series of mock tests will be executed:
 ```bash
 pytest --html=report.html
 ```
+
+For more examples, see the commands contained in the [`Makefile`](./Makefile).
 
 ## TODOs
 

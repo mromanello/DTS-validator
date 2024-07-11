@@ -6,7 +6,7 @@ from typing import Optional, Union, List, Tuple
 from uritemplate import URITemplate
 
 
-LOGGER = logging.getLogger()
+LOGGER = logging.getLogger(__name__)
 
 class DTS_Collection(object):
     """Class representing a DTS Collection object."""
@@ -69,7 +69,7 @@ class DTS_Navigation(object):
         self.resource = DTS_Resource(self._json['resource'])
 
         # populate additional properties from a DTS Navigation endpoint response JSON
-        if 'member' in self._json: 
+        if 'member' in self._json and self._json['member']: 
             for unit in self._json['member']:
                 self.citable_units.append(DTS_CitableUnit(unit))
 
@@ -153,19 +153,20 @@ class DTS_API(object):
             self,
             resource: DTS_Resource,
             down: int = None,
-            reference: str = None,
+            reference: DTS_CitableUnit = None,
             start: str = None,
             end: str = None
     ) -> Tuple[DTS_Navigation, Response]:
         parameters = {
             "resource": resource.id,
             "down": down,
-            "ref": reference,
+            "ref": reference.id if reference else None,
             "start": start,
             "end": end
         }
         navigation_endpoint_template = URITemplate(resource._json['navigation'])
         navigation_endpoint_uri = navigation_endpoint_template.expand(parameters)
+        LOGGER.info(f'URI of request to Navigation endpoint: {navigation_endpoint_uri}')
         response = requests.get(navigation_endpoint_uri)
         if response.status_code == 200:
             return (DTS_Navigation(response.json()), response)

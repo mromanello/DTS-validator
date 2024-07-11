@@ -1,20 +1,20 @@
 import logging
 import warnings
 from uritemplate import URITemplate
-from jsonschema.exceptions import ValidationError
+from jsonschema.exceptions import ValidationError, SchemaError
 from .exceptions import URITemplateMissingParameter, JSONResponseMissingProperty
 from jsonschema import validate
 
 LOGGER = logging.getLogger()
 
 def validate_json(json_data, json_schema):
-    LOGGER.info(json_data)
     try:
         assert validate(json_data, json_schema) is None
         LOGGER.info('JSON schema and JSON response are valid.')
+    except SchemaError as e:
+         LOGGER.error(f'The provided JSON schema is invalid according to its metaschema.')
     except ValidationError as e:
-        # TODO catpure more specific exceptions from `jsonschema.validate()`
-        LOGGER.error('Either the JSON schema or the JSON object are invalid.')
+        LOGGER.error(f'The JSON response is invalid according to the provided schema.')
         raise e
     return None
 

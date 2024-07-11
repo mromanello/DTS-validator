@@ -3,6 +3,7 @@
 - Can you confirm that the `page` parameter is *not mandatory* in the URI template for the collection endpoint?
 - it's hard to test for e.g. the presence of URI template parameters that are mandatory (or not) depending on the compliance level (see issue #233), if the compliance level of an API implementation is not declared somewhere
     - Shouldn't the compliance level be declared in the Entry endpoint response, similarly to `dtsVersion`?
+- in the `Navigation` object: the `collection` property is at the level of `Resource` in the docs table, but at the level of `Navigation` (top-level) in all the examples. For now, I will remove the required property `collection` from [`schemas/resource.schema.json`](./schemas/resource.schema.json)
 
 ## Comments about implementations
 
@@ -10,9 +11,11 @@
 
 #### Collection endpoint
 
-- in the `collection` endpoint, validate the values of the `nav` parameter. At the moment, an invalid value like `nav=random` does not raise any exception on the API side (I'd expect a `BadRequest`).
+- (Comment) In the `collection` endpoint, the values of the `nav` parameter are not "sanity checked". At the moment, an (invalid) value like `nav=random` does not raise any exception on the API side (I'd expect a `BadRequest`).
 
 #### Navigation endpoint
+
+(add references to the tests that fail)
 
 - `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&down=1`
     - the Navigation response object is missing the required `@type` property
@@ -20,7 +23,7 @@
 - `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&down=2`
     - I'd expect a different behaviour
 - `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&ref=body&down=-1`
-    - here `member` property is null
-- when retrieving a range (start/end), the CitableUnits in the range are included in `member`
+    - here the `member` property is null, whereas it's expected to contain all `CitableUnit`s in the selected citation subtree. 
+- when retrieving a range (start/end), the CitableUnits in the range must be included in the `member` property
 
 ### FTSR
