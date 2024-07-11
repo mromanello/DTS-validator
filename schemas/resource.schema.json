@@ -53,5 +53,5 @@
             }
         }
     },
-    "required": ["@id", "@type", "collection", "citationTrees"]
+    "required": ["@id", "@type", "citationTrees"]
 }
