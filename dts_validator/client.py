@@ -156,7 +156,7 @@ class DTS_API(object):
             else:
                 return None
     
-    def navigate(
+    def navigation(
             self,
             resource: DTS_Resource,
             down: int = None,
