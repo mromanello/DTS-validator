@@ -3,7 +3,12 @@
 - Can you confirm that the `page` parameter is *not mandatory* in the URI template for the collection endpoint?
 - it's hard to test for e.g. the presence of URI template parameters that are mandatory (or not) depending on the compliance level (see issue #233), if the compliance level of an API implementation is not declared somewhere
     - Shouldn't the compliance level be declared in the Entry endpoint response, similarly to `dtsVersion`?
-- in the `Navigation` object: the `collection` property is at the level of `Resource` in the docs table, but at the level of `Navigation` (top-level) in all the examples. For now, I will remove the required property `collection` from [`schemas/resource.schema.json`](./schemas/resource.schema.json)
+
+## Issues
+
+- is it `Navigation.collection` or `Resource.collection`? [see issue #253](https://github.com/distributed-text-services/specifications/issues/253)
+- In the docs, the examples of `Navigation` object are missing the required property  `@type` [see issue #252](https://github.com/distributed-text-services/specifications/issues/252)
+    - for now, I've patched the files `tests/data/navigation/*docs*.json`
 
 ## Comments about implementations
 
