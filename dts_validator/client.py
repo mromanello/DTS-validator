@@ -4,6 +4,7 @@ import requests
 from requests.models import Response
 from typing import Optional, Union, List, Tuple
 from uritemplate import URITemplate
+from .validation import check_required_property
 
 
 LOGGER = logging.getLogger(__name__)
@@ -91,6 +92,12 @@ class DTS_API(object):
         req  = requests.get(entry_endpoint_uri)
         assert 'application/ld+json' in req.headers['Content-Type'] # TODO: wrap around a try/except statement
         self._entry_endpoint_json = req.json()
+
+        # before using the URI templates, let's make sure that they are 
+        # declared by the Entry endpoint as expected
+        check_required_property(self._entry_endpoint_json, 'collection')
+        check_required_property(self._entry_endpoint_json, 'document')
+        check_required_property(self._entry_endpoint_json, 'navigation')
 
         # initialise URI templates
         self._collection_endpoint_template = URITemplate(self._entry_endpoint_json['collection'])
