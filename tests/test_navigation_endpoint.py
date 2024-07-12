@@ -5,7 +5,7 @@ from typing import Dict, Tuple
 from dts_validator.client import DTS_Navigation
 from dts_validator.validation import validate_navigation_response
 
-LOGGER = logging.getLogger()
+LOGGER = logging.getLogger(__name__)
 
 def test_navigation_one_down_response_validity(
         navigation_endpoint_response_down_one : Tuple[DTS_Navigation, requests.models.Response],
@@ -22,7 +22,8 @@ def test_navigation_one_down_response_validity(
     :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: dict
     """
-    response_json, response_object = navigation_endpoint_response_down_one
+    navigation_object, response_object = navigation_endpoint_response_down_one
+    navigation_json = navigation_object._json
     
     # if the test input data is static (mock data), then `response_object is None`
     if response_object:
@@ -30,7 +31,7 @@ def test_navigation_one_down_response_validity(
         assert response_object.status_code < 400 
     
     # if the request was successful, let's validate the response content
-    validate_navigation_response(response_json, navigation_response_schema)
+    validate_navigation_response(navigation_json, navigation_response_schema)
 
 def test_navigation_two_down_response_validity(
         navigation_endpoint_response_down_two : Tuple[DTS_Navigation, requests.models.Response],
@@ -48,7 +49,8 @@ def test_navigation_two_down_response_validity(
     :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: Dict
     """
-    response_json, response_object = navigation_endpoint_response_down_two
+    navigation_object, response_object = navigation_endpoint_response_down_two
+    navigation_json = navigation_object._json
     
     # if the test input data is static (mock data), then `response_object is None`
     if response_object:
@@ -56,7 +58,7 @@ def test_navigation_two_down_response_validity(
         assert response_object.status_code < 400 
     
     # if the request was successful, let's validate the response content
-    validate_navigation_response(response_json, navigation_response_schema)
+    validate_navigation_response(navigation_json, navigation_response_schema)
 
 def test_navigation_ref_response_validity(
         navigation_endpoint_response_ref : Tuple[DTS_Navigation, requests.models.Response],
@@ -72,7 +74,39 @@ def test_navigation_ref_response_validity(
     :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: Dict
     """
-    response_json, response_object = navigation_endpoint_response_ref
+    navigation_object, response_object = navigation_endpoint_response_ref
+    navigation_json = navigation_object._json
+    
+    # if the test input data is static (mock data), then `response_object is None`
+    # so we test this assertion only for tests on a remote endpoint
+    if response_object:
+        # we expect the endpoint not to raise an exception for this request
+        assert response_object.status_code < 400 
+    
+    # if the request was successful, let's validate the response content
+    validate_navigation_response(navigation_json, navigation_response_schema)
+
+    # the `member` property is expected to contain all citable units 
+    # in the citation subtree, thus it can't be empty. This constraint
+    # can't be enforced in the Navigation response schema, as there are
+    # cases where it may be empty.
+    assert navigation_json['member'] is not None
+
+def test_navigation_top_ref_down_two_response_validity(
+        navigation_endpoint_response_top_ref_down_two: Dict,
+        navigation_response_schema: Dict
+):
+    """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving
+    the citation subtree (children + grand-children) for a `Citable Unit` of a given 
+    `Resource` (`?ref=<citable_unit)id>&down=2`). 
+    See DTS API specs, section "Navigation Endpoint", example #4.
+
+    :param navigation_endpoint_response_top_ref_down_one: _description_
+    :type navigation_endpoint_response_top_ref_down_one: Dict
+    :param navigation_response_schema: _description_
+    :type navigation_response_schema: Dict
+    """
+    response_json, response_object = navigation_endpoint_response_top_ref_down_two
     
     # if the test input data is static (mock data), then `response_object is None`
     # so we test this assertion only for tests on a remote endpoint
@@ -82,30 +116,6 @@ def test_navigation_ref_response_validity(
     
     # if the request was successful, let's validate the response content
     validate_navigation_response(response_json, navigation_response_schema)
-
-    # the `member` property is expected to contain all citable units 
-    # in the citation subtree, thus it can't be empty. This constraint
-    # can't be enforced in the Navigation response schema, as there are
-    # cases where it may be empty.
-    assert response_json['member'] is not None
-
-# TODO: finish implementation
-@pytest.mark.skip(reason="Not implemented yet")
-def test_navigation_top_ref_down_one_response_validity(
-        navigation_endpoint_response_top_ref_down_one: Dict,
-        navigation_response_schema: Dict
-):
-    """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving
-    the citation subtree (children + grand-children) for a `Citable Unit` of a given 
-    `Resource` (`?ref=<citable_unit)id>&down=2`). 
-    See DTS API specs, section "Navigation Endpoint", example #3.
-
-    :param navigation_endpoint_response_top_ref_down_one: _description_
-    :type navigation_endpoint_response_top_ref_down_one: Dict
-    :param navigation_response_schema: _description_
-    :type navigation_response_schema: Dict
-    """
-    validate_navigation_response(navigation_endpoint_response_top_ref_down_one, navigation_response_schema)
 
 # TODO: finish implementation
 @pytest.mark.skip(reason="Not implemented yet; depends on changes to `client.DTS_API`")

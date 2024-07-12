@@ -189,7 +189,10 @@ def collection_endpoint_response_readable(request, dts_client: Optional[DTS_API]
             'navigation/navigation_docs_response_down_one', # JSON response from the documentation examples
         ]
 )
-def navigation_endpoint_response_down_one(request, dts_client: Optional[DTS_API]) -> Tuple[Optional[Dict], requests.models.Response]:
+def navigation_endpoint_response_down_one(
+    request,
+    dts_client: Optional[DTS_API]
+) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
     This fixture returns a DTS Navigation endpoint response, when querying the root of a `Resource` (`down=1`). 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -198,12 +201,12 @@ def navigation_endpoint_response_down_one(request, dts_client: Optional[DTS_API]
     # use remote API for tests
     if request.param is None and dts_client is not None:
         readable_resource = dts_client.get_one_resource()
-        navigation_obj, response_obj = dts_client.navigation(resource=readable_resource, down=1)
-        return (navigation_obj._json, response_obj)
+        return dts_client.navigation(resource=readable_resource, down=1)
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
-        return load_mock_data(tests_dir, request.param)
+        navigation = DTS_Navigation(load_mock_data(tests_dir, request.param))
+        return (navigation, None)
     else:
         pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
 
@@ -214,7 +217,10 @@ def navigation_endpoint_response_down_one(request, dts_client: Optional[DTS_API]
             'navigation/navigation_docs_response_down_two', # JSON response from the documentation examples
         ]
 )
-def navigation_endpoint_response_down_two(request, dts_client: Optional[DTS_API]) -> Tuple[Optional[Dict], requests.models.Response]:
+def navigation_endpoint_response_down_two(
+    request,
+    dts_client: Optional[DTS_API]
+) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
     This fixture returns a DTS Navigation endpoint response, when retrieving an array
     of all `Citable Unit`s for a given `Resource` down to the second level of the `Resource`;s
@@ -227,15 +233,12 @@ def navigation_endpoint_response_down_two(request, dts_client: Optional[DTS_API]
     if request.param is None and dts_client is not None:
         readable_resource = dts_client.get_one_resource()
         # TODO: here we should check the maxCiteDepth in the default CitationTree
-        navigation_obj, response_obj = dts_client.navigation(resource=readable_resource, down=2)
-        if navigation_obj:
-            return (navigation_obj._json, response_obj)
-        else:
-            return (None, response_obj)
+        return dts_client.navigation(resource=readable_resource, down=2)
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
-        return load_mock_data(tests_dir, request.param)
+        navigation = DTS_Navigation(load_mock_data(tests_dir, request.param))
+        return (navigation, None)
     else:
         pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
 
@@ -246,7 +249,10 @@ def navigation_endpoint_response_down_two(request, dts_client: Optional[DTS_API]
             'navigation/navigation_docs_response_ref', # JSON response from the documentation examples
         ]
 )
-def navigation_endpoint_response_ref(request, dts_client: Optional[DTS_API]) -> Tuple[Optional[Dict], requests.models.Response]:
+def navigation_endpoint_response_ref(
+    request,
+    dts_client: Optional[DTS_API]
+) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
     This fixture returns a DTS Navigation endpoint response, when retrieving the entire
     citation subtree for a `Citable Unit` of a given `Resource` (`?ref=<citable_unit)id>&down=-1`). 
@@ -265,20 +271,12 @@ def navigation_endpoint_response_ref(request, dts_client: Optional[DTS_API]) -> 
         # then we pick one citable unit, by default the last one
         # and use it to query its subtree
         target_citable_unit = navigation_obj.citable_units[-1]
-        
-        if navigation_obj:
-            navigation_obj, response_obj = dts_client.navigation(
-                resource=readable_resource,
-                reference=target_citable_unit,
-                down=-1
-            )
-            return (navigation_obj._json, response_obj)
-        else:
-            return (None, response_obj)
+        return dts_client.navigation(resource=readable_resource, reference=target_citable_unit, down=-1)
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
-        return load_mock_data(tests_dir, request.param)
+        navigation = DTS_Navigation(load_mock_data(tests_dir, request.param))
+        return (navigation, None)
     else:
         pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
 
@@ -292,7 +290,7 @@ def navigation_endpoint_response_ref(request, dts_client: Optional[DTS_API]) -> 
 def navigation_endpoint_response_top_ref_down_two(
     request,
     dts_client: Optional[DTS_API]
-) -> Tuple[Optional[Dict], requests.models.Response]:
+) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
     This fixture returns a DTS Navigation endpoint response, when retrieving
     the citation subtree (children + grand-children) for a `Citable Unit` of a given 
@@ -312,20 +310,12 @@ def navigation_endpoint_response_top_ref_down_two(
         # then we pick one citable unit, by default the last one
         # and use it to query its subtree
         target_citable_unit = navigation_obj.citable_units[-1]
-        
-        if navigation_obj:
-            navigation_obj, response_obj = dts_client.navigation(
-                resource=readable_resource,
-                reference=target_citable_unit,
-                down=2
-            )
-            return (navigation_obj._json, response_obj)
-        else:
-            return (None, response_obj)
+        return dts_client.navigation(resource=readable_resource, reference=target_citable_unit, down=2)
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
-        return load_mock_data(tests_dir, request.param)
+        navigation = DTS_Navigation(load_mock_data(tests_dir, request.param))
+        return (navigation, None)
     else:
         pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
 
@@ -347,3 +337,17 @@ def navigation_endpoint_response_range_plus_down(
 #####################################################
 #     Response fixtures for Document Endpoint       #
 #####################################################
+
+@pytest.fixture
+def document_endpoint_response_ref(
+    request,
+    navigation_endpoint_response_down_one: Tuple[Optional[DTS_Navigation], requests.models.Response]
+):
+    navigation_obect, response_object = navigation_endpoint_response_down_one
+
+    if response_object:
+        pass
+    else:
+        tests_dir = os.path.dirname(request.module.__file__)
+        document = load_mock_data(tests_dir, request.param)
+        return (document, None)
