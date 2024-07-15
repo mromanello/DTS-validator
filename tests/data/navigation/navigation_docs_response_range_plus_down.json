@@ -2,6 +2,7 @@
     "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
     "dtsVersion": "1-alpha",
     "@id": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&down=1&start=C1&end=C3",
+    "@type":"Navigation",
     "document": "https://example.org/api/dts/document/?resource=https://en.wikisource.org/wiki/Dracula{&ref,start,end,tree,mediaType}",
     "collection": "https://example.org/api/dts/collection/?resource=https://en.wikisource.org/wiki/Dracula{&page,nav}",
     "navigation": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula{&ref,down,start,end,tree,page}",

@@ -161,8 +161,8 @@ class DTS_API(object):
             resource: DTS_Resource,
             down: int = None,
             reference: DTS_CitableUnit = None,
-            start: str = None,
-            end: str = None
+            start: DTS_CitableUnit = None,
+            end: DTS_CitableUnit = None
     ) -> Tuple[DTS_Navigation, Response]:
         parameters = {
             "resource": resource.id,

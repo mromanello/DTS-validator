@@ -24,9 +24,15 @@
         "resource": {
             "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json"
         },
-        "ref": {"type": "object"},
-        "start": {"type": "string"},
-        "end": {"type": "string"},
+        "ref": {
+            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+        },
+        "start": {
+            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+        },
+        "end": {
+            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+        },
         "member": {
             "type": ["array", "null"],
             "items": {
