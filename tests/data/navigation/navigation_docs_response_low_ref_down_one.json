@@ -1,0 +1,80 @@
+{
+    "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
+    "dtsVersion": "1-alpha",
+    "@id": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&ref=C1.E1&down=1",
+    "@type":"Navigation",
+    "document": "https://example.org/api/dts/document/?resource=https://en.wikisource.org/wiki/Dracula{&ref,start,end,tree,mediaType}",
+    "collection": "https://example.org/api/dts/collection/?resource=https://en.wikisource.org/wiki/Dracula{&page,nav}",
+    "navigation": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula{&ref,down,start,end,tree,page}",
+    "resource": {
+      "@id": "https://en.wikisource.org/wiki/Dracula",
+      "@type": "Resource",
+      "citationTrees": [
+        {
+          "@type": "CitationTree",
+          "maxCiteDepth": 3,
+          "citeStructure": [
+            {
+              "@type": "CiteStructure",
+              "citeType": "Chapter",
+              "citeStructure": [
+                {
+                  "@type": "CiteStructure",
+                  "citeType": "Journal Entry",
+                  "citeStructure": [
+                    {
+                      "@type": "CiteStructure",
+                      "citeType": "Paragraph"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ref": {
+        "identifier": "C1.E1",
+        "@type": "CitableUnit",
+        "level": 2,
+        "parent": "C1",
+        "citeType": "Journal Entry",
+        "dublinCore": {
+          "title": {"lang": "en", "value": "3 May. Bistritz"}
+        }
+    },
+    "member": [
+      {
+        "identifier": "C1.E1",
+        "@type": "CitableUnit",
+        "level": 2,
+        "parent": "C1",
+        "citeType": "Journal Entry",
+        "dublinCore": {
+          "title": {"lang": "en", "value": "3 May. Bistritz"}
+        }
+      },
+      {
+        "identifier": "C1.E1,P1",
+        "@type": "CitableUnit",
+        "level": 3,
+        "parent": "C1.E1",
+        "citeType": "Paragraph"
+      },
+      {
+        "identifier": "C1.E1,P2",
+        "@type": "CitableUnit",
+        "level": 3,
+        "parent": "C1.E1",
+        "citeType": "Paragraph"
+      },
+      {
+        "identifier": "C1.E1,P9",
+        "@type": "CitableUnit",
+        "level": 3,
+        "parent": "C1.E1",
+        "citeType": "Paragraph"
+      }
+    ]
+  }
