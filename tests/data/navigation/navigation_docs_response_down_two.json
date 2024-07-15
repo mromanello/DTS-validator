@@ -1,130 +1,130 @@
 {
-    "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
-    "dtsVersion": "1-alpha",
-    "@id":"https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&down=2",
-    "@type": "Navigation",
-    "document": "https://example.org/dts/api/document/{?resource,ref,start,end,format}",
-    "collection": "https://example.org/dts/api/collection/{?resource,page,nav}",
-    "navigation": "https://example.org/dts/api/navigation/{?resource,ref,down,start,end,tree,page}",
-    "resource": {
-      "@id": "https://en.wikisource.org/wiki/Dracula",
-      "@type": "Resource",
-      "citationTrees": [
-        {
-          "@type": "CitationTree",
-          "maxCiteDepth" : 3,
-          "citeStructure": [
-            {
-              "@type": "CiteStructure",
-              "citeType": "Chapter",
-              "citeStructure": [
-                {
-                  "@type": "CiteStructure",
-                  "citeType": "Journal Entry",
-                  "citeStructure": [
-                    {
-                      "@type": "CiteStructure",
-                      "citeType": "Paragraph"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-
-      ]
-    },
-    "member": [
+  "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
+  "dtsVersion": "1-alpha",
+  "@id":"https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&down=2",
+  "@type":"Navigation",
+  "document": "https://example.org/api/dts/document/?resource=https://en.wikisource.org/wiki/Dracula{&ref,start,end,tree,mediaType}",
+  "collection": "https://example.org/api/dts/collection/?resource=https://en.wikisource.org/wiki/Dracula{&page,nav}",
+  "navigation": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula{&ref,down,start,end,tree,page}",
+  "resource": {
+    "@id": "https://en.wikisource.org/wiki/Dracula",
+    "@type": "Resource",
+    "citationTrees": [
       {
-        "identifier": "C1",
-        "@type": "CitableUnit",
-        "level": 1,
-        "parent": null,
-        "citeType": "Chapter",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "Chapter 1: Jonathan Harker's Journal"}
-        }
-      },
-      {
-        "identifier": "C1.E1",
-        "@type": "CitableUnit",
-        "level": 2,
-        "parent": "C1",
-        "citeType": "Journal Entry",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "3 May. Bistritz"}
-        }
-      },
-      {
-        "identifier": "C1.E2",
-        "@type": "CitableUnit",
-        "level": 2,
-        "parent": "C1",
-        "citeType": "Journal Entry",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "4 May"}
-        }
-      },
-      {
-        "identifier": "C2",
-        "@type": "CitableUnit",
-        "level": 1,
-        "parent": null,
-        "citeType": "Chapter",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "Chapter 2: Jonathan Harker's Journal - Continued"}
-        }
-      },
-      {
-        "identifier": "C2.E1",
-        "@type": "CitableUnit",
-        "level": 2,
-        "parent": "C2",
-        "citeType": "Journal Entry",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "5 May"}
-        }
-      },
-      {
-        "identifier": "C2.E2",
-        "@type": "CitableUnit",
-        "level": 2,
-        "parent": "C2",
-        "citeType": "Journal Entry",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "7 May"}
-        }
-      },
-      {
-        "identifier": "C3",
-        "@type": "CitableUnit",
-        "level": 2,
-        "parent": null,
-        "citeType": "Chapter",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "Chapter 3: Jonathan Harker's Journal - Continued"}
-        }
-      },
-      {
-        "identifier": "C3.E1",
-        "@type": "CitableUnit",
-        "level": 2,
-        "parent": "C3",
-        "citeType": "Journal Entry",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "8 May continued"}
-        }
-      },
-      {
-        "identifier": "C3.E2",
-        "@type": "CitableUnit",
-        "level": 2,
-        "parent": "C3",
-        "citeType": "Journal Entry",
-        "dublinCore": {
-          "title": {"lang": "en", "value": "Midnight"}
-        }
+        "@type": "CitationTree",
+        "maxCiteDepth" : 3,
+        "citeStructure": [
+          {
+            "@type": "CiteStructure",
+            "citeType": "Chapter",
+            "citeStructure": [
+              {
+                "@type": "CiteStructure",
+                "citeType": "Journal Entry",
+                "citeStructure": [
+                  {
+                    "@type": "CiteStructure",
+                    "citeType": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
+
     ]
+  },
+  "member": [
+    {
+      "identifier": "C1",
+      "@type": "CitableUnit",
+      "level": 1,
+      "parent": null,
+      "citeType": "Chapter",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "Chapter 1: Jonathan Harker's Journal"}
+      }
+    },
+    {
+      "identifier": "C1.E1",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": "C1",
+      "citeType": "Journal Entry",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "3 May. Bistritz"}
+      }
+    },
+    {
+      "identifier": "C1.E2",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": "C1",
+      "citeType": "Journal Entry",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "4 May"}
+      }
+    },
+    {
+      "identifier": "C2",
+      "@type": "CitableUnit",
+      "level": 1,
+      "parent": null,
+      "citeType": "Chapter",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "Chapter 2: Jonathan Harker's Journal - Continued"}
+      }
+    },
+    {
+      "identifier": "C2.E1",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": "C2",
+      "citeType": "Journal Entry",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "5 May"}
+      }
+    },
+    {
+      "identifier": "C2.E2",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": "C2",
+      "citeType": "Journal Entry",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "7 May"}
+      }
+    },
+    {
+      "identifier": "C3",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": null,
+      "citeType": "Chapter",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "Chapter 3: Jonathan Harker's Journal - Continued"}
+      }
+    },
+    {
+      "identifier": "C3.E1",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": "C3",
+      "citeType": "Journal Entry",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "8 May continued"}
+      }
+    },
+    {
+      "identifier": "C3.E2",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": "C3",
+      "citeType": "Journal Entry",
+      "dublinCore": {
+        "title": {"lang": "en", "value": "Midnight"}
+      }
+    }
+  ]
 }

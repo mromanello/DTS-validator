@@ -2,7 +2,9 @@
 
 ⚠️ At the moment, this code is VERY work-in-progress!
 
-DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts). Its current support is limited to version `1-alpha` of the specs. The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. 
+DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts).  The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. 
+
+DTS Validator supports version [`unstable`](https://distributed-text-services.github.io/specifications/versions/unstable/) of the specs.
 
 ## Design
 
@@ -80,6 +82,11 @@ Example of validation reports:
 | `collection_docs_response_one.json` | `specification/versions/unstable/README.md` | 326-374 |
 | `collection_docs_response_readable.json` | `specification/versions/unstable/README.md` | 473-521 |
 | `collection_docs_response_root.json` | `specification/versions/unstable/README.md` | 267-313 |
+| `navigation_docs_response_down_one.json` | `specification/versions/unstable/README.md` |894-973|
+| `navigation_docs_response_down_two.json` | `specification/versions/unstable/README.md` | 993-1126|
+| `navigation_docs_response_ref.json` | `specification/versions/unstable/README.md` |1146-1261|
+| `navigation_docs_response_down_top_ref_down_two.json` | `specification/versions/unstable/README.md` |1283-1398|
+
 
 
 

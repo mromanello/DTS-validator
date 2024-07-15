@@ -106,7 +106,8 @@ def test_navigation_top_ref_down_two_response_validity(
     :param navigation_response_schema: _description_
     :type navigation_response_schema: Dict
     """
-    response_json, response_object = navigation_endpoint_response_top_ref_down_two
+    navigation_object, response_object = navigation_endpoint_response_top_ref_down_two
+    navigation_json = navigation_object._json
     
     # if the test input data is static (mock data), then `response_object is None`
     # so we test this assertion only for tests on a remote endpoint
@@ -115,7 +116,7 @@ def test_navigation_top_ref_down_two_response_validity(
         assert response_object.status_code < 400 
     
     # if the request was successful, let's validate the response content
-    validate_navigation_response(response_json, navigation_response_schema)
+    validate_navigation_response(navigation_json, navigation_response_schema)
 
 # TODO: finish implementation
 @pytest.mark.skip(reason="Not implemented yet; depends on changes to `client.DTS_API`")
