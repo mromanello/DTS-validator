@@ -49,7 +49,7 @@ def test_readable_collection_response_additional_required_properties(collection_
         check_required_property(cit_tree, 'maxCiteDepth')
 
     expected_parameters = {
-        'collection': ['id', 'nav'], # see https://github.com/distributed-text-services/specifications/pull/251
+        'collection': ['nav'], # see https://github.com/distributed-text-services/specifications/pull/251
         'navigation': ['ref', 'start', 'end'], # if compliancy_level == 1, `start` and `end` must be there 
         'document': ['ref', 'start', 'end'] # if compliancy_level == 1, `start` and `end` must be there
     }

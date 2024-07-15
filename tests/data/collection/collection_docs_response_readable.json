@@ -1,49 +1,48 @@
 {
-  "$schema": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/collection_response.schema.json",
-    "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
-    "dtsVersion": "1-alpha",
-    "@id": "urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",
-    "@type" : "Resource",
-    "title" : "Priapeia",
-    "description": "Priapeia based on the edition of Aemilius Baehrens",
-    "totalItems": 0,
-    "totalParents": 1,
-    "totalChildren": 0,
-    "dublinCore": {
-        "title": [{"lang": "la", "value": "Priapeia"}],
-        "description": [{
-           "lang": "en",
-            "value": "Anonymous lascivious Poems "
-        }],
-        "type": [
-            "http://chs.harvard.edu/xmlns/cts#edition",
-            "Text"
-        ],
-        "source": ["https://archive.org/details/poetaelatinimino12baeh2"],
-        "dateCopyrighted": 1879,
-        "creator": [
-            {"lang": "en", "value": "Anonymous"}
-        ],
-        "contributor": ["Aemilius Baehrens"],
-        "language": ["la", "en"]
-    },
-    "document": "/api/dts/document?resource=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1{&ref,start,end,tree,mediaType}",
-    "navigation": "/api/dts/navigation?resource=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1{&ref,start,end,tree}",
-    "download": "https://raw.githubusercontent.com/lascivaroma/priapeia/master/data/phi1103/phi001/phi1103.phi001.lascivaroma-lat1.xml",
-    "citationTrees": [
-      {
-        "@type": "CitationTree",
-        "maxCiteDepth" : 2,
-        "citeStructure" : [
-          {
-            "citeType": "poem",
-            "citeStructure": [
-                {
-                    "citeType": "line"
-                }
-            ]
-          }
-        ]
-      }
-    ]
+  "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
+  "dtsVersion": "1-alpha",
+  "@id": "urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",
+  "@type" : "Resource",
+  "title" : "Priapeia",
+  "description": "Priapeia based on the edition of Aemilius Baehrens",
+  "totalParents": 1,
+  "totalChildren": 0,
+  "dublinCore": {
+      "title": [{"lang": "la", "value": "Priapeia"}],
+      "description": [{
+         "lang": "en",
+          "value": "Anonymous lascivious Poems "
+      }],
+      "type": [
+          "http://chs.harvard.edu/xmlns/cts#edition",
+          "Text"
+      ],
+      "source": ["https://archive.org/details/poetaelatinimino12baeh2"],
+      "dateCopyrighted": 1879,
+      "creator": [
+          {"lang": "en", "value": "Anonymous"}
+      ],
+      "contributor": ["Aemilius Baehrens"],
+      "language": ["la", "en"]
+  },
+  "collection": "/api/dts/collection/?id=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1{&nav}",
+  "document": "/api/dts/document?resource=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1{&ref,start,end,tree,mediaType}",
+  "navigation": "/api/dts/navigation?resource=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1{&ref,start,end,tree}",
+  "download": "https://raw.githubusercontent.com/lascivaroma/priapeia/master/data/phi1103/phi001/phi1103.phi001.lascivaroma-lat1.xml",
+  "citationTrees": [
+    {
+      "@type": "CitationTree",
+      "maxCiteDepth" : 2,
+      "citeStructure" : [
+        {
+          "citeType": "poem",
+          "citeStructure": [
+              {
+                  "citeType": "line"
+              }
+          ]
+        }
+      ]
+    }
+  ]
 }

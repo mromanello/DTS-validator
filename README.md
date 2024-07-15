@@ -71,3 +71,15 @@ Example of validation reports:
     - [ ] test well-formedness of returned XML document/fragment
     - [ ] test (some) requests for different media-types
 - [ ] provide example configuration for integration with CI workflows, e.g. GH Actions
+
+### Sources of `tests/data/*_docs_*.json`
+
+| JSON file | DTS specs file| Lines in file |
+|-----------|----------------------|---------|
+| `entry_docs_response.json` | `specification/versions/unstable/README.md`| 176-186|
+| `collection_docs_response_one.json` | `specification/versions/unstable/README.md` | 326-374 |
+| `collection_docs_response_readable.json` | `specification/versions/unstable/README.md` | 473-521 |
+| `collection_docs_response_root.json` | `specification/versions/unstable/README.md` | 267-313 |
+
+
+

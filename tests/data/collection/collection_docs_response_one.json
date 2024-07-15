@@ -3,7 +3,7 @@
     "dtsVersion": "1-alpha",
     "@id": "lasciva_roma",
     "@type": "Collection",
-    "totalItems": 3,
+    "collection": "/api/dts/collection/{?id,page,nav}",
     "totalParents": 1,
     "totalChildren": 3,
     "title" : "Lasciva Roma",
@@ -38,8 +38,8 @@
                     { "lang": "en", "value": "Anonymous lascivious Poems" }
                 ]
             },
-            "@type" : "Collection",
-            "totalItems": 1,
+            "@type" : "Collection", 
+             "collection": "/api/dts/collection/?id=urn:cts:latinLit:phi1103.phi001{&page,nav}",
             "totalParents": 1,
             "totalChildren": 1
         }
