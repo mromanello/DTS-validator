@@ -168,8 +168,8 @@ class DTS_API(object):
             "resource": resource.id,
             "down": down,
             "ref": reference.id if reference else None,
-            "start": start,
-            "end": end
+            "start": start.id if start else None,
+            "end": end.id if end else None
         }
         navigation_endpoint_template = URITemplate(resource._json['navigation'])
         navigation_endpoint_uri = navigation_endpoint_template.expand(parameters)

@@ -86,7 +86,8 @@ Example of validation reports:
 | `navigation_docs_response_down_two.json` | `specification/versions/unstable/README.md` | 993-1126|
 | `navigation_docs_response_ref.json` | `specification/versions/unstable/README.md` |1146-1261|
 | `navigation_docs_response_down_top_ref_down_two.json` | `specification/versions/unstable/README.md` |1283-1398|
-
+| `navigation/navigation_docs_response_low_ref_down_one.json` | `specification/versions/unstable/README.md` |1418-1498|
+| `navigation/navigation_docs_response_range_plus_down.json` | `specification/versions/unstable/README.md` |1519-1680|
 
 
 
