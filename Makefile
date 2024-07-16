@@ -51,6 +51,9 @@ test-dracor-collection:
 test-dracor-navigation:
 	pytest tests/test_navigation_endpoint.py --entry-endpoint=https://dev.dracor.org/api/v1/dts -s --html=$(REPORTS_DIR)/dracor_navigation_report.html
 
+test-dracor-document:
+	pytest tests/test_document_endpoint.py --entry-endpoint=https://dev.dracor.org/api/v1/dts -s --html=$(REPORTS_DIR)/dracor_document_report.html
+
 test-dracor-strict:
 	pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts -W error::DeprecationWarning -s --html=$(REPORTS_DIR)/dracor_report.html
 

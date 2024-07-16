@@ -2,7 +2,7 @@ from __future__ import annotations
 import logging
 import requests
 from requests.models import Response
-from typing import Optional, Union, List, Tuple
+from typing import Optional, Union, List, Tuple, Dict
 from uritemplate import URITemplate
 from .validation import check_required_property
 
@@ -164,6 +164,21 @@ class DTS_API(object):
             start: DTS_CitableUnit = None,
             end: DTS_CitableUnit = None
     ) -> Tuple[DTS_Navigation, Response]:
+        """_summary_
+
+        :param resource: _description_
+        :type resource: DTS_Resource
+        :param down: _description_, defaults to None
+        :type down: int, optional
+        :param reference: _description_, defaults to None
+        :type reference: DTS_CitableUnit, optional
+        :param start: _description_, defaults to None
+        :type start: DTS_CitableUnit, optional
+        :param end: _description_, defaults to None
+        :type end: DTS_CitableUnit, optional
+        :return: _description_
+        :rtype: Tuple[DTS_Navigation, Response]
+        """
         parameters = {
             "resource": resource.id,
             "down": down,
@@ -177,6 +192,59 @@ class DTS_API(object):
         response = requests.get(navigation_endpoint_uri)
         if response.status_code == 200:
             return (DTS_Navigation(response.json()), response)
+        else:
+            return (None, response)
+
+    def document(
+            self,
+            navigation_or_collection: Union[Dict, DTS_Navigation],
+            resource: DTS_Resource,
+            reference: DTS_CitableUnit = None,
+            start: DTS_CitableUnit = None,
+            end: DTS_CitableUnit = None
+    ) -> Tuple[str, Response]:
+        """navigation_or_collection
+
+        :param navigation_or_collection: _description_
+        :type navigation_or_collection: Union[Dict, DTS_Navigation]
+        :param resource: _description_
+        :type resource: DTS_Resource
+        :param reference: _description_, defaults to None
+        :type reference: DTS_CitableUnit, optional
+        :param start: _description_, defaults to None
+        :type start: DTS_CitableUnit, optional
+        :param end: _description_, defaults to None
+        :type end: DTS_CitableUnit, optional
+        :return: _description_
+        :rtype: Tuple[str, Response]
+        """
+        # TODO: explain why this is needed
+        if isinstance(navigation_or_collection, Dict):
+            navigation_or_collection_json = navigation_or_collection
+        elif isinstance(navigation_or_collection, DTS_Navigation):
+            navigation_or_collection_json = navigation_or_collection._json
+        else:
+            raise
+
+        # get IDs from the input objects, and use them as values for URI parameters
+        parameters = {
+            "resource": resource.id,
+            "ref": reference.id if reference else None,
+            "start": start.id if start else None,
+            "end": end.id if end else None
+        }
+        if 'document' in navigation_or_collection_json:
+            document_endpoint_template = URITemplate(navigation_or_collection_json['document'])
+        elif 'passage' in navigation_or_collection_json:
+            document_endpoint_template = URITemplate(navigation_or_collection_json['passage'])
+        else:
+            raise
+
+        document_endpoint_uri = document_endpoint_template.expand(parameters)
+        LOGGER.info(f'URI of request to Document endpoint: {document_endpoint_uri}')
+        response = requests.get(document_endpoint_uri)
+        if response.status_code == 200:
+            return (response.content.decode(), response)
         else:
             return (None, response)
 
