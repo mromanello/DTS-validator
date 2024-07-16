@@ -73,7 +73,7 @@ def load_mock_data(basedir, filename) -> Dict:
     return mock_request
 
 @pytest.fixture(scope='module')
-def dts_client(request) -> Optional[DTS_API]:
+def dts_client(request: pytest.FixtureRequest) -> Optional[DTS_API]:
     if request.config.getoption('--entry-endpoint') is not None:
         entry_endpoint_uri = request.config.getoption('--entry-endpoint')
         return DTS_API(entry_endpoint_uri)
@@ -89,7 +89,7 @@ def dts_client(request) -> Optional[DTS_API]:
             'entry/entry_docs_response.json', # JSON response from the documentation examples
         ]
 )
-def entry_endpoint_response(request, dts_client: Optional[DTS_API]) -> Optional[Dict]:
+def entry_endpoint_response(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -> Optional[Dict]:
     """
     This fixture returns a DTS Entry endpoint response. If no URI is provided
     via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -116,7 +116,7 @@ def entry_endpoint_response(request, dts_client: Optional[DTS_API]) -> Optional[
             'collection/collection_docs_response_root.json', # JSON response from the documentation examples (all collections)
         ]
 )      
-def collection_endpoint_response_root(request, dts_client: Optional[DTS_API]) -> Optional[Dict]:
+def collection_endpoint_response_root(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -> Optional[Dict]:
     """
     This fixture returns a DTS Collection endpoint response, when no collection is selected. 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -140,7 +140,7 @@ def collection_endpoint_response_root(request, dts_client: Optional[DTS_API]) ->
             'collection/collection_docs_response_one.json', # JSON response from the documentation examples (one collection)
         ]
 )      
-def collection_endpoint_response_one(request, dts_client: Optional[DTS_API]) -> Optional[Dict]:
+def collection_endpoint_response_one(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -> Optional[Dict]:
     """
     This fixture returns a DTS Collection endpoint response, when one collection is selected. 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -166,7 +166,7 @@ def collection_endpoint_response_one(request, dts_client: Optional[DTS_API]) -> 
             'collection/collection_docs_response_readable.json', # JSON response from the documentation examples (one readable collection)
         ]
 )      
-def collection_endpoint_response_readable(request, dts_client: Optional[DTS_API]) -> Optional[Dict]:
+def collection_endpoint_response_readable(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -> Optional[Dict]:
     """
     This fixture returns a DTS Collection endpoint response, when one collection is selected. 
     If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be
@@ -195,7 +195,7 @@ def collection_endpoint_response_readable(request, dts_client: Optional[DTS_API]
         ]
 )
 def navigation_endpoint_response_down_one(
-    request,
+    request: pytest.FixtureRequest,
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
@@ -223,7 +223,7 @@ def navigation_endpoint_response_down_one(
         ]
 )
 def navigation_endpoint_response_down_two(
-    request,
+    request: pytest.FixtureRequest,
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
@@ -255,7 +255,7 @@ def navigation_endpoint_response_down_two(
         ]
 )
 def navigation_endpoint_response_ref(
-    request,
+    request: pytest.FixtureRequest,
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
@@ -293,7 +293,7 @@ def navigation_endpoint_response_ref(
         ]
 )
 def navigation_endpoint_response_top_ref_down_two(
-    request,
+    request: pytest.FixtureRequest,
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[DTS_Navigation], requests.models.Response]:
     """
@@ -333,7 +333,7 @@ def navigation_endpoint_response_top_ref_down_two(
         ]
 )
 def navigation_endpoint_response_low_ref_down_one(
-    request,
+    request: pytest.FixtureRequest,
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[Dict], requests.models.Response]:
     """
@@ -365,7 +365,7 @@ def navigation_endpoint_response_low_ref_down_one(
         ]
 )
 def navigation_endpoint_response_range_plus_down(
-    request,
+    request: pytest.FixtureRequest,
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[Dict], requests.models.Response]:
     """
@@ -401,19 +401,163 @@ def navigation_endpoint_response_range_plus_down(
     else:
         pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
 
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            #'navigation/navigation_docs_response_range_plus_down.json', # JSON response from the documentation examples
+        ]
+)
+def navigation_endpoint_response_range(
+    request: pytest.FixtureRequest,
+    dts_client: Optional[DTS_API]
+) -> Tuple[Optional[Dict], requests.models.Response]:
+    """
+    This fixture returns a DTS Navigation endpoint response, when retrieving
+    when retrieving an array of `CitableUnit`s in a specified range
+    (`?start=<citable_unit_1>&end=<citable_unit_2`).
+
+    If no URI is provided via the `--entry-endpoint` parameter, a number of tests on
+    mock/example data will be performed (otherwise they will be skipped).
+    """
+    # use remote API for tests
+    if request.param is None and dts_client is not None:
+        readable_resource = dts_client.get_one_resource()
+        
+        # first we need to get all resource's citable units
+        navigation_obj, response_obj = dts_client.navigation(resource=readable_resource, down=1)
+        
+        # then define a range of refs, and query based on that
+        start_ref = navigation_obj.citable_units[0]
+        end_ref = navigation_obj.citable_units[-1]
+        return dts_client.navigation(
+            resource=readable_resource,
+            start=start_ref,
+            end=end_ref
+        )
+    # use mock/example data for tests
+    elif request.param and dts_client is None:
+        tests_dir = os.path.dirname(request.module.__file__)
+        navigation = DTS_Navigation(load_mock_data(tests_dir, request.param))
+        return (navigation, None)
+    else:
+        pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
+
 #####################################################
 #     Response fixtures for Document Endpoint       #
 #####################################################
 
-@pytest.fixture
-def document_endpoint_response_ref(
-    request,
-    navigation_endpoint_response_down_one: Tuple[Optional[DTS_Navigation], requests.models.Response]
-):
-    navigation_obect, response_object = navigation_endpoint_response_down_one
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            #'navigation/navigation_docs_response_range_plus_down.json', # JSON response from the documentation examples
+        ]
+)
+def document_endpoint_response_resource(
+    request: pytest.FixtureRequest,
+    dts_client: Optional[DTS_API],
+) -> Tuple[Optional[str], requests.models.Response]:
+    """_summary_
 
+    :param request: _description_
+    :type request: pytest.FixtureRequest
+    :param dts_client: _description_
+    :type dts_client: Optional[DTS_API]
+    :return: _description_
+    :rtype: Tuple[Optional[str], requests.models.Response]
+    """
+    # use remote API for tests
+    if request.param is None and dts_client is not None:
+        one_resource = dts_client.get_one_resource()
+        return dts_client.document(
+            navigation_or_collection=one_resource._json,
+            resource=one_resource
+        )
+    # use mock/example data for tests
+    elif request.param and dts_client is None:
+        tests_dir = os.path.dirname(request.module.__file__)
+        document = load_mock_data(tests_dir, request.param)
+        return (document, None)
+    else:
+        pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
+
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            #'navigation/navigation_docs_response_range_plus_down.json', # JSON response from the documentation examples
+        ]
+)
+def document_endpoint_response_range(
+    request: pytest.FixtureRequest,
+    dts_client: Optional[DTS_API],
+    navigation_endpoint_response_range: Tuple[Optional[DTS_Navigation], requests.models.Response]
+) -> Tuple[Optional[str], requests.models.Response]:
+    """_summary_
+
+    :param request: _description_
+    :type request: pytest.FixtureRequest
+    :param dts_client: _description_
+    :type dts_client: Optional[DTS_API]
+    :param navigation_endpoint_response_down_one: _description_
+    :type navigation_endpoint_response_down_one: Tuple[Optional[DTS_Navigation], requests.models.Response]
+    :return: _description_
+    :rtype: _type_
+    """
+    navigation_object, response_object = navigation_endpoint_response_range
+
+    # use remote API for tests
     if response_object:
-        pass
+        assert navigation_object
+        assert navigation_object.start and navigation_object.end and navigation_object.resource
+        return dts_client.document(
+            navigation_or_collection=navigation_object,
+            resource=navigation_object.resource,
+            start=navigation_object.start,
+            end=navigation_object.end
+        )
+    # use mock/example data for tests
+    else:
+        tests_dir = os.path.dirname(request.module.__file__)
+        document = load_mock_data(tests_dir, request.param)
+        return (document, None)
+    
+@pytest.fixture(
+        scope='module',
+        params=[
+            pytest.param(None), # response is None,
+            #'navigation/navigation_docs_response_range_plus_down.json', # JSON response from the documentation examples
+        ]
+)
+def document_endpoint_response_ref(
+    request: pytest.FixtureRequest,
+    dts_client: Optional[DTS_API],
+    navigation_endpoint_response_down_one: Tuple[Optional[DTS_Navigation], requests.models.Response]
+) -> Tuple[Optional[str], requests.models.Response]:
+    """_summary_
+
+    :param request: _description_
+    :type request: pytest.FixtureRequest
+    :param dts_client: _description_
+    :type dts_client: Optional[DTS_API]
+    :param navigation_endpoint_response_down_one: _description_
+    :type navigation_endpoint_response_down_one: Tuple[Optional[DTS_Navigation], requests.models.Response]
+    :return: _description_
+    :rtype: _type_
+    """
+    navigation_object, response_object = navigation_endpoint_response_down_one
+
+    # use remote API for tests
+    if response_object:
+        assert navigation_object
+        one_reference = navigation_object.citable_units[0]
+        return dts_client.document(
+            navigation_or_collection=navigation_object,
+            resource=navigation_object.resource,
+            reference=one_reference
+        )
+    # use mock/example data for tests
     else:
         tests_dir = os.path.dirname(request.module.__file__)
         document = load_mock_data(tests_dir, request.param)

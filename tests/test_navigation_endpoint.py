@@ -174,9 +174,30 @@ def test_navigation_range_plus_down_response_validity(
     # if the request was successful, let's validate the response content
     validate_navigation_response(navigation_json, navigation_response_schema)
 
-# TODO: test for invalid combinations of parameters, as per specs
-# For each invalid combination, the correspondent HTTP exception should be raised
-# `with pytest.raises` is your friend
+def test_navigation_range_response_validity(
+        navigation_endpoint_response_range : Tuple[DTS_Navigation, requests.models.Response],
+        navigation_response_schema: Dict
+):
+    """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving
+    an array of `CitableUnit`s in a specified range (`?start=<citable_unit_1>&end=<citable_unit_2`).
+
+    :param navigation_endpoint_response_range: A tuple containing a `DTS_Navigation` object
+        and `requests`' response object.
+    :type navigation_endpoint_response_range_plus_down: Tuple[DTS_Navigation, requests.models.Response]
+    :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
+    :type navigation_response_schema: Dict
+    """
+    navigation_object, response_object = navigation_endpoint_response_range
+    navigation_json = navigation_object._json
+    
+    # if the test input data is static (mock data), then `response_object is None`
+    # so we test this assertion only for tests on a remote endpoint
+    if response_object:
+        # we expect the endpoint not to raise an exception for this request
+        assert response_object.status_code < 400 
+    
+    # if the request was successful, let's validate the response content
+    validate_navigation_response(navigation_json, navigation_response_schema)
 
 
 

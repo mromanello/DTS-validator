@@ -5,10 +5,29 @@ from dts_validator.client import DTS_Navigation
 
 LOGGER = logging.getLogger(__name__)
 
-# Cases to test:
-# resource_id + down
-# resource_id + ref
-# resource_id + start/end
+# TODO: test for invalid combinations of parameters, as per specs
+# For each invalid combination, the correspondent HTTP exception should be raised
+# `with pytest.raises` is your friend
 
-def test_document_ref_response_validity(document_endpoint_response_ref):
-    pass
+def test_document_resource_response_validity(document_endpoint_response_resource: Tuple[Optional[str], requests.models.Response]):
+    document_text, response_object = document_endpoint_response_resource
+    assert isinstance(document_text, str)
+    assert response_object
+    response_object.raise_for_status()
+    LOGGER.info(document_text)
+
+def test_document_ref_response_validity(document_endpoint_response_ref: Tuple[Optional[str], requests.models.Response]):
+    document_text, response_object = document_endpoint_response_ref
+    assert isinstance(document_text, str)
+    assert response_object
+    response_object.raise_for_status()
+    LOGGER.info(document_text)
+    # TODO test for <dts:wrapper> not empty
+
+def test_document_range_response_validity(document_endpoint_response_range: Tuple[Optional[str], requests.models.Response]):
+    document_text, response_object = document_endpoint_response_range
+    assert isinstance(document_text, str)
+    assert response_object
+    response_object.raise_for_status()
+    LOGGER.info(document_text)
+    # TODO test for <dts:wrapper> not empty
