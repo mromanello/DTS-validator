@@ -68,7 +68,7 @@ Explanations about failed tests:
 1. `tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity`
     - request URI: `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&down=1`
     - Reason: the `Navigation` response object is missing the required `@type` property (to be fully honest, this is missing also in the specs' examples, as per [issue #?]())
-    - Comments: in DTS version `unstable` (as opposed to `1-alpha`) the property `passage` was renamed into `document` (see [issue 249](https://github.com/distributed-text-services/specifications/issues/249)).
+    - Comments: in DTS version `unstable` (as opposed to `1-alpha`) the property `passage` was renamed into `document` (see [PR 251](https://github.com/distributed-text-services/specifications/pull/251)).
 2. `tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity`
     - request URI: `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&down=2`
     - Reason: the API raises an error here (I understand this wasn't implemented fully yet). The expected behaviour is the following: retrieve a citation sub-tree containing children + grand-children; the corresponding `Citable Unit`s should be contained in the `member` property of the returned `Navigation` response object.
@@ -86,6 +86,7 @@ Explanations about failed tests:
     - Reason:
         - Same as for test #2 above (caused by `down` not yet fully implemented).
 6. simple range test (`start/end`, but no `down`)
+    - not yet included in the tests as somehow redundant w.r.t. test #5
     - `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&start=front&end=body&down=1`
     - `member` property is null, whereas it's expected to contain all `CitableUnit`s in the selected citation subtree. 
 
