@@ -29,7 +29,7 @@ def validate_uri_template(uri_template, template_name, required_parameters) -> N
                 msg = f'Expected parameter `{param}` is contained in the `{template_name}` URI template {uri_template}'
                 LOGGER.info(msg)
             except AssertionError:
-                msg = f'Parameter `{param}` must be contained in the `{template_name}` URI template {uri_template}'
+                msg = f'Parameter `{param}` must be contained in the `{template_name}` URI template {uri_template} (available parameters: {available_parameters})'
                 LOGGER.error(msg)
                 raise URITemplateMissingParameter(msg)
 

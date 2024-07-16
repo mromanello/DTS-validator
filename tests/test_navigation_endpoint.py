@@ -93,7 +93,7 @@ def test_navigation_ref_response_validity(
     assert navigation_json['member'] is not None
 
 def test_navigation_top_ref_down_two_response_validity(
-        navigation_endpoint_response_top_ref_down_two: Dict,
+        navigation_endpoint_response_top_ref_down_two: Tuple[DTS_Navigation, requests.models.Response],
         navigation_response_schema: Dict
 ):
     """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving
@@ -101,12 +101,14 @@ def test_navigation_top_ref_down_two_response_validity(
     `Resource` (`?ref=<citable_unit)id>&down=2`). 
     See DTS API specs, section "Navigation Endpoint", example #4.
 
-    :param navigation_endpoint_response_top_ref_down_one: _description_
-    :type navigation_endpoint_response_top_ref_down_one: Dict
-    :param navigation_response_schema: _description_
+    :param navigation_endpoint_response_top_ref_down_one: A tuple containing a `DTS_Navigation` object
+        and `requests`' response object.
+    :type navigation_endpoint_response_top_ref_down_one: Tuple[DTS_Navigation, requests.models.Response]
+    :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: Dict
     """
-    response_json, response_object = navigation_endpoint_response_top_ref_down_two
+    navigation_object, response_object = navigation_endpoint_response_top_ref_down_two
+    navigation_json = navigation_object._json
     
     # if the test input data is static (mock data), then `response_object is None`
     # so we test this assertion only for tests on a remote endpoint
@@ -115,37 +117,62 @@ def test_navigation_top_ref_down_two_response_validity(
         assert response_object.status_code < 400 
     
     # if the request was successful, let's validate the response content
-    validate_navigation_response(response_json, navigation_response_schema)
+    validate_navigation_response(navigation_json, navigation_response_schema)
 
 # TODO: finish implementation
-@pytest.mark.skip(reason="Not implemented yet; depends on changes to `client.DTS_API`")
 def test_navigation_low_ref_down_one_response_validity(
-        navigation_endpoint_response_low_ref_down_one : Dict,
+        navigation_endpoint_response_low_ref_down_one : Tuple[DTS_Navigation, requests.models.Response],
         navigation_response_schema: Dict
 ):
-    """_summary_
+    """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving
+    the direct children of a low-level `Citable Unit` (= two levels deep) of a given 
+    `Resource` (`?ref=<citable_unit)id>&down=1`). 
+    See DTS API specs, section "Navigation Endpoint", example #5.
 
-    :param navigation_endpoint_response_low_ref_down_one: _description_
-    :type navigation_endpoint_response_low_ref_down_one: Dict
-    :param navigation_response_schema: _description_
+    :param navigation_endpoint_response_low_ref_down_one: A tuple containing a `DTS_Navigation` object
+        and `requests`' response object.
+    :type navigation_endpoint_response_low_ref_down_one: Tuple[DTS_Navigation, requests.models.Response]
+    :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: Dict
     """
-    validate_navigation_response(navigation_endpoint_response_low_ref_down_one, navigation_response_schema)
+    navigation_object, response_object = navigation_endpoint_response_low_ref_down_one
+    navigation_json = navigation_object._json
+    
+    # if the test input data is static (mock data), then `response_object is None`
+    # so we test this assertion only for tests on a remote endpoint
+    if response_object:
+        # we expect the endpoint not to raise an exception for this request
+        assert response_object.status_code < 400 
+    
+    # if the request was successful, let's validate the response content
+    validate_navigation_response(navigation_json, navigation_response_schema)
 
-# TODO: finish implementation
-@pytest.mark.skip(reason="Not implemented yet; depends on changes to `client.DTS_API`")
 def test_navigation_range_plus_down_response_validity(
-        navigation_endpoint_response_range_plus_down : Dict,
+        navigation_endpoint_response_range_plus_down : Tuple[DTS_Navigation, requests.models.Response],
         navigation_response_schema: Dict
 ):
-    """_summary_
+    """Validates the JSON response of a remote DTS Navigation endpoint, when retrieving
+    an array of `CitableUnit`s in a specified range, including the direct children of the specified
+    start and end points (`?start=<citable_unit_1>&end=<citable_unit_2>&down=1`).
+    See DTS API specs, section "Navigation Endpoint", example #6.
 
-    :param navigation_endpoint_response_range_plus_down: _description_
-    :type navigation_endpoint_response_range_plus_down: Dict
-    :param navigation_response_schema: _description_
+    :param navigation_endpoint_response_range_plus_down: A tuple containing a `DTS_Navigation` object
+        and `requests`' response object.
+    :type navigation_endpoint_response_range_plus_down: Tuple[DTS_Navigation, requests.models.Response]
+    :param navigation_response_schema: The JSON schema for the DTS Navigation endpoint (Fixture)
     :type navigation_response_schema: Dict
     """
-    validate_navigation_response(navigation_endpoint_response_range_plus_down, navigation_response_schema)
+    navigation_object, response_object = navigation_endpoint_response_range_plus_down
+    navigation_json = navigation_object._json
+    
+    # if the test input data is static (mock data), then `response_object is None`
+    # so we test this assertion only for tests on a remote endpoint
+    if response_object:
+        # we expect the endpoint not to raise an exception for this request
+        assert response_object.status_code < 400 
+    
+    # if the request was successful, let's validate the response content
+    validate_navigation_response(navigation_json, navigation_response_schema)
 
 # TODO: test for invalid combinations of parameters, as per specs
 # For each invalid combination, the correspondent HTTP exception should be raised

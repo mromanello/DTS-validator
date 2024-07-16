@@ -14,9 +14,23 @@
 
 ### DraCor
 
+
+#### Entry endpoint
+
+Full test report: [`dracor_collection_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/dracor_entry_report.html)
+
+No failed tests! 🎉
+
 #### Collection endpoint
 
-- (Comment) In the `collection` endpoint, the values of the `nav` parameter are not "sanity checked". At the moment, an (invalid) value like `nav=random` does not raise any exception on the API side (I'd expect a `BadRequest`).
+Full test report: [`dracor_collection_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/dracor_collection_report.html)
+
+Failed tests (n=1):
+- test `test_collection_endpoint.py::test_readable_collection_response_additional_required_properties`: 
+    - Reason: "The required property `collection` (URI template) is missing": this change in the specs (required URI template `collection`) was introduced between version `1-alpha` and `unstable` (the current). 
+
+Comments:
+- In the `collection` endpoint, the values of the `nav` parameter are not "sanity checked". At the moment, an (invalid) value like `nav=random` does not raise any exception on the API side (I'd expect a `BadRequest`).
 
 #### Navigation endpoint
 

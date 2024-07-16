@@ -2,7 +2,9 @@
 
 ⚠️ At the moment, this code is VERY work-in-progress!
 
-DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts). Its current support is limited to version `1-alpha` of the specs. The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. 
+DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts).  The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. 
+
+DTS Validator supports version [`unstable`](https://distributed-text-services.github.io/specifications/versions/unstable/) of the specs.
 
 ## Design
 
@@ -71,3 +73,21 @@ Example of validation reports:
     - [ ] test well-formedness of returned XML document/fragment
     - [ ] test (some) requests for different media-types
 - [ ] provide example configuration for integration with CI workflows, e.g. GH Actions
+
+### Sources of `tests/data/*_docs_*.json`
+
+| JSON file | DTS specs file| Lines in file |
+|-----------|----------------------|---------|
+| `entry_docs_response.json` | `specification/versions/unstable/README.md`| 176-186|
+| `collection_docs_response_one.json` | `specification/versions/unstable/README.md` | 326-374 |
+| `collection_docs_response_readable.json` | `specification/versions/unstable/README.md` | 473-521 |
+| `collection_docs_response_root.json` | `specification/versions/unstable/README.md` | 267-313 |
+| `navigation_docs_response_down_one.json` | `specification/versions/unstable/README.md` |894-973|
+| `navigation_docs_response_down_two.json` | `specification/versions/unstable/README.md` | 993-1126|
+| `navigation_docs_response_ref.json` | `specification/versions/unstable/README.md` |1146-1261|
+| `navigation_docs_response_down_top_ref_down_two.json` | `specification/versions/unstable/README.md` |1283-1398|
+| `navigation/navigation_docs_response_low_ref_down_one.json` | `specification/versions/unstable/README.md` |1418-1498|
+| `navigation/navigation_docs_response_range_plus_down.json` | `specification/versions/unstable/README.md` |1519-1680|
+
+
+
