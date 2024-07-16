@@ -63,7 +63,7 @@ Other comments:
 
 Full test report: [`dracor_navigation_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/dracor_navigation_report.html)
 
-Failed tests (n=5):
+Explanations about failed tests:
 
 1. `tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity`
     - request URI: `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&down=1`
@@ -84,8 +84,8 @@ Failed tests (n=5):
 5. `test_navigation_range_plus_down_response_validity`
     - request URI: `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&start=front&end=body&down=1`
     - Reason:
-        - same as for test #2 above (caused by `down` not yet fully implemented).
-6. simple range test (start/end, but no `down`)
+        - Same as for test #2 above (caused by `down` not yet fully implemented).
+6. simple range test (`start/end`, but no `down`)
     - `https://dev.dracor.org/api/v1/dts/navigation?resource=https://dev.dracor.org/id/test000001&start=front&end=body&down=1`
     - `member` property is null, whereas it's expected to contain all `CitableUnit`s in the selected citation subtree. 
 
