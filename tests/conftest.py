@@ -146,6 +146,8 @@ def collection_endpoint_response_one(request, dts_client: Optional[DTS_API]) -> 
     # use remote API for tests
     if request.param is None and dts_client is not None:
         one_collection_id = dts_client.collections()[-1].id # let's take always the last one
+        # TODO: use the URITemplate declared in `Resource.collection` rather than the one 
+        # declared by the Entry endpoint
         return dts_client.collections(id=one_collection_id)._json # get full collection metadata from the API
     # use mock/example data for tests
     elif request.param and dts_client is None:
