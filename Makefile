@@ -24,16 +24,16 @@ test-navigation:
 #####################
 
 test-ftsr-all:
-	pytest --entry-endpoint=http://ftsr-dev.unil.ch:9090/dts/api/v1/ -s --html=$(REPORTS_DIR)/ftsr_report.html
+	pytest --entry-endpoint=http://ftsr-dev.unil.ch:9090/api/dts/ -s --html=$(REPORTS_DIR)/ftsr_report.html
 
 test-ftsr-entry:
-	pytest tests/test_entry_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/dts/api/v1/ -s --html=$(REPORTS_DIR)/ftsr_entry_report.html
+	pytest tests/test_entry_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/api/dts/ -s --html=$(REPORTS_DIR)/ftsr_entry_report.html
 
 test-ftsr-collection:
-	pytest tests/test_collection_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/dts/api/v1/ -s --html=$(REPORTS_DIR)/ftsr_collection_report.html
+	pytest tests/test_collection_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/api/dts/ -s --html=$(REPORTS_DIR)/ftsr_collection_report.html
 
 test-ftsr-navigation:
-	pytest tests/test_navigation_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/dts/api/v1/ -s --html=$(REPORTS_DIR)/ftsr_entry_report.html
+	pytest tests/test_navigation_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/api/dts/ -s --html=$(REPORTS_DIR)/ftsr_entry_report.html
 
 #####################
 #    DraCor API     #

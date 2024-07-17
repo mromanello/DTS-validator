@@ -118,7 +118,9 @@ class DTS_API(object):
             else:
                 collection_req_uri = self._collection_endpoint_template.expand() # leave the default value of `nav` implicit
             
+            LOGGER.info(f'URI of request to Collection endpoint: {collection_req_uri}')
             collection_req = requests.get(collection_req_uri)
+            collection_req.raise_for_status()
             self._collection_endpoint_json = collection_req.json()
             try:
                 assert 'application/ld+json' in collection_req.headers['Content-Type']
@@ -144,7 +146,9 @@ class DTS_API(object):
                 collection_req_uri = self._collection_endpoint_template.expand({'id': id, 'nav': navigation})
             else:
                 collection_req_uri = self._collection_endpoint_template.expand({'id': id})
+            LOGGER.info(f'URI of request to Collection endpoint: {collection_req_uri}')
             collection_req = requests.get(collection_req_uri)
+            collection_req.raise_for_status()
             return DTS_Collection(collection_req.json())
     
     def get_one_resource(self):
