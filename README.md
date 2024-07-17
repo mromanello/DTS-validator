@@ -77,23 +77,20 @@ Example of validation reports:
 ## TODOs
 
 - [ ] tests for DTS Entry endpoint
-    - [x] check response headers (Content-Type)
-    - [x] test response against schema
-    - [x] check URI templates 
     - [ ] test semantic of JSON-LD response
 - [ ] tests for DTS Collection endpoint
-    - [ ] check response headers (Content-Type)
-    - [x] update the Collection response schema (copied the old one by @monotasker)
-    - [x] add a warning if `totalItems` is still present (it was removed as per this [PR](https://github.com/distributed-text-services/specifications/pull/251#event-12925576483))
-    - [x] test response against schema
-    - [x] check URI templates (especially when collection is readable)
-- [x] tests for DTS Navigation endpoint
-    - [x] test response against schema
+    - [ ] test semantic of JSON-LD response
+    - [ ] test pagination if available
+- [ ] tests for DTS Navigation endpoint
+    - finish test `test_navigation_low_ref_down_one_response_validity` 
 - [ ] tests for DTS Document endpoint
     - [ ] test response against schema
     - [ ] test well-formedness of returned XML document/fragment
     - [ ] test (some) requests for different media-types
-- [ ] provide example configuration for integration with CI workflows, e.g. GH Actions
+    - [ ] test for invalid combinations of parameters, as per specs
+- [ ] general
+    - [ ] support running the validator tests as a package
+    - [ ] provide example configuration for integration with CI workflows, e.g. GH Actions
 
 
 
