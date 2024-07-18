@@ -54,7 +54,7 @@ class DTS_CitableUnit(object):
         self.id = raw_json["identifier"]
         self.level = int(raw_json["level"])
         self.type = raw_json["citeType"]
-        self.parent = raw_json["parent"]
+        self.parent = raw_json["parent"] if "parent" in raw_json else None
 
     def __repr__(self) -> str:
         return f'DTS_CitableUnit(id={self.id}, type={self.type}, level={self.level})'
@@ -74,13 +74,13 @@ class DTS_Navigation(object):
             for unit in self._json['member']:
                 self.citable_units.append(DTS_CitableUnit(unit))
 
-        if 'ref' in self._json:
+        if 'ref' in self._json and self._json['ref']:
             self.reference = DTS_CitableUnit(self._json['ref'])
 
-        if 'start' in self._json:
+        if 'start' in self._json and self._json['start']:
             self.start = DTS_CitableUnit(self._json['start'])
 
-        if 'end' in self._json:
+        if 'end' in self._json and self._json['end']:
             self.end = DTS_CitableUnit(self._json['end'])
 
     def __repr__(self) -> str:
