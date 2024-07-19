@@ -35,6 +35,9 @@ test-ftsr-collection:
 test-ftsr-navigation:
 	pytest tests/test_navigation_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/api/dts/ -s --html=$(REPORTS_DIR)/ftsr_entry_report.html
 
+test-ftsr-document:
+	pytest tests/test_document_endpoint.py --entry-endpoint=http://ftsr-dev.unil.ch:9090/api/dts/ -s --html=$(REPORTS_DIR)/ftsr_document_report.html
+
 #####################
 #    DraCor API     #
 #####################
