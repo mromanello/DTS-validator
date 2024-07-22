@@ -9,7 +9,7 @@
         "@type": {"type": "string"},
         "dtsVersion": {
             "type": "string",
-            "enum": ["1-alpha"]
+            "enum": ["1-alpha", "unstable"]
         },
         "collection": {"type": "string"},
         "document": {"type": "string"},
