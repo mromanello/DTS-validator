@@ -92,8 +92,12 @@ Explanations about failed tests:
 
 #### Document endpoint
 
-Tests are not implemented yet.
+Full test report: [`dracor_document_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/dracor_document_report.html)
+
+No failed tests! 🎉
 
 ### FTSR DTS API
 
-TBD
+Entry endpoint: `http://ftsr-dev.unil.ch:9090/api/dts` (requires VPN)
+
+No failed tests! 🎉 (as of 22.07.2024)
