@@ -441,7 +441,7 @@ def navigation_endpoint_response_range(
         navigation = DTS_Navigation(load_mock_data(tests_dir, request.param))
         return (navigation, None)
     else:
-        pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
+        pytest.skip()
 
 #####################################################
 #     Response fixtures for Document Endpoint       #
@@ -480,7 +480,7 @@ def document_endpoint_response_resource(
         document = load_mock_data(tests_dir, request.param)
         return (document, None)
     else:
-        pytest.skip(SKIP_MOCK_TESTS_MESSAGE)
+        pytest.skip()
 
 @pytest.fixture(
         scope='module',
@@ -508,7 +508,7 @@ def document_endpoint_response_range(
     navigation_object, response_object = navigation_endpoint_response_range
 
     # use remote API for tests
-    if response_object:
+    if response_object and dts_client is not None:
         assert navigation_object
         assert navigation_object.start and navigation_object.end and navigation_object.resource
         return dts_client.document(
@@ -518,10 +518,13 @@ def document_endpoint_response_range(
             end=navigation_object.end
         )
     # use mock/example data for tests
-    else:
+    elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
         document = load_mock_data(tests_dir, request.param)
         return (document, None)
+    else:
+        pytest.skip()
+
     
 @pytest.fixture(
         scope='module',
@@ -549,7 +552,7 @@ def document_endpoint_response_ref(
     navigation_object, response_object = navigation_endpoint_response_down_one
 
     # use remote API for tests
-    if response_object:
+    if response_object and dts_client is not None:
         assert navigation_object
         one_reference = navigation_object.citable_units[0]
         return dts_client.document(
@@ -558,7 +561,9 @@ def document_endpoint_response_ref(
             reference=one_reference
         )
     # use mock/example data for tests
-    else:
+    elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
         document = load_mock_data(tests_dir, request.param)
-        return (document, None)
+        return (document, None) 
+    else:
+        pytest.skip()
