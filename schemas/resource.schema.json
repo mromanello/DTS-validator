@@ -23,14 +23,13 @@
                 "properties": {
                     "identifier": {"type": "string" },
                     "@type": {"type": "string" },
-                    "maxCiteDepth": {"type": "number"},
                     "citeStructure": {
                         "$ref": "#/$defs/citeStructure"
                     },
                     "description": {"type": "string" }
                 },
                 "required":[
-                    "@type", "maxCiteDepth"
+                    "@type"
                 ]
             }
         },
