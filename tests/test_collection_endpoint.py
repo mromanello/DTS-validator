@@ -45,8 +45,8 @@ def test_readable_collection_response_additional_required_properties(collection_
     # if the Collection is of type Resource (this conditional
     # constraint cannot be checked via the JSON schema)
     citation_trees = collection_endpoint_response_readable['citationTrees']
-    for cit_tree in citation_trees:
-        check_required_property(cit_tree, 'maxCiteDepth')
+    # for cit_tree in citation_trees:
+    #     check_required_property(cit_tree, 'maxCiteDepth')
 
     expected_parameters = {
         'collection': ['nav'], # see https://github.com/distributed-text-services/specifications/pull/251

@@ -16,7 +16,6 @@
         "dtsVersion": {"type": "string"},
         "totalChildren": {"type": "number"},
         "totalParents": {"type": "number"},
-        "maxCiteDepth": {"type": "number"},
         "description": {"type": "string"},
         "member": {
             "type": "array",
