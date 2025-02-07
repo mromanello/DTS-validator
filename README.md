@@ -4,7 +4,7 @@
 
 DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts).  The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. For now, only JSON validation (against JSON schemas) is implemented; JSON-LD validation (against SHACL shapes) will be added later one.
 
-DTS Validator supports version [`unstable`](https://distributed-text-services.github.io/specifications/versions/unstable/) of the specs. 
+DTS Validator supports version [`unstable`](https://distributed-text-services.github.io/specifications/versions/unstable/) of the specs; it is currently up-to-date with commit [ef8c7cdaf789b61a1b7949fe42b1f168982a102a](https://github.com/distributed-text-services/specifications/commit/ef8c7cdaf789b61a1b7949fe42b1f168982a102a) of the DTS specs repo.
 
 ## Maintenance
 
@@ -73,24 +73,6 @@ Example of validation reports:
 - [tests for `Collection` endpoint on on mock/example data](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/report-collection.html)
 - [tests for `Navigation` endpoint on on mock/example data](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/report-navigation.html)
 - ~~tests for `Document` endpoint on on mock/example data~~
-
-## TODOs
-
-- [ ] tests for DTS Entry endpoint
-    - [ ] test semantic of JSON-LD response
-- [ ] tests for DTS Collection endpoint
-    - [ ] test semantic of JSON-LD response
-    - [ ] test pagination if available
-- [ ] tests for DTS Navigation endpoint
-    - finish test `test_navigation_low_ref_down_one_response_validity` 
-- [ ] tests for DTS Document endpoint
-    - [ ] test response against schema
-    - [ ] test well-formedness of returned XML document/fragment
-    - [ ] test (some) requests for different media-types
-    - [ ] test for invalid combinations of parameters, as per specs
-- [ ] general
-    - [ ] support running the validator tests as a package
-    - [ ] provide example configuration for integration with CI workflows, e.g. GH Actions
 
 
 

@@ -20,12 +20,12 @@
 
 | JSON file | DTS specs file| Lines in file |
 |-----------|----------------------|---------|
-| `entry_docs_response.json` | `specification/versions/unstable/README.md`| 176-186|
-| `collection_docs_response_one.json` | `specification/versions/unstable/README.md` | 326-374 |
+| `entry_docs_response.json` | `specification/versions/unstable/README.md`| 184-192|
+| `collection_docs_response_one.json` | `specification/versions/unstable/README.md` | 350-396 |
 | `collection_docs_response_readable.json` | `specification/versions/unstable/README.md` | 473-521 |
 | `collection_docs_response_root.json` | `specification/versions/unstable/README.md` | 267-313 |
 | `navigation_docs_response_down_one.json` | `specification/versions/unstable/README.md` |894-973|
-| `navigation_docs_response_down_two.json` | `specification/versions/unstable/README.md` | 993-1126|
+| `navigation_docs_response_down_two.json` | `specification/versions/unstable/README.md` | 1034-1166|
 | `navigation_docs_response_ref.json` | `specification/versions/unstable/README.md` |1146-1261|
 | `navigation_docs_response_down_top_ref_down_two.json` | `specification/versions/unstable/README.md` |1283-1398|
 | `navigation/navigation_docs_response_low_ref_down_one.json` | `specification/versions/unstable/README.md` |1418-1498|
