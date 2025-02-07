@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/navigation_response.schema.json",
+    "$id": "navigation_response.schema.json",
     "$comment":"https://distributed-text-services.github.io/specifications/versions/1-alpha/#navigation-object",
     "type": "object",
     "properties": {
@@ -22,25 +22,25 @@
             "format": "uri-template"
         },
         "resource": {
-            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json"
+            "$ref": "resource.schema.json"
         },
         "ref": {
-            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+            "$ref": "citable_unit.schema.json"
         },
         "start": {
-            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+            "$ref": "citable_unit.schema.json"
         },
         "end": {
-            "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+            "$ref": "citable_unit.schema.json"
         },
         "member": {
             "type": ["array", "null"],
             "items": {
-                "$ref": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/citable_unit.schema.json"
+                "$ref": "citable_unit.schema.json"
             }
         }
     },
     "required": [
-       "@id", "@type", "dtsVersion", "document", "navigation", "resource"
+       "@id", "@type", "dtsVersion", "resource"
     ]
 }

@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json",
+    "$id": "resource.schema.json",
     "$comment": "https://distributed-text-services.github.io/specifications/versions/1-alpha/#resource",
     "type": "object",
     "properties": {
