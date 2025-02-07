@@ -13,14 +13,6 @@
             "pattern": "^Navigation$"
         },
         "dtsVersion": {"type": "string"},
-        "document": {
-            "type": "string",
-            "format": "uri-template"
-        },
-        "navigation": {
-            "type": "string",
-            "format": "uri-template"
-        },
         "resource": {
             "$ref": "resource.schema.json"
         },

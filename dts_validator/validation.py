@@ -42,6 +42,7 @@ def validate_uri_template(uri_template, template_name, required_parameters) -> N
                 LOGGER.error(msg)
                 raise URITemplateMissingParameter(msg)
 
+
 # TODO: check if the property value is valid (against a list of valid values)
 def check_required_property(json_data, property_name):
     try:

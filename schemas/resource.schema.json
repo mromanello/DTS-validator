@@ -16,6 +16,14 @@
             "type": "string",
             "format": "uri-template"
         },
+        "document": {
+            "type": "string",
+            "format": "uri-template"
+        },
+        "navigation": {
+            "type": "string",
+            "format": "uri-template"
+        },
         "citationTrees": {
             "type": "array",
             "items": {
@@ -52,5 +60,5 @@
             }
         }
     },
-    "required": ["@id", "@type", "citationTrees"]
+    "required": ["@id", "@type", "citationTrees", "navigation", "document"]
 }

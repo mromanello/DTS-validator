@@ -471,7 +471,6 @@ def document_endpoint_response_resource(
     if request.param is None and dts_client is not None:
         one_resource = dts_client.get_one_resource()
         return dts_client.document(
-            navigation_or_collection=one_resource._json,
             resource=one_resource
         )
     # use mock/example data for tests
@@ -512,7 +511,6 @@ def document_endpoint_response_range(
         assert navigation_object
         assert navigation_object.start and navigation_object.end and navigation_object.resource
         return dts_client.document(
-            navigation_or_collection=navigation_object,
             resource=navigation_object.resource,
             start=navigation_object.start,
             end=navigation_object.end
@@ -556,7 +554,6 @@ def document_endpoint_response_ref(
         assert navigation_object
         one_reference = navigation_object.citable_units[0]
         return dts_client.document(
-            navigation_or_collection=navigation_object,
             resource=navigation_object.resource,
             reference=one_reference
         )
