@@ -1,6 +1,7 @@
 SHELL:=/bin/bash
 
 REPORTS_DIR?=reports
+UBHD_DTS_API?=https://digi.ub.uni-heidelberg.de/editionService/dts/
 
 ##################################################
 #    Tests on mock data + examples from docs     #
@@ -60,3 +61,24 @@ test-dracor-document:
 test-dracor-strict:
 	pytest --entry-endpoint=https://dev.dracor.org/api/v1/dts -W error::DeprecationWarning -s --html=$(REPORTS_DIR)/dracor_report.html
 
+#####################
+#    UBHD API       #
+#####################
+
+test-ubhd-all:
+	pytest --entry-endpoint=$(UBHD_DTS_API) -s --html=$(REPORTS_DIR)/ubhd_all_report.html
+
+test-ubhd-entry:
+	pytest tests/test_entry_endpoint.py --entry-endpoint=$(UBHD_DTS_API) -s --html=$(REPORTS_DIR)/ubhd_entry_report.html
+
+test-ubhd-collection:
+	pytest tests/test_collection_endpoint.py --entry-endpoint=$(UBHD_DTS_API) -s --html=$(REPORTS_DIR)/ubhd_collection_report.html
+
+test-ubhd-navigation:
+	pytest tests/test_navigation_endpoint.py --entry-endpoint=$(UBHD_DTS_API) -s --html=$(REPORTS_DIR)/ubhd_navigation_report.html
+
+test-ubhd-document:
+	pytest tests/test_document_endpoint.py --entry-endpoint=$(UBHD_DTS_API) -s --html=$(REPORTS_DIR)/ubhd_document_report.html
+
+test-ubhd-strict:
+	pytest --entry-endpoint=$(UBHD_DTS_API) -W error::DeprecationWarning -s --html=$(REPORTS_DIR)/ubhd_report.html

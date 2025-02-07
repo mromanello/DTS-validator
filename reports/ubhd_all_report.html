@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title id="head-title">ubhd_all_report.html</title>
+      <link href="assets/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <h1 id="title">ubhd_all_report.html</h1>
+    <p>Report generated on 07-Feb-2025 at 13:02:07 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+        v4.1.1</p>
+    <div id="environment-header">
+      <h2>Environment</h2>
+    </div>
+    <table id="environment"></table>
+    <!-- TEMPLATES -->
+      <template id="template_environment_row">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    <template id="template_results-table__body--empty">
+      <tbody class="results-table-row">
+        <tr id="not-found-message">
+          <td colspan="4">No results found. Check the filters.</th>
+        </tr>
+    </template>
+    <template id="template_results-table__tbody">
+      <tbody class="results-table-row">
+        <tr class="collapsible">
+        </tr>
+        <tr class="extras-row">
+          <td class="extra" colspan="4">
+            <div class="extraHTML"></div>
+            <div class="media">
+              <div class="media-container">
+                  <div class="media-container__nav--left"><</div>
+                  <div class="media-container__viewport">
+                    <img src="" />
+                    <video controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="media-container__nav--right">></div>
+                </div>
+                <div class="media__name"></div>
+                <div class="media__counter"></div>
+            </div>
+            <div class="logwrapper">
+              <div class="logexpander"></div>
+              <div class="log"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+    <!-- END TEMPLATES -->
+    <div class="summary">
+      <div class="summary__data">
+        <h2>Summary</h2>
+        <div class="additional-summary prefix">
+        </div>
+        <p class="run-count">2 tests took 336 ms.</p>
+        <p class="filter">(Un)check the boxes to filter the results.</p>
+        <div class="summary__reload">
+          <div class="summary__reload__button hidden" onclick="location.reload()">
+            <div>There are still tests running. <br />Reload this page to get the latest results!</div>
+          </div>
+        </div>
+        <div class="summary__spacer"></div>
+        <div class="controls">
+          <div class="filters">
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" />
+            <span class="failed">1 Failed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" />
+            <span class="passed">1 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" />
+            <span class="skipped">18 Skipped,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled/>
+            <span class="xfailed">0 Expected failures,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xpassed" disabled/>
+            <span class="xpassed">0 Unexpected passes,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="error" />
+            <span class="error">13 Errors,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="rerun" disabled/>
+            <span class="rerun">0 Reruns</span>
+          </div>
+          <div class="collapse">
+            <button id="show_all_details">Show all details</button>&nbsp;/&nbsp;<button id="hide_all_details">Hide all details</button>
+          </div>
+        </div>
+      </div>
+      <div class="additional-summary summary">
+      </div>
+      <div class="additional-summary postfix">
+      </div>
+    </div>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable" data-column-type="result">Result</th>
+          <th class="sortable" data-column-type="testId">Test</th>
+          <th class="sortable" data-column-type="duration">Duration</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+  <footer>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.10.0&#34;, &#34;Platform&#34;: &#34;macOS-10.16-x86_64-i386-64bit&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.2.1&#34;, &#34;pluggy&#34;: &#34;1.5.0&#34;}, &#34;Plugins&#34;: {&#34;html&#34;: &#34;4.1.1&#34;, &#34;metadata&#34;: &#34;3.1.1&#34;}}, &#34;tests&#34;: {&#34;tests/test_collection_endpoint.py::test_json_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_json_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;84 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_json_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;84 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;collection_endpoint_response_root&amp;#x27; for &amp;lt;Function test_json_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x1024599c0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # the JSON response comes from the remote DTS API being tested\n                &amp;#x27;collection/collection_docs_response_root.json&amp;#x27;, # JSON response from the documentation examples (all collections)\n            ]\n    )\n    def collection_endpoint_response_root(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -&amp;gt; Optional[Dict]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Collection endpoint response, when no collection is selected.\n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           dts_client.collections()\n\ntests/conftest.py:127: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     root:validation.py:50 The property `collection` is present as expected\nINFO     root:validation.py:50 The property `document` is present as expected\nINFO     root:validation.py:50 The property `navigation` is present as expected\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_collection_endpoint.py::test_json_response_validity[collection/collection_docs_response_root.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_json_response_validity[collection/collection_docs_response_root.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_json_response_validity[collection/collection_docs_response_root.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_collection_endpoint.py&amp;#x27;, 6, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_collection_endpoint.py::test_one_collection_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_one_collection_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_one_collection_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;collection_endpoint_response_one&amp;#x27; for &amp;lt;Function test_one_collection_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x1024599c0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # the JSON response comes from the remote DTS API being tested\n                &amp;#x27;collection/collection_docs_response_one.json&amp;#x27;, # JSON response from the documentation examples (one collection)\n            ]\n    )\n    def collection_endpoint_response_one(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -&amp;gt; Optional[Dict]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Collection endpoint response, when one collection is selected.\n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           one_collection_id = dts_client.collections()[-1].id # let&amp;#x27;s take always the last one\n\ntests/conftest.py:151: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_collection_endpoint.py::test_one_collection_response_validity[collection/collection_docs_response_one.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_one_collection_response_validity[collection/collection_docs_response_one.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_one_collection_response_validity[collection/collection_docs_response_one.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_collection_endpoint.py&amp;#x27;, 16, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_collection_endpoint.py::test_readable_collection_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_readable_collection_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_readable_collection_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;collection_endpoint_response_readable&amp;#x27; for &amp;lt;Function test_readable_collection_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x1024599c0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # the JSON response comes from the remote DTS API being tested\n                &amp;#x27;collection/collection_docs_response_readable.json&amp;#x27;, # JSON response from the documentation examples (one readable collection)\n            ]\n    )\n    def collection_endpoint_response_readable(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -&amp;gt; Optional[Dict]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Collection endpoint response, when one collection is selected.\n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource_id = dts_client.get_one_resource().id\n\ntests/conftest.py:177: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_collection_endpoint.py::test_readable_collection_response_additional_required_properties[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_readable_collection_response_additional_required_properties[None]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_readable_collection_response_additional_required_properties[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;collection_endpoint_response_readable&amp;#x27; for &amp;lt;Function test_readable_collection_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x1024599c0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # the JSON response comes from the remote DTS API being tested\n                &amp;#x27;collection/collection_docs_response_readable.json&amp;#x27;, # JSON response from the documentation examples (one readable collection)\n            ]\n    )\n    def collection_endpoint_response_readable(request: pytest.FixtureRequest, dts_client: Optional[DTS_API]) -&amp;gt; Optional[Dict]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Collection endpoint response, when one collection is selected.\n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource_id = dts_client.get_one_resource().id\n\ntests/conftest.py:177: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n&#34;}], &#34;tests/test_collection_endpoint.py::test_readable_collection_response_validity[collection/collection_docs_response_readable.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_readable_collection_response_validity[collection/collection_docs_response_readable.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_readable_collection_response_validity[collection/collection_docs_response_readable.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_collection_endpoint.py&amp;#x27;, 26, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_collection_endpoint.py::test_readable_collection_response_additional_required_properties[collection/collection_docs_response_readable.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_collection_endpoint.py::test_readable_collection_response_additional_required_properties[collection/collection_docs_response_readable.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_collection_endpoint.py::test_readable_collection_response_additional_required_properties[collection/collection_docs_response_readable.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_collection_endpoint.py&amp;#x27;, 37, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_document_endpoint.py::test_document_resource_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_document_endpoint.py::test_document_resource_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;77 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_document_endpoint.py::test_document_resource_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;77 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;document_endpoint_response_resource&amp;#x27; for &amp;lt;Function test_document_resource_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10271e710&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                #&amp;#x27;navigation/navigation_docs_response_range_plus_down.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def document_endpoint_response_resource(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API],\n    ) -&amp;gt; Tuple[Optional[str], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;_summary_\n    \n        :param request: _description_\n        :type request: pytest.FixtureRequest\n        :param dts_client: _description_\n        :type dts_client: Optional[DTS_API]\n        :return: _description_\n        :rtype: Tuple[Optional[str], requests.models.Response]\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           one_resource = dts_client.get_one_resource()\n\ntests/conftest.py:472: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     root:validation.py:50 The property `collection` is present as expected\nINFO     root:validation.py:50 The property `document` is present as expected\nINFO     root:validation.py:50 The property `navigation` is present as expected\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_document_endpoint.py::test_document_ref_response_validity[None-None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_document_endpoint.py::test_document_ref_response_validity[None-None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_document_endpoint.py::test_document_ref_response_validity[None-None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_down_one&amp;#x27; for &amp;lt;Function test_document_ref_response_validity[None-None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10271e710&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                &amp;#x27;navigation/navigation_docs_response_down_one.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_down_one(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[DTS_Navigation], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when querying the root of a `Resource` (`down=1`).\n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:208: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_document_endpoint.py::test_document_ref_response_validity[None-navigation/navigation_docs_response_down_one.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_document_endpoint.py::test_document_ref_response_validity[None-navigation/navigation_docs_response_down_one.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_document_endpoint.py::test_document_ref_response_validity[None-navigation/navigation_docs_response_down_one.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_document_endpoint.py&amp;#x27;, 19, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_document_endpoint.py::test_document_range_response_validity[None-None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_document_endpoint.py::test_document_range_response_validity[None-None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_document_endpoint.py::test_document_range_response_validity[None-None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_range&amp;#x27; for &amp;lt;Function test_document_range_response_validity[None-None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10271e710&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                #&amp;#x27;navigation/navigation_docs_response_range_plus_down.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_range(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[Dict], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when retrieving\n        when retrieving an array of `CitableUnit`s in a specified range\n        (`?start=&amp;lt;citable_unit_1&amp;gt;&amp;amp;end=&amp;lt;citable_unit_2`).\n    \n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on\n        mock/example data will be performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:425: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_validity[None]&#34;, &#34;duration&#34;: &#34;81 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_validity[None]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;81 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;entry_endpoint_response = {&amp;#x27;@context&amp;#x27;: {&amp;#x27;dc&amp;#x27;: &amp;#x27;http://purl.org/dc/terms/&amp;#x27;, &amp;#x27;dts&amp;#x27;: &amp;#x27;https://distributed-text-services.github.io/specifications/co...ei&amp;#x27;: &amp;#x27;http://www.tei-c.org/ns/1.0&amp;#x27;}, &amp;#x27;@id&amp;#x27;: &amp;#x27;dts&amp;#x27;, &amp;#x27;@type&amp;#x27;: &amp;#x27;EntryPoint&amp;#x27;, &amp;#x27;collection&amp;#x27;: &amp;#x27;dts/collection{?id,nav}&amp;#x27;, ...}\nentry_response_schema = {&amp;#x27;$comment&amp;#x27;: &amp;#x27;https://distributed-text-services.github.io/specifications/versions/1-alpha/#entry-endpoint&amp;#x27;, &amp;#x27;$id&amp;#x27;: &amp;#x27;en...&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;@id&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;@type&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;collection&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, ...}, ...}\n\n    def test_json_response_validity(entry_endpoint_response : dict, entry_response_schema : dict):\n        &amp;quot;&amp;quot;&amp;quot;Validates the JSON response of a remote DTS Entry endpoint against its schema.\n    \n        :param entry_endpoint_response: The JSON returned by the DTS Entry endpoint\n        :type entry_endpoint_response: dict\n        :param entry_response_schema: The JSON schema for the DTS Entry endpoint\n        :type entry_response_schema: dict\n        &amp;quot;&amp;quot;&amp;quot;\n&amp;gt;       validate_json(entry_endpoint_response, entry_response_schema) # this will test appropriate assertions\n\ntests/test_entry_endpoint.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/validation.py:27: in validate_json\n    raise e\ndts_validator/validation.py:21: in validate_json\n    assert validate(json_data, json_schema, resolver=resolver) is None\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ninstance = {&amp;#x27;@context&amp;#x27;: {&amp;#x27;dc&amp;#x27;: &amp;#x27;http://purl.org/dc/terms/&amp;#x27;, &amp;#x27;dts&amp;#x27;: &amp;#x27;https://distributed-text-services.github.io/specifications/co...ei&amp;#x27;: &amp;#x27;http://www.tei-c.org/ns/1.0&amp;#x27;}, &amp;#x27;@id&amp;#x27;: &amp;#x27;dts&amp;#x27;, &amp;#x27;@type&amp;#x27;: &amp;#x27;EntryPoint&amp;#x27;, &amp;#x27;collection&amp;#x27;: &amp;#x27;dts/collection{?id,nav}&amp;#x27;, ...}\nschema = {&amp;#x27;$comment&amp;#x27;: &amp;#x27;https://distributed-text-services.github.io/specifications/versions/1-alpha/#entry-endpoint&amp;#x27;, &amp;#x27;$id&amp;#x27;: &amp;#x27;en...&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;@id&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;@type&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;collection&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, ...}, ...}\ncls = &amp;lt;class &amp;#x27;jsonschema.validators.Draft202012Validator&amp;#x27;&amp;gt;, args = (), kwargs = {&amp;#x27;resolver&amp;#x27;: &amp;lt;jsonschema.validators._RefResolver object at 0x1026324d0&amp;gt;}\nvalidator = Draft202012Validator(schema={&amp;#x27;$comment&amp;#x27;: &amp;#x27;https://dist...ntry-endpoint&amp;#x27;, &amp;#x27;$id&amp;#x27;: &amp;#x27;entry_response_schema.json&amp;#x27;, &amp;#x27;$schema...d&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;@type&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, &amp;#x27;collection&amp;#x27;: {&amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}, ...}, ...}, format_checker=None)\nerror = &amp;lt;ValidationError: &amp;quot;&amp;#x27;1-alpha-unstable&amp;#x27; is not one of [&amp;#x27;1-alpha&amp;#x27;, &amp;#x27;unstable&amp;#x27;]&amp;quot;&amp;gt;\n\n    def validate(instance, schema, cls=None, *args, **kwargs):  # noqa: D417\n        &amp;quot;&amp;quot;&amp;quot;\n        Validate an instance under the given schema.\n    \n            &amp;gt;&amp;gt;&amp;gt; validate([2, 3, 4], {&amp;quot;maxItems&amp;quot;: 2})\n            Traceback (most recent call last):\n                ...\n            ValidationError: [2, 3, 4] is too long\n    \n        :func:`~jsonschema.validators.validate` will first verify that the\n        provided schema is itself valid, since not doing so can lead to less\n        obvious error messages and fail in less obvious or consistent ways.\n    \n        If you know you have a valid schema already, especially\n        if you intend to validate multiple instances with\n        the same schema, you likely would prefer using the\n        `jsonschema.protocols.Validator.validate` method directly on a\n        specific validator (e.g. ``Draft202012Validator.validate``).\n    \n    \n        Arguments:\n    \n            instance:\n    \n                The instance to validate\n    \n            schema:\n    \n                The schema to validate with\n    \n            cls (jsonschema.protocols.Validator):\n    \n                The class that will be used to validate the instance.\n    \n        If the ``cls`` argument is not provided, two things will happen\n        in accordance with the specification. First, if the schema has a\n        :kw:`$schema` keyword containing a known meta-schema [#]_ then the\n        proper validator will be used. The specification recommends that\n        all schemas contain :kw:`$schema` properties for this reason. If no\n        :kw:`$schema` property is found, the default validator class is the\n        latest released draft.\n    \n        Any other provided positional and keyword arguments will be passed\n        on when instantiating the ``cls``.\n    \n        Raises:\n    \n            `jsonschema.exceptions.ValidationError`:\n    \n                if the instance is invalid\n    \n            `jsonschema.exceptions.SchemaError`:\n    \n                if the schema itself is invalid\n    \n        .. rubric:: Footnotes\n        .. [#] known by a validator registered with\n            `jsonschema.validators.validates`\n    \n        &amp;quot;&amp;quot;&amp;quot;\n        if cls is None:\n            cls = validator_for(schema)\n    \n        cls.check_schema(schema)\n        validator = cls(schema, *args, **kwargs)\n        error = exceptions.best_match(validator.iter_errors(instance))\n        if error is not None:\n&amp;gt;           raise error\nE           jsonschema.exceptions.ValidationError: &amp;#x27;1-alpha-unstable&amp;#x27; is not one of [&amp;#x27;1-alpha&amp;#x27;, &amp;#x27;unstable&amp;#x27;]\nE           \nE           Failed validating &amp;#x27;enum&amp;#x27; in schema[&amp;#x27;properties&amp;#x27;][&amp;#x27;dtsVersion&amp;#x27;]:\nE               {&amp;#x27;enum&amp;#x27;: [&amp;#x27;1-alpha&amp;#x27;, &amp;#x27;unstable&amp;#x27;], &amp;#x27;type&amp;#x27;: &amp;#x27;string&amp;#x27;}\nE           \nE           On instance[&amp;#x27;dtsVersion&amp;#x27;]:\nE               &amp;#x27;1-alpha-unstable&amp;#x27;\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/jsonschema/validators.py:1332: ValidationError\n\n------------------------------ Captured log setup ------------------------------\nINFO     root:validation.py:50 The property `collection` is present as expected\nINFO     root:validation.py:50 The property `document` is present as expected\nINFO     root:validation.py:50 The property `navigation` is present as expected\n\n------------------------------ Captured log call -------------------------------\nERROR    root:validation.py:26 The JSON response is invalid according to the provided schema.\n\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[None]&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_uri_templates[None]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;------------------------------ Captured log call -------------------------------\nINFO     root:validation.py:39 Expected parameter `id` is contained in the `collection` URI template dts/collection{?id,nav}\nINFO     root:validation.py:39 Expected parameter `nav` is contained in the `collection` URI template dts/collection{?id,nav}\nINFO     root:validation.py:39 Expected parameter `resource` is contained in the `navigation` URI template dts/navigation{?resource,ref,start,end,down}\nINFO     root:validation.py:39 Expected parameter `ref` is contained in the `navigation` URI template dts/navigation{?resource,ref,start,end,down}\nINFO     root:validation.py:39 Expected parameter `start` is contained in the `navigation` URI template dts/navigation{?resource,ref,start,end,down}\nINFO     root:validation.py:39 Expected parameter `end` is contained in the `navigation` URI template dts/navigation{?resource,ref,start,end,down}\nINFO     root:validation.py:39 Expected parameter `resource` is contained in the `document` URI template dts/document{?resource,ref,start,end}\nINFO     root:validation.py:39 Expected parameter `ref` is contained in the `document` URI template dts/document{?resource,ref,start,end}\nINFO     root:validation.py:39 Expected parameter `start` is contained in the `document` URI template dts/document{?resource,ref,start,end}\nINFO     root:validation.py:39 Expected parameter `end` is contained in the `document` URI template dts/document{?resource,ref,start,end}\n\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_invalid_response.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_invalid_response.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_invalid_response.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_entry_endpoint.py&amp;#x27;, 7, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_invalid_response.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_invalid_response.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_invalid_response.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_entry_endpoint.py&amp;#x27;, 17, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_old_response.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_old_response.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_old_response.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_entry_endpoint.py&amp;#x27;, 7, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_old_response.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_old_response.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_old_response.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_entry_endpoint.py&amp;#x27;, 17, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_docs_response.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_docs_response.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_validity[entry/entry_docs_response.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_entry_endpoint.py&amp;#x27;, 7, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_docs_response.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_docs_response.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_entry_endpoint.py::test_json_response_uri_templates[entry/entry_docs_response.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_entry_endpoint.py&amp;#x27;, 17, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;82 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;82 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_down_one&amp;#x27; for &amp;lt;Function test_navigation_one_down_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10259bcd0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                &amp;#x27;navigation/navigation_docs_response_down_one.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_down_one(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[DTS_Navigation], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when querying the root of a `Resource` (`down=1`).\n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:208: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     root:validation.py:50 The property `collection` is present as expected\nINFO     root:validation.py:50 The property `document` is present as expected\nINFO     root:validation.py:50 The property `navigation` is present as expected\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity[navigation/navigation_docs_response_down_one.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity[navigation/navigation_docs_response_down_one.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_one_down_response_validity[navigation/navigation_docs_response_down_one.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_navigation_endpoint.py&amp;#x27;, 10, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_down_two&amp;#x27; for &amp;lt;Function test_navigation_two_down_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10259bcd0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # the JSON response comes from the remote DTS API being tested\n                &amp;#x27;navigation/navigation_docs_response_down_two.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_down_two(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[DTS_Navigation], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when retrieving an array\n        of all `Citable Unit`s for a given `Resource` down to the second level of the `Resource`;s\n        citation tree (`&amp;amp;down=2`).\n    \n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:239: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity[navigation/navigation_docs_response_down_two.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity[navigation/navigation_docs_response_down_two.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_two_down_response_validity[navigation/navigation_docs_response_down_two.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_navigation_endpoint.py&amp;#x27;, 36, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_ref_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_ref_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_ref_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_ref&amp;#x27; for &amp;lt;Function test_navigation_ref_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10259bcd0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                &amp;#x27;navigation/navigation_docs_response_ref.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_ref(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[DTS_Navigation], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when retrieving the entire\n        citation subtree for a `Citable Unit` of a given `Resource` (`?ref=&amp;lt;citable_unit)id&amp;gt;&amp;amp;down=-1`).\n        See DTS API specs, section &amp;quot;Navigation Endpoint&amp;quot;, example #3.\n    \n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on mock/example data will be\n        performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:271: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_ref_response_validity[navigation/navigation_docs_response_ref.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_ref_response_validity[navigation/navigation_docs_response_ref.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_ref_response_validity[navigation/navigation_docs_response_ref.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_navigation_endpoint.py&amp;#x27;, 63, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_top_ref_down_two_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_top_ref_down_two_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_top_ref_down_two_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_top_ref_down_two&amp;#x27; for &amp;lt;Function test_navigation_top_ref_down_two_response_validity[None]&amp;gt;&amp;gt;\ndts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10259bcd0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                &amp;#x27;navigation/navigation_docs_response_top_ref_down_two.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_top_ref_down_two(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[DTS_Navigation], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when retrieving\n        the citation subtree (children + grand-children) for a `Citable Unit` of a given\n        `Resource` (`?ref=&amp;lt;citable_unit)id&amp;gt;&amp;amp;down=2`).\n        See DTS API specs, section &amp;quot;Navigation Endpoint&amp;quot;, example #4.\n    \n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on\n        mock/example data will be performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:310: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_top_ref_down_two_response_validity[navigation/navigation_docs_response_top_ref_down_two.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_top_ref_down_two_response_validity[navigation/navigation_docs_response_top_ref_down_two.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_top_ref_down_two_response_validity[navigation/navigation_docs_response_top_ref_down_two.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_navigation_endpoint.py&amp;#x27;, 95, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_low_ref_down_one_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_low_ref_down_one_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_low_ref_down_one_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_navigation_endpoint.py&amp;#x27;, 123, &amp;#x27;Skipped: Not implemented yet; depends on changes to `client.DTS_API`&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_low_ref_down_one_response_validity[navigation/navigation_docs_response_low_ref_down_one.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_low_ref_down_one_response_validity[navigation/navigation_docs_response_low_ref_down_one.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_low_ref_down_one_response_validity[navigation/navigation_docs_response_low_ref_down_one.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_navigation_endpoint.py&amp;#x27;, 123, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_range_plus_down_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_range_plus_down_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_range_plus_down_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_range_plus_down&amp;#x27; for &amp;lt;Function test_navigation_range_plus_down_response_validity[None]&amp;gt;&amp;gt;\ndts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10259bcd0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                &amp;#x27;navigation/navigation_docs_response_range_plus_down.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_range_plus_down(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[Dict], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when retrieving\n        when retrieving an array of `CitableUnit`s in a specified range, including\n        the direct children of the specified start and end points (`?start=&amp;lt;citable_unit_1&amp;gt;&amp;amp;end=&amp;lt;citable_unit_2&amp;gt;&amp;amp;down=1`).\n        See DTS API specs, section &amp;quot;Navigation Endpoint&amp;quot;, example #6.\n    \n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on\n        mock/example data will be performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:382: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_range_plus_down_response_validity[navigation/navigation_docs_response_range_plus_down.json]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Skipped&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_range_plus_down_response_validity[navigation/navigation_docs_response_range_plus_down.json]::setup&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Skipped&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_range_plus_down_response_validity[navigation/navigation_docs_response_range_plus_down.json]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;(&amp;#x27;/Users/mromanel/Documents/DTS-validator/tests/test_navigation_endpoint.py&amp;#x27;, 150, &amp;#x27;Skipped: A remote DTS API is provided; skipping tests on mock/example data&amp;#x27;)\n&#34;}], &#34;tests/test_navigation_endpoint.py::test_navigation_range_response_validity[None]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Error&#34;, &#34;testId&#34;: &#34;tests/test_navigation_endpoint.py::test_navigation_range_response_validity[None]::setup&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Error&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/test_navigation_endpoint.py::test_navigation_range_response_validity[None]::setup&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;request = &amp;lt;SubRequest &amp;#x27;navigation_endpoint_response_range&amp;#x27; for &amp;lt;Function test_navigation_range_response_validity[None]&amp;gt;&amp;gt;, dts_client = &amp;lt;dts_validator.client.DTS_API object at 0x10259bcd0&amp;gt;\n\n    @pytest.fixture(\n            scope=&amp;#x27;module&amp;#x27;,\n            params=[\n                pytest.param(None), # response is None,\n                #&amp;#x27;navigation/navigation_docs_response_range_plus_down.json&amp;#x27;, # JSON response from the documentation examples\n            ]\n    )\n    def navigation_endpoint_response_range(\n        request: pytest.FixtureRequest,\n        dts_client: Optional[DTS_API]\n    ) -&amp;gt; Tuple[Optional[Dict], requests.models.Response]:\n        &amp;quot;&amp;quot;&amp;quot;\n        This fixture returns a DTS Navigation endpoint response, when retrieving\n        when retrieving an array of `CitableUnit`s in a specified range\n        (`?start=&amp;lt;citable_unit_1&amp;gt;&amp;amp;end=&amp;lt;citable_unit_2`).\n    \n        If no URI is provided via the `--entry-endpoint` parameter, a number of tests on\n        mock/example data will be performed (otherwise they will be skipped).\n        &amp;quot;&amp;quot;&amp;quot;\n        # use remote API for tests\n        if request.param is None and dts_client is not None:\n&amp;gt;           readable_resource = dts_client.get_one_resource()\n\ntests/conftest.py:425: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ndts_validator/client.py:159: in get_one_resource\n    collections = self.collections()\ndts_validator/client.py:126: in collections\n    collection_req = requests.get(collection_req_uri)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:73: in get\n    return request(&amp;quot;get&amp;quot;, url, params=params, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/api.py:59: in request\n    return session.request(method=method, url=url, **kwargs)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:575: in request\n    prep = self.prepare_request(req)\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/sessions.py:484: in prepare_request\n    p.prepare(\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:367: in prepare\n    self.prepare_url(url, params)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = &amp;lt;PreparedRequest [GET]&amp;gt;, url = &amp;#x27;dts/collection&amp;#x27;, params = OrderedDict()\n\n    def prepare_url(self, url, params):\n        &amp;quot;&amp;quot;&amp;quot;Prepares the given HTTP URL.&amp;quot;&amp;quot;&amp;quot;\n        #: Accept objects that have string representations.\n        #: We&amp;#x27;re unable to blindly call unicode/str functions\n        #: as this will include the bytestring indicator (b&amp;#x27;&amp;#x27;)\n        #: on python 3.x.\n        #: https://github.com/psf/requests/pull/2238\n        if isinstance(url, bytes):\n            url = url.decode(&amp;quot;utf8&amp;quot;)\n        else:\n            url = str(url)\n    \n        # Remove leading whitespaces from url\n        url = url.lstrip()\n    \n        # Don&amp;#x27;t do any URL preparation for non-HTTP schemes like `mailto`,\n        # `data` etc to work around exceptions from `url_parse`, which\n        # handles RFC 3986 only.\n        if &amp;quot;:&amp;quot; in url and not url.lower().startswith(&amp;quot;http&amp;quot;):\n            self.url = url\n            return\n    \n        # Support for unicode domain names and paths.\n        try:\n            scheme, auth, host, port, path, query, fragment = parse_url(url)\n        except LocationParseError as e:\n            raise InvalidURL(*e.args)\n    \n        if not scheme:\n&amp;gt;           raise MissingSchema(\n                f&amp;quot;Invalid URL {url!r}: No scheme supplied. &amp;quot;\n                f&amp;quot;Perhaps you meant https://{url}?&amp;quot;\n            )\nE           requests.exceptions.MissingSchema: Invalid URL &amp;#x27;dts/collection&amp;#x27;: No scheme supplied. Perhaps you meant https://dts/collection?\n\n../../Library/Caches/pypoetry/virtualenvs/dts-validator-DbkA65XM-py3.10/lib/python3.10/site-packages/requests/models.py:438: MissingSchema\n\n------------------------------ Captured log setup ------------------------------\nINFO     dts_validator.client:client.py:125 URI of request to Collection endpoint: dts/collection\n&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;ubhd_all_report.html&#34;}"></div>
+    <script>
+      (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')
+
+class DataManager {
+    setManager(data) {
+        const collapsedCategories = [...getCollapsedCategory(data.renderCollapsed)]
+        const collapsedIds = []
+        const tests = Object.values(data.tests).flat().map((test, index) => {
+            const collapsed = collapsedCategories.includes(test.result.toLowerCase())
+            const id = `test_${index}`
+            if (collapsed) {
+                collapsedIds.push(id)
+            }
+            return {
+                ...test,
+                id,
+                collapsed,
+            }
+        })
+        const dataBlob = { ...data, tests }
+        this.data = { ...dataBlob }
+        this.renderData = { ...dataBlob }
+        setCollapsedIds(collapsedIds)
+    }
+
+    get allData() {
+        return { ...this.data }
+    }
+
+    resetRender() {
+        this.renderData = { ...this.data }
+    }
+
+    setRender(data) {
+        this.renderData.tests = [...data]
+    }
+
+    toggleCollapsedItem(id) {
+        this.renderData.tests = this.renderData.tests.map((test) =>
+            test.id === id ? { ...test, collapsed: !test.collapsed } : test,
+        )
+    }
+
+    set allCollapsed(collapsed) {
+        this.renderData = { ...this.renderData, tests: [...this.renderData.tests.map((test) => (
+            { ...test, collapsed }
+        ))] }
+    }
+
+    get testSubset() {
+        return [...this.renderData.tests]
+    }
+
+    get environment() {
+        return this.renderData.environment
+    }
+
+    get initialSort() {
+        return this.data.initialSort
+    }
+}
+
+module.exports = {
+    manager: new DataManager(),
+}
+
+},{"./storage.js":8}],2:[function(require,module,exports){
+const mediaViewer = require('./mediaviewer.js')
+const templateEnvRow = document.getElementById('template_environment_row')
+const templateResult = document.getElementById('template_results-table__tbody')
+
+function htmlToElements(html) {
+    const temp = document.createElement('template')
+    temp.innerHTML = html
+    return temp.content.childNodes
+}
+
+const find = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return elem.querySelector(selector)
+}
+
+const findAll = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return [...elem.querySelectorAll(selector)]
+}
+
+const dom = {
+    getStaticRow: (key, value) => {
+        const envRow = templateEnvRow.content.cloneNode(true)
+        const isObj = typeof value === 'object' && value !== null
+        const values = isObj ? Object.keys(value).map((k) => `${k}: ${value[k]}`) : null
+
+        const valuesElement = htmlToElements(
+            values ? `<ul>${values.map((val) => `<li>${val}</li>`).join('')}<ul>` : `<div>${value}</div>`)[0]
+        const td = findAll('td', envRow)
+        td[0].textContent = key
+        td[1].appendChild(valuesElement)
+
+        return envRow
+    },
+    getResultTBody: ({ testId, id, log, extras, resultsTableRow, tableHtml, result, collapsed }) => {
+        const resultBody = templateResult.content.cloneNode(true)
+        resultBody.querySelector('tbody').classList.add(result.toLowerCase())
+        resultBody.querySelector('tbody').id = testId
+        resultBody.querySelector('.collapsible').dataset.id = id
+
+        resultsTableRow.forEach((html) => {
+            const t = document.createElement('template')
+            t.innerHTML = html
+            resultBody.querySelector('.collapsible').appendChild(t.content)
+        })
+
+        if (log) {
+            // Wrap lines starting with "E" with span.error to color those lines red
+            const wrappedLog = log.replace(/^E.*$/gm, (match) => `<span class="error">${match}</span>`)
+            resultBody.querySelector('.log').innerHTML = wrappedLog
+        } else {
+            resultBody.querySelector('.log').remove()
+        }
+
+        if (collapsed) {
+            resultBody.querySelector('.collapsible > td')?.classList.add('collapsed')
+            resultBody.querySelector('.extras-row').classList.add('hidden')
+        } else {
+            resultBody.querySelector('.collapsible > td')?.classList.remove('collapsed')
+        }
+
+        const media = []
+        extras?.forEach(({ name, format_type, content }) => {
+            if (['image', 'video'].includes(format_type)) {
+                media.push({ path: content, name, format_type })
+            }
+
+            if (format_type === 'html') {
+                resultBody.querySelector('.extraHTML').insertAdjacentHTML('beforeend', `<div>${content}</div>`)
+            }
+        })
+        mediaViewer.setup(resultBody, media)
+
+        // Add custom html from the pytest_html_results_table_html hook
+        tableHtml?.forEach((item) => {
+            resultBody.querySelector('td[class="extra"]').insertAdjacentHTML('beforeend', item)
+        })
+
+        return resultBody
+    },
+}
+
+module.exports = {
+    dom,
+    htmlToElements,
+    find,
+    findAll,
+}
+
+},{"./mediaviewer.js":6}],3:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const storageModule = require('./storage.js')
+
+const getFilteredSubSet = (filter) =>
+    manager.allData.tests.filter(({ result }) => filter.includes(result.toLowerCase()))
+
+const doInitFilter = () => {
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+}
+
+const doFilter = (type, show) => {
+    if (show) {
+        storageModule.showCategory(type)
+    } else {
+        storageModule.hideCategory(type)
+    }
+
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+
+    const sortColumn = storageModule.getSort()
+    doSort(sortColumn, true)
+}
+
+module.exports = {
+    doFilter,
+    doInitFilter,
+}
+
+},{"./datamanager.js":1,"./sort.js":7,"./storage.js":8}],4:[function(require,module,exports){
+const { redraw, bindEvents, renderStatic } = require('./main.js')
+const { doInitFilter } = require('./filter.js')
+const { doInitSort } = require('./sort.js')
+const { manager } = require('./datamanager.js')
+const data = JSON.parse(document.getElementById('data-container').dataset.jsonblob)
+
+function init() {
+    manager.setManager(data)
+    doInitFilter()
+    doInitSort()
+    renderStatic()
+    redraw()
+    bindEvents()
+}
+
+init()
+
+},{"./datamanager.js":1,"./filter.js":3,"./main.js":5,"./sort.js":7}],5:[function(require,module,exports){
+const { dom, find, findAll } = require('./dom.js')
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const { doFilter } = require('./filter.js')
+const {
+    getVisible,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    getSortDirection,
+    possibleFilters,
+} = require('./storage.js')
+
+const removeChildren = (node) => {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
+}
+
+const renderStatic = () => {
+    const renderEnvironmentTable = () => {
+        const environment = manager.environment
+        const rows = Object.keys(environment).map((key) => dom.getStaticRow(key, environment[key]))
+        const table = document.getElementById('environment')
+        removeChildren(table)
+        rows.forEach((row) => table.appendChild(row))
+    }
+    renderEnvironmentTable()
+}
+
+const addItemToggleListener = (elem) => {
+    elem.addEventListener('click', ({ target }) => {
+        const id = target.parentElement.dataset.id
+        manager.toggleCollapsedItem(id)
+
+        const collapsedIds = getCollapsedIds()
+        if (collapsedIds.includes(id)) {
+            const updated = collapsedIds.filter((item) => item !== id)
+            setCollapsedIds(updated)
+        } else {
+            collapsedIds.push(id)
+            setCollapsedIds(collapsedIds)
+        }
+        redraw()
+    })
+}
+
+const renderContent = (tests) => {
+    const sortAttr = getSort(manager.initialSort)
+    const sortAsc = JSON.parse(getSortDirection())
+    const rows = tests.map(dom.getResultTBody)
+    const table = document.getElementById('results-table')
+    const tableHeader = document.getElementById('results-table-head')
+
+    const newTable = document.createElement('table')
+    newTable.id = 'results-table'
+
+    // remove all sorting classes and set the relevant
+    findAll('.sortable', tableHeader).forEach((elem) => elem.classList.remove('asc', 'desc'))
+    tableHeader.querySelector(`.sortable[data-column-type="${sortAttr}"]`)?.classList.add(sortAsc ? 'desc' : 'asc')
+    newTable.appendChild(tableHeader)
+
+    if (!rows.length) {
+        const emptyTable = document.getElementById('template_results-table__body--empty').content.cloneNode(true)
+        newTable.appendChild(emptyTable)
+    } else {
+        rows.forEach((row) => {
+            if (!!row) {
+                findAll('.collapsible td:not(.col-links', row).forEach(addItemToggleListener)
+                find('.logexpander', row).addEventListener('click',
+                    (evt) => evt.target.parentNode.classList.toggle('expanded'),
+                )
+                newTable.appendChild(row)
+            }
+        })
+    }
+
+    table.replaceWith(newTable)
+}
+
+const renderDerived = () => {
+    const currentFilter = getVisible()
+    possibleFilters.forEach((result) => {
+        const input = document.querySelector(`input[data-test-result="${result}"]`)
+        input.checked = currentFilter.includes(result)
+    })
+}
+
+const bindEvents = () => {
+    const filterColumn = (evt) => {
+        const { target: element } = evt
+        const { testResult } = element.dataset
+
+        doFilter(testResult, element.checked)
+        const collapsedIds = getCollapsedIds()
+        const updated = manager.renderData.tests.map((test) => {
+            return {
+                ...test,
+                collapsed: collapsedIds.includes(test.id),
+            }
+        })
+        manager.setRender(updated)
+        redraw()
+    }
+
+    const header = document.getElementById('environment-header')
+    header.addEventListener('click', () => {
+        const table = document.getElementById('environment')
+        table.classList.toggle('hidden')
+        header.classList.toggle('collapsed')
+    })
+
+    findAll('input[name="filter_checkbox"]').forEach((elem) => {
+        elem.addEventListener('click', filterColumn)
+    })
+
+    findAll('.sortable').forEach((elem) => {
+        elem.addEventListener('click', (evt) => {
+            const { target: element } = evt
+            const { columnType } = element.dataset
+            doSort(columnType)
+            redraw()
+        })
+    })
+
+    document.getElementById('show_all_details').addEventListener('click', () => {
+        manager.allCollapsed = false
+        setCollapsedIds([])
+        redraw()
+    })
+    document.getElementById('hide_all_details').addEventListener('click', () => {
+        manager.allCollapsed = true
+        const allIds = manager.renderData.tests.map((test) => test.id)
+        setCollapsedIds(allIds)
+        redraw()
+    })
+}
+
+const redraw = () => {
+    const { testSubset } = manager
+
+    renderContent(testSubset)
+    renderDerived()
+}
+
+module.exports = {
+    redraw,
+    bindEvents,
+    renderStatic,
+}
+
+},{"./datamanager.js":1,"./dom.js":2,"./filter.js":3,"./sort.js":7,"./storage.js":8}],6:[function(require,module,exports){
+class MediaViewer {
+    constructor(assets) {
+        this.assets = assets
+        this.index = 0
+    }
+
+    nextActive() {
+        this.index = this.index === this.assets.length - 1 ? 0 : this.index + 1
+        return [this.activeFile, this.index]
+    }
+
+    prevActive() {
+        this.index = this.index === 0 ? this.assets.length - 1 : this.index -1
+        return [this.activeFile, this.index]
+    }
+
+    get currentIndex() {
+        return this.index
+    }
+
+    get activeFile() {
+        return this.assets[this.index]
+    }
+}
+
+
+const setup = (resultBody, assets) => {
+    if (!assets.length) {
+        resultBody.querySelector('.media').classList.add('hidden')
+        return
+    }
+
+    const mediaViewer = new MediaViewer(assets)
+    const container = resultBody.querySelector('.media-container')
+    const leftArrow = resultBody.querySelector('.media-container__nav--left')
+    const rightArrow = resultBody.querySelector('.media-container__nav--right')
+    const mediaName = resultBody.querySelector('.media__name')
+    const counter = resultBody.querySelector('.media__counter')
+    const imageEl = resultBody.querySelector('img')
+    const sourceEl = resultBody.querySelector('source')
+    const videoEl = resultBody.querySelector('video')
+
+    const setImg = (media, index) => {
+        if (media?.format_type === 'image') {
+            imageEl.src = media.path
+
+            imageEl.classList.remove('hidden')
+            videoEl.classList.add('hidden')
+        } else if (media?.format_type === 'video') {
+            sourceEl.src = media.path
+
+            videoEl.classList.remove('hidden')
+            imageEl.classList.add('hidden')
+        }
+
+        mediaName.innerText = media?.name
+        counter.innerText = `${index + 1} / ${assets.length}`
+    }
+    setImg(mediaViewer.activeFile, mediaViewer.currentIndex)
+
+    const moveLeft = () => {
+        const [media, index] = mediaViewer.prevActive()
+        setImg(media, index)
+    }
+    const doRight = () => {
+        const [media, index] = mediaViewer.nextActive()
+        setImg(media, index)
+    }
+    const openImg = () => {
+        window.open(mediaViewer.activeFile.path, '_blank')
+    }
+    if (assets.length === 1) {
+        container.classList.add('media-container--fullscreen')
+    } else {
+        leftArrow.addEventListener('click', moveLeft)
+        rightArrow.addEventListener('click', doRight)
+    }
+    imageEl.addEventListener('click', openImg)
+}
+
+module.exports = {
+    setup,
+}
+
+},{}],7:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const storageModule = require('./storage.js')
+
+const genericSort = (list, key, ascending, customOrder) => {
+    let sorted
+    if (customOrder) {
+        sorted = list.sort((a, b) => {
+            const aValue = a.result.toLowerCase()
+            const bValue = b.result.toLowerCase()
+
+            const aIndex = customOrder.findIndex((item) => item.toLowerCase() === aValue)
+            const bIndex = customOrder.findIndex((item) => item.toLowerCase() === bValue)
+
+            // Compare the indices to determine the sort order
+            return aIndex - bIndex
+        })
+    } else {
+        sorted = list.sort((a, b) => a[key] === b[key] ? 0 : a[key] > b[key] ? 1 : -1)
+    }
+
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const durationSort = (list, ascending) => {
+    const parseDuration = (duration) => {
+        if (duration.includes(':')) {
+            // If it's in the format "HH:mm:ss"
+            const [hours, minutes, seconds] = duration.split(':').map(Number)
+            return (hours * 3600 + minutes * 60 + seconds) * 1000
+        } else {
+            // If it's in the format "nnn ms"
+            return parseInt(duration)
+        }
+    }
+    const sorted = list.sort((a, b) => parseDuration(a['duration']) - parseDuration(b['duration']))
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const doInitSort = () => {
+    const type = storageModule.getSort(manager.initialSort)
+    const ascending = storageModule.getSortDirection()
+    const list = manager.testSubset
+    const initialOrder = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed', 'Skipped', 'Passed']
+
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    if (type?.toLowerCase() === 'original') {
+        manager.setRender(list)
+    } else {
+        let sortedList
+        switch (type) {
+        case 'duration':
+            sortedList = durationSort(list, ascending)
+            break
+        case 'result':
+            sortedList = genericSort(list, type, ascending, initialOrder)
+            break
+        default:
+            sortedList = genericSort(list, type, ascending)
+            break
+        }
+        manager.setRender(sortedList)
+    }
+}
+
+const doSort = (type, skipDirection) => {
+    const newSortType = storageModule.getSort(manager.initialSort) !== type
+    const currentAsc = storageModule.getSortDirection()
+    let ascending
+    if (skipDirection) {
+        ascending = currentAsc
+    } else {
+        ascending = newSortType ? false : !currentAsc
+    }
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    const list = manager.testSubset
+    const sortedList = type === 'duration' ? durationSort(list, ascending) : genericSort(list, type, ascending)
+    manager.setRender(sortedList)
+}
+
+module.exports = {
+    doInitSort,
+    doSort,
+}
+
+},{"./datamanager.js":1,"./storage.js":8}],8:[function(require,module,exports){
+const possibleFilters = [
+    'passed',
+    'skipped',
+    'failed',
+    'error',
+    'xfailed',
+    'xpassed',
+    'rerun',
+]
+
+const getVisible = () => {
+    const url = new URL(window.location.href)
+    const settings = new URLSearchParams(url.search).get('visible')
+    const lower = (item) => {
+        const lowerItem = item.toLowerCase()
+        if (possibleFilters.includes(lowerItem)) {
+            return lowerItem
+        }
+        return null
+    }
+    return settings === null ?
+        possibleFilters :
+        [...new Set(settings?.split(',').map(lower).filter((item) => item))]
+}
+
+const hideCategory = (categoryToHide) => {
+    const url = new URL(window.location.href)
+    const visibleParams = new URLSearchParams(url.search).get('visible')
+    const currentVisible = visibleParams ? visibleParams.split(',') : [...possibleFilters]
+    const settings = [...new Set(currentVisible)].filter((f) => f !== categoryToHide).join(',')
+
+    url.searchParams.set('visible', settings)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const showCategory = (categoryToShow) => {
+    if (typeof window === 'undefined') {
+        return
+    }
+    const url = new URL(window.location.href)
+    const currentVisible = new URLSearchParams(url.search).get('visible')?.split(',').filter(Boolean) ||
+        [...possibleFilters]
+    const settings = [...new Set([categoryToShow, ...currentVisible])]
+    const noFilter = possibleFilters.length === settings.length || !settings.length
+
+    noFilter ? url.searchParams.delete('visible') : url.searchParams.set('visible', settings.join(','))
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getSort = (initialSort) => {
+    const url = new URL(window.location.href)
+    let sort = new URLSearchParams(url.search).get('sort')
+    if (!sort) {
+        sort = initialSort || 'result'
+    }
+    return sort
+}
+
+const setSort = (type) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('sort', type)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getCollapsedCategory = (renderCollapsed) => {
+    let categories
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        const collapsedItems = new URLSearchParams(url.search).get('collapsed')
+        switch (true) {
+        case !renderCollapsed && collapsedItems === null:
+            categories = ['passed']
+            break
+        case collapsedItems?.length === 0 || /^["']{2}$/.test(collapsedItems):
+            categories = []
+            break
+        case /^all$/.test(collapsedItems) || collapsedItems === null && /^all$/.test(renderCollapsed):
+            categories = [...possibleFilters]
+            break
+        default:
+            categories = collapsedItems?.split(',').map((item) => item.toLowerCase()) || renderCollapsed
+            break
+        }
+    } else {
+        categories = []
+    }
+    return categories
+}
+
+const getSortDirection = () => JSON.parse(sessionStorage.getItem('sortAsc')) || false
+const setSortDirection = (ascending) => sessionStorage.setItem('sortAsc', ascending)
+
+const getCollapsedIds = () => JSON.parse(sessionStorage.getItem('collapsedIds')) || []
+const setCollapsedIds = (list) => sessionStorage.setItem('collapsedIds', JSON.stringify(list))
+
+module.exports = {
+    getVisible,
+    hideCategory,
+    showCategory,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    setSort,
+    getSortDirection,
+    setSortDirection,
+    getCollapsedCategory,
+    possibleFilters,
+}
+
+},{}]},{},[4]);
+    </script>
+  </footer>
+</html>
