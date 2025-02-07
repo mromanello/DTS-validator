@@ -17,6 +17,10 @@ class DTS_Collection(object):
         self.id = raw_json["@id"]
 
     @property
+    def json(self):
+        return self._json
+
+    @property
     def children(self) -> List[DTS_Collection]:
         """Returns the collections contained in the current collection. 
 
@@ -201,7 +205,6 @@ class DTS_API(object):
 
     def document(
             self,
-            navigation_or_collection: Union[Dict, DTS_Navigation],
             resource: DTS_Resource,
             reference: DTS_CitableUnit = None,
             start: DTS_CitableUnit = None,
@@ -209,8 +212,6 @@ class DTS_API(object):
     ) -> Tuple[str, Response]:
         """navigation_or_collection
 
-        :param navigation_or_collection: _description_
-        :type navigation_or_collection: Union[Dict, DTS_Navigation]
         :param resource: _description_
         :type resource: DTS_Resource
         :param reference: _description_, defaults to None
@@ -222,14 +223,6 @@ class DTS_API(object):
         :return: _description_
         :rtype: Tuple[str, Response]
         """
-        # TODO: explain why this is needed
-        if isinstance(navigation_or_collection, Dict):
-            navigation_or_collection_json = navigation_or_collection
-        elif isinstance(navigation_or_collection, DTS_Navigation):
-            navigation_or_collection_json = navigation_or_collection._json
-        else:
-            raise
-
         # get IDs from the input objects, and use them as values for URI parameters
         parameters = {
             "resource": resource.id,
@@ -237,12 +230,10 @@ class DTS_API(object):
             "start": start.id if start else None,
             "end": end.id if end else None
         }
-        if 'document' in navigation_or_collection_json:
-            document_endpoint_template = URITemplate(navigation_or_collection_json['document'])
-        elif 'passage' in navigation_or_collection_json:
-            document_endpoint_template = URITemplate(navigation_or_collection_json['passage'])
+        if 'document' in resource.json:
+            document_endpoint_template = URITemplate(resource.json['document'])
         else:
-            raise
+            raise ValueError("Missing document URI-Template")
 
         document_endpoint_uri = document_endpoint_template.expand(parameters)
         LOGGER.info(f'URI of request to Document endpoint: {document_endpoint_uri}')

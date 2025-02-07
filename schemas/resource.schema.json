@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/mromanello/DTS-validator/main/schemas/resource.schema.json",
+    "$id": "resource.schema.json",
     "$comment": "https://distributed-text-services.github.io/specifications/versions/1-alpha/#resource",
     "type": "object",
     "properties": {
@@ -16,6 +16,14 @@
             "type": "string",
             "format": "uri-template"
         },
+        "document": {
+            "type": "string",
+            "format": "uri-template"
+        },
+        "navigation": {
+            "type": "string",
+            "format": "uri-template"
+        },
         "citationTrees": {
             "type": "array",
             "items": {
@@ -23,14 +31,13 @@
                 "properties": {
                     "identifier": {"type": "string" },
                     "@type": {"type": "string" },
-                    "maxCiteDepth": {"type": "number"},
                     "citeStructure": {
                         "$ref": "#/$defs/citeStructure"
                     },
                     "description": {"type": "string" }
                 },
                 "required":[
-                    "@type", "maxCiteDepth"
+                    "@type"
                 ]
             }
         },
@@ -53,5 +60,5 @@
             }
         }
     },
-    "required": ["@id", "@type", "citationTrees"]
+    "required": ["@id", "@type", "citationTrees", "navigation", "document"]
 }

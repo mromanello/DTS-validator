@@ -33,6 +33,7 @@ def test_readable_collection_response_validity(collection_endpoint_response_read
     # TODO: use the response.schema.json instead
     validate_collection_response(collection_endpoint_response_readable, collection_response_schema)
 
+
 def test_readable_collection_response_additional_required_properties(collection_endpoint_response_readable : dict) -> None:
     """Checks for the presence of additional required properties of a remote
     DTS Collection endpoint response when one readable collection is selected (@type==Resource). 
@@ -41,28 +42,22 @@ def test_readable_collection_response_additional_required_properties(collection_
     :type collection_endpoint_response_readable: dict
     """
 
-    # maxCiteDepth is a required property of the citationTree
-    # if the Collection is of type Resource (this conditional
-    # constraint cannot be checked via the JSON schema)
-    citation_trees = collection_endpoint_response_readable['citationTrees']
-    for cit_tree in citation_trees:
-        check_required_property(cit_tree, 'maxCiteDepth')
-
     expected_parameters = {
-        'collection': ['nav'], # see https://github.com/distributed-text-services/specifications/pull/251
-        'navigation': ['ref', 'start', 'end'], # if compliancy_level == 1, `start` and `end` must be there 
-        'document': ['ref', 'start', 'end'] # if compliancy_level == 1, `start` and `end` must be there
+        'collection': ['nav'],  # see https://github.com/distributed-text-services/specifications/pull/251
+        'navigation': ['ref', 'start', 'end'],  # if compliancy_level == 1, `start` and `end` must be there
+        'document': ['ref', 'start', 'end']  # if compliancy_level == 1, `start` and `end` must be there
     }
+    print(collection_endpoint_response_readable)
     
-    for property in expected_parameters.keys():  
+    for prpty in expected_parameters.keys():
         # before checking the content of the URI template, let's make sure
         # that is present in the JSON response
-        check_required_property(collection_endpoint_response_readable, property)
+        check_required_property(collection_endpoint_response_readable, prpty)
         
         # let's now check that it declares all expected parameters
-        uri_template = collection_endpoint_response_readable[property]
-        params = expected_parameters[property]
-        validate_uri_template(uri_template, template_name=property, required_parameters=params)
+        uri_template = collection_endpoint_response_readable[prpty]
+        params = expected_parameters[prpty]
+        validate_uri_template(uri_template, template_name=prpty, required_parameters=params)
 
 
 # TODO: add test for parent collection

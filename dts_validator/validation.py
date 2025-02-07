@@ -1,15 +1,24 @@
 import logging
 import warnings
-from uritemplate import URITemplate
+import pathlib
+import os.path
 from jsonschema.exceptions import ValidationError, SchemaError
+from jsonschema import validate, RefResolver
+from uritemplate import URITemplate
 from .exceptions import URITemplateMissingParameter, JSONResponseMissingProperty
-from jsonschema import validate
 
 LOGGER = logging.getLogger()
 
+
+
 def validate_json(json_data, json_schema):
+    # Set up resolver to correctly handle relative paths
+    resolver = RefResolver(
+        base_uri=(pathlib.Path(__file__) / ".." / ".." / "schemas").resolve().as_uri() + "/",
+        referrer=json_schema
+    )
     try:
-        assert validate(json_data, json_schema) is None
+        assert validate(json_data, json_schema, resolver=resolver) is None
         LOGGER.info('JSON schema and JSON response are valid.')
     except SchemaError as e:
          LOGGER.error(f'The provided JSON schema is invalid according to its metaschema.')
@@ -32,6 +41,7 @@ def validate_uri_template(uri_template, template_name, required_parameters) -> N
                 msg = f'Parameter `{param}` must be contained in the `{template_name}` URI template {uri_template} (available parameters: {available_parameters})'
                 LOGGER.error(msg)
                 raise URITemplateMissingParameter(msg)
+
 
 # TODO: check if the property value is valid (against a list of valid values)
 def check_required_property(json_data, property_name):
