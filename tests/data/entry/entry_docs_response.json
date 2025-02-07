@@ -1,9 +1,9 @@
 {
-    "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
-    "dtsVersion": "1-alpha",
-    "@id": "/api/dts/",
-    "@type": "EntryPoint",
-    "collection": "/api/dts/collection/{?id,page,nav}",
-    "navigation" : "/api/dts/navigation/{?resource,ref,start,end,down,tree,page}",
-    "document": "/api/dts/document/{?resource,ref,start,end,tree,mediaType}"
-  }
+  "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
+  "dtsVersion": "1-alpha",
+  "@id": "/api/dts/",
+  "@type": "EntryPoint",
+  "collection": "/api/dts/collection/{?id,page,nav}",
+  "navigation" : "/api/dts/navigation/{?resource,ref,start,end,down,tree,page}",
+  "document": "/api/dts/document/{?resource,ref,start,end,tree,mediaType}"
+}

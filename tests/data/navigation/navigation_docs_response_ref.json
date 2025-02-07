@@ -1,18 +1,17 @@
 {
   "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
   "dtsVersion": "1-alpha",
+  "@type": "Navigation",
   "@id": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&ref=C1&down=-1",
-  "@type":"Navigation",
-  "document": "https://example.org/api/dts/document/?resource=https://en.wikisource.org/wiki/Dracula{&ref,start,end,tree,mediaType}",
-  "collection": "https://example.org/api/dts/collection/?resource=https://en.wikisource.org/wiki/Dracula{&page,nav}",
-  "navigation": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula{&ref,down,start,end,tree,page}",
   "resource": {
     "@id": "https://en.wikisource.org/wiki/Dracula",
     "@type": "Resource",
+    "document": "https://example.org/api/dts/document/?resource=https://en.wikisource.org/wiki/Dracula{&ref,start,end,tree,mediaType}",
+    "collection": "https://example.org/api/dts/collection/?resource=https://en.wikisource.org/wiki/Dracula{&page,nav}",
+    "navigation": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula{&ref,down,start,end,tree,page}",
     "citationTrees": [
       {
         "@type": "CitationTree",
-        "maxCiteDepth": 3,
         "citeStructure": [
           {
             "@type": "CiteStructure",
@@ -41,10 +40,10 @@
     "parent": null,
     "citeType": "Chapter",
     "dublinCore": {
-      "title": {
+      "title": [{
         "lang": "en",
         "value": "Chapter 1: Jonathan Harker's Journal"
-      }
+      }]
     }
   },
   "member": [
@@ -55,10 +54,10 @@
       "parent": null,
       "citeType": "Chapter",
       "dublinCore": {
-        "title": {
+        "title": [{
           "lang": "en",
           "value": "Chapter 1: Jonathan Harker's Journal"
-        }
+        }]
       }
     },
     {
@@ -68,7 +67,7 @@
       "parent": "C1",
       "citeType": "Journal Entry",
       "dublinCore": {
-        "title": { "lang": "en", "value": "3 May. Bistritz" }
+        "title": [{ "lang": "en", "value": "3 May. Bistritz" }]
       }
     },
     {
@@ -92,7 +91,7 @@
       "parent": "C1",
       "citeType": "Journal Entry",
       "dublinCore": {
-        "title": { "lang": "en", "value": "4 May" }
+        "title": [{ "lang": "en", "value": "4 May" }]
       }
     },
     {

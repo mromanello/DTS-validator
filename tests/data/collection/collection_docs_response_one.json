@@ -38,8 +38,8 @@
                     { "lang": "en", "value": "Anonymous lascivious Poems" }
                 ]
             },
-            "@type" : "Collection", 
-             "collection": "/api/dts/collection/?id=urn:cts:latinLit:phi1103.phi001{&page,nav}",
+            "@type" : "Collection",
+            "collection": "/api/dts/collection/?id=urn:cts:latinLit:phi1103.phi001{&page,nav}",
             "totalParents": 1,
             "totalChildren": 1
         }
