@@ -5,6 +5,9 @@ description = "DTS validator: a suite of tests for testing & validating implemen
 authors = ["Matteo Romanello <matteo.romanello@gmail.com>"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+dts-validator = "dts_validator.cli:main"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.2.1"
@@ -20,4 +23,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 log_cli = true
-log_cli_level = "INFO"
+#log_cli_level = "INFO"
