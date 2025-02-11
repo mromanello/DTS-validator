@@ -72,7 +72,10 @@ Example of validation reports:
 - [tests for `Entry` endpoint on on mock/example data](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/report-entry.html)
 - [tests for `Collection` endpoint on on mock/example data](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/report-collection.html)
 - [tests for `Navigation` endpoint on on mock/example data](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/report-navigation.html)
-- ~~tests for `Document` endpoint on on mock/example data~~
 
+## Validation of known implementations
 
-
+| Name | API | Validation summary | Report |
+|-------|-----|-------------------|--------|
+| DraCor | https://dev.dracor.org/api/v1/dts | 6 Failed, 7 Passed, 18 Skipped, 0 Expected failures, 0 Unexpected passes, 2 Errors, 0 Reruns | [`dracor_all_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/dracor_all_report.html=&sort=result) | 
+| UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | 1 Failed, 1 Passed, 18 Skipped, 0 Expected failures, 0 Unexpected passes, 13 Errors | [`ubhd_all_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/ubhd_all_report.html)|

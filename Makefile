@@ -2,8 +2,8 @@ SHELL:=/bin/bash
 
 REPORTS_DIR?=reports
 UBHD_DTS_API?=https://digi.ub.uni-heidelberg.de/editionService/dts/
-DRACOR_DTS_API?=$(DRACOR_DTS_API)
-FTSR_DTS_API?=$(FTSR_DTS_API)
+DRACOR_DTS_API?=https://dev.dracor.org/api/v1/dts
+FTSR_DTS_API?=http://ftsr-dev.unil.ch:9090/api/dts/
 
 ##################################################
 #    Tests on mock data + examples from docs     #
