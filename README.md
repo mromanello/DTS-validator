@@ -1,5 +1,7 @@
 # DTS validator
 
+[![Test validation](https://github.com/mromanello/DTS-validator/actions/workflows/main.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/main.yml)
+
 ⚠️ At the moment, this code is VERY work-in-progress!
 
 DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts).  The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. For now, only JSON validation (against JSON schemas) is implemented; JSON-LD validation (against SHACL shapes) will be added later one.
@@ -78,4 +80,4 @@ Example of validation reports:
 | Name | API | Validation summary | Report |
 |-------|-----|-------------------|--------|
 | DraCor | https://dev.dracor.org/api/v1/dts | 6 Failed, 7 Passed, 18 Skipped, 0 Expected failures, 0 Unexpected passes, 2 Errors, 0 Reruns | [`dracor_all_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/dracor_all_report.html) | 
-| UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | 1 Failed, 1 Passed, 18 Skipped, 0 Expected failures, 0 Unexpected passes, 13 Errors | [`ubhd_all_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/ubhd_all_report.html)|
+| UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | 15 passed, 18 skipped, 2 warnings | [`ubhd_all_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/ubhd_all_report.html)|
