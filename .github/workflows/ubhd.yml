@@ -1,0 +1,32 @@
+name: Validate UBHD API
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python # Set Python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      # Install pip and pytest
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .
+      - name: Test with pytest
+        run: pytest -s --entry-endpoint=https://digi.ub.uni-heidelberg.de/editionService/dts/ --html=reports/ubhd/${{matrix.python-version }}_report.html
+      - name: Upload pytest test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-results-${{ matrix.python-version }}
+          path: reports/ubhd/
+        # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
