@@ -77,7 +77,7 @@ Example of validation reports:
 
 ## Validation of known implementations
 
-| Name | API | Validation summary | Report |
-|-------|-----|-------------------|--------|
-| DraCor | https://dev.dracor.org/api/v1/dts | 6 Failed, 7 Passed, 18 Skipped, 0 Expected failures, 0 Unexpected passes, 2 Errors, 0 Reruns | [`dracor_all_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/dracor_all_report.html) | 
-| UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | 15 passed, 18 skipped, 2 warnings | [`ubhd_all_report.html`](https://htmlpreview.github.io/?https://github.com/mromanello/DTS-validator/blob/main/reports/ubhd_all_report.html)|
+| Name | API | Validation status |
+|-------|-----|-------------------|
+| DraCor | https://dev.dracor.org/api/v1/dts | N/A |
+| UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | [![Validate UBHD API](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml) |
