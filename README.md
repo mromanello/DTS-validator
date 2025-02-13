@@ -79,5 +79,5 @@ Example of validation reports:
 
 | Name | API | Validation status |
 |-------|-----|-------------------|
-| DraCor | https://dev.dracor.org/api/v1/dts | N/A |
+| DraCor | https://dev.dracor.org/api/v1/dts | [![Validate DraCor (dev) API](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml) |
 | UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | [![Validate UBHD API](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml) |
