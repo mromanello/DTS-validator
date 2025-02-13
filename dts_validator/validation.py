@@ -7,9 +7,7 @@ from jsonschema import validate, RefResolver
 from uritemplate import URITemplate
 from .exceptions import URITemplateMissingParameter, JSONResponseMissingProperty
 
-LOGGER = logging.getLogger()
-
-
+LOGGER = logging.getLogger(__name__)
 
 def validate_json(json_data, json_schema):
     # Set up resolver to correctly handle relative paths

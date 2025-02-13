@@ -1,13 +1,14 @@
 from __future__ import annotations
 import logging
 import requests
+import random
 from requests.models import Response
 from typing import Optional, Union, List, Tuple, Dict
 from uritemplate import URITemplate
 from .validation import check_required_property
 
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger()
 
 class DTS_Collection(object):
     """Class representing a DTS Collection object."""
@@ -157,6 +158,7 @@ class DTS_API(object):
     
     def get_one_resource(self):
         collections = self.collections()
+        random.shuffle(collections)
         for collection in collections:
             resource  = get_resource_recursively(collection, self)
             if resource:
