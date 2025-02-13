@@ -13,5 +13,5 @@
     - [ ] test (some) requests for different media-types
     - [ ] test for invalid combinations of parameters, as per specs
 - [ ] general
-    - [ ] support running the validator tests as a package
-    - [ ] provide example configuration for integration with CI workflows, e.g. GH Actions
+    - [x] support running the validator tests as a package
+    - [x] provide example configuration for integration with CI workflows, e.g. GH Actions
