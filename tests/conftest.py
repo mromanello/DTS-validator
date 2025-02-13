@@ -9,6 +9,7 @@ from dts_validator.client import DTS_API, DTS_Navigation
 
 LOGGER = logging.getLogger()
 SKIP_MOCK_TESTS_MESSAGE = 'A remote DTS API is provided; skipping tests on mock/example data'
+SKIP_NO_CITABLE_UNITS_MESSAGE = 'No citable units found in the navigation object'
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -273,10 +274,14 @@ def navigation_endpoint_response_ref(
         # first we need to get all resource's citable units
         navigation_obj, response_obj = dts_client.navigation(resource=readable_resource, down=1)
         
-        # then we pick one citable unit, by default the last one
+        # if the Resource has citable units, we pick by default the last one
         # and use it to query its subtree
-        target_citable_unit = navigation_obj.citable_units[-1]
-        return dts_client.navigation(resource=readable_resource, reference=target_citable_unit, down=-1)
+        if navigation_obj.citable_units:
+            target_citable_unit = navigation_obj.citable_units[-1]
+            return dts_client.navigation(resource=readable_resource, reference=target_citable_unit, down=-1)
+        # otherwise we skip the test
+        else:
+            pytest.skip(f'{navigation_obj.resource}: {SKIP_NO_CITABLE_UNITS_MESSAGE}')
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
@@ -312,10 +317,13 @@ def navigation_endpoint_response_top_ref_down_two(
         # first we need to get all resource's citable units
         navigation_obj, response_obj = dts_client.navigation(resource=readable_resource, down=1)
         
-        # then we pick one citable unit, by default the last one
+        # if the Resource has citable units, we pick by default the last one
         # and use it to query its subtree
-        target_citable_unit = navigation_obj.citable_units[-1]
-        return dts_client.navigation(resource=readable_resource, reference=target_citable_unit, down=2)
+        if navigation_obj.citable_units:
+            target_citable_unit = navigation_obj.citable_units[-1]
+            return dts_client.navigation(resource=readable_resource, reference=target_citable_unit, down=2)
+        else:
+            pytest.skip(f'{navigation_obj.resource}: {SKIP_NO_CITABLE_UNITS_MESSAGE}')
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
@@ -369,7 +377,7 @@ def navigation_endpoint_response_range_plus_down(
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[Dict], requests.models.Response]:
     """
-    This fixture returns a DTS Navigation endpoint response, when retrieving
+    This fixture returns a DTS Navigation endpoint response
     when retrieving an array of `CitableUnit`s in a specified range, including
     the direct children of the specified start and end points (`?start=<citable_unit_1>&end=<citable_unit_2>&down=1`).
     See DTS API specs, section "Navigation Endpoint", example #6.
@@ -384,15 +392,19 @@ def navigation_endpoint_response_range_plus_down(
         # first we need to get all resource's citable units
         navigation_obj, response_obj = dts_client.navigation(resource=readable_resource, down=1)
         
-        # then define a range of refs, and query based on that
-        start_ref = navigation_obj.citable_units[0]
-        end_ref = navigation_obj.citable_units[-1]
-        return dts_client.navigation(
-            resource=readable_resource,
-            start=start_ref,
-            end=end_ref,
-            down=1
-        )
+        # if the Resource has citable units, we define a range of refs (first-last),
+        # and use this range to query the navigation endpoint
+        if navigation_obj.citable_units:
+            start_ref = navigation_obj.citable_units[0]
+            end_ref = navigation_obj.citable_units[-1]
+            return dts_client.navigation(
+                resource=readable_resource,
+                start=start_ref,
+                end=end_ref,
+                down=1
+            )
+        else:
+            pytest.skip(f'{navigation_obj.resource}: {SKIP_NO_CITABLE_UNITS_MESSAGE}')
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
@@ -413,7 +425,7 @@ def navigation_endpoint_response_range(
     dts_client: Optional[DTS_API]
 ) -> Tuple[Optional[Dict], requests.models.Response]:
     """
-    This fixture returns a DTS Navigation endpoint response, when retrieving
+    This fixture returns a DTS Navigation endpoint response
     when retrieving an array of `CitableUnit`s in a specified range
     (`?start=<citable_unit_1>&end=<citable_unit_2`).
 
@@ -427,14 +439,18 @@ def navigation_endpoint_response_range(
         # first we need to get all resource's citable units
         navigation_obj, response_obj = dts_client.navigation(resource=readable_resource, down=1)
         
-        # then define a range of refs, and query based on that
-        start_ref = navigation_obj.citable_units[0]
-        end_ref = navigation_obj.citable_units[-1]
-        return dts_client.navigation(
-            resource=readable_resource,
-            start=start_ref,
-            end=end_ref
-        )
+        # if the Resource has citable units, we define a range of refs (first-last),
+        # and use this range to query the navigation endpoint
+        if navigation_obj.citable_units:
+            start_ref = navigation_obj.citable_units[0]
+            end_ref = navigation_obj.citable_units[-1]
+            return dts_client.navigation(
+                resource=readable_resource,
+                start=start_ref,
+                end=end_ref
+            )
+        else:
+            pytest.skip(f'{navigation_obj.resource}: {SKIP_NO_CITABLE_UNITS_MESSAGE}')
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
@@ -552,11 +568,15 @@ def document_endpoint_response_ref(
     # use remote API for tests
     if response_object and dts_client is not None:
         assert navigation_object
-        one_reference = navigation_object.citable_units[0]
-        return dts_client.document(
-            resource=navigation_object.resource,
-            reference=one_reference
-        )
+        # if the Resource has no citable units (this may happen) we skip the test 
+        if navigation_object.citable_units:
+            one_reference = navigation_object.citable_units[0]
+            return dts_client.document(
+                resource=navigation_object.resource,
+                reference=one_reference
+            )
+        else:
+            pytest.skip(f'{navigation_object.resource}: {SKIP_NO_CITABLE_UNITS_MESSAGE}')
     # use mock/example data for tests
     elif request.param and dts_client is None:
         tests_dir = os.path.dirname(request.module.__file__)
