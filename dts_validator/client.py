@@ -277,6 +277,7 @@ def get_resource_recursively(collection : DTS_Collection, dts_client : DTS_API) 
     if isinstance(collection, DTS_Resource):
         return collection
     else:
+        resource = None
         for child in collection.children:
             if isinstance(child, DTS_Resource):
                 resource = child
