@@ -184,11 +184,10 @@ class DTS_API(object):
         collections = self.collections()
         random.shuffle(collections)
         for collection in collections:
-            resource  = get_resource_recursively(collection, self)
+            resource = get_resource_recursively(collection, self)
             if resource:
                 return resource
-            else:
-                return None
+        return None
     
     def navigation(
             self,
@@ -270,20 +269,21 @@ class DTS_API(object):
         else:
             return (None, response)
 
-def get_resource_recursively(collection : DTS_Collection, dts_client : DTS_API) -> DTS_Resource:
-    # get the full metadata from the API    
-    collection = dts_client.collections(id=collection.id)
-    
-    if isinstance(collection, DTS_Resource):
-        return collection
-    else:
-        for child in collection.children:
-            if isinstance(child, DTS_Resource):
-                resource = child
-                continue
-            else:
-                return get_resource_recursively(child, dts_client)
-        return resource
+def get_resource_recursively(
+    collection: DTS_Collection, dts_client: DTS_API
+) -> Optional[DTS_Resource]:
+    """Walk collection members until a DTS Resource (readable document) is found."""
+    node = dts_client.collections(id=collection.id)
+    # collections(id=...) always returns DTS_Collection; Resource replies set @type in JSON.
+    if node._json.get("@type") == "Resource":
+        return DTS_Resource(node._json)
+    for child in node.children:
+        if isinstance(child, DTS_Resource):
+            return child
+        found = get_resource_recursively(child, dts_client)
+        if found is not None:
+            return found
+    return None
     
 # TODO: rewrite using new objects
 def get_collections_recursively(collection, dts_client):
