@@ -1,4 +1,4 @@
-name: Validate DraCor (dev) API
+name: Validate DraCor (staging) API
 
 on: [push]
 
