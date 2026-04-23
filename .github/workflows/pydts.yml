@@ -1,4 +1,4 @@
-name: Validate py-DTS API (demo @ render.com)
+name: Validate py-DTS API
 
 on: [push]
 
