@@ -94,9 +94,10 @@ See the examples in notebook [`example_dts_client.ipynb`](./example_dts_client.i
 
 ## Validation of known current implementations
 
-| Name | API entry endpoint | DTS version |Validation status |
-|-------|-----|-------------|-------------------|
-| DraCor | https://staging.dracor.org/api/v1/dts | `unstable`|[![Validate DraCor (dev) API](https://github.com/distributed-text-services/validator/actions/workflows/dracor.yml/badge.svg)](https://github.com/distributed-text-services/validator/actions/workflows/dracor.yml) |
-| UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | `1.0`|[![Validate UBHD API](https://github.com/distributed-text-services/validator/actions/workflows/ubhd.yml/badge.svg)](https://github.com/distributed-text-services/validator/actions/workflows/ubhd.yml) |
-|DoTS demo |https://dots.chartes.psl.eu/demo/api/dts/|`1-alpha`|[![Validate DoTS API](https://github.com/distributed-text-services/validator/actions/workflows/dots.yml/badge.svg)](https://github.com/distributed-text-services/validator/actions/workflows/dots.yml)|
-|py-dts (demo) | https://py-dts-demo.onrender.com/api/dts/v1/ | `1-alpha` | [![Validate py-dts API](https://github.com/distributed-text-services/validator/actions/workflows/dots.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/dots.yml)|
+| Name | DTS server | API entry endpoint | DTS version | Validation status |
+|--------|--------|------------------------------------------|------------|--------|
+| DraCor | custom (eXist-db + XQuery) | https://staging.dracor.org/api/v1/dts | `unstable` | [![Validate DraCor (staging) API](https://github.com/distributed-text-services/validator/actions/workflows/dracor.yml/badge.svg)](https://github.com/distributed-text-services/validator/actions/workflows/dracor.yml) |
+| UBHD | custom (Perl script) | https://digi.ub.uni-heidelberg.de/editionService/dts/ | `1.0` | [![Validate UBHD API](https://github.com/distributed-text-services/validator/actions/workflows/ubhd.yml/badge.svg)](https://github.com/distributed-text-services/validator/actions/workflows/ubhd.yml) |
+| DoTS demo | [DoTS](https://dots.chartes.psl.eu/) | https://dots.chartes.psl.eu/demo/api/dts/ | `1-alpha` | [![Validate DoTS API](https://github.com/distributed-text-services/validator/actions/workflows/dots.yml/badge.svg)](https://github.com/distributed-text-services/validator/actions/workflows/dots.yml) |
+| py-dts (demo) | [py-dts](https://github.com/rerouj/py-dts) | https://py-dts-demo.onrender.com/api/dts/v1/ | `1.0` | [![Validate py-dts API](https://github.com/distributed-text-services/validator/actions/workflows/pydts.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/pydts.yml) |
+| Digital Editions at ETHZ/UZH | [MyDapytains](https://github.com/distributed-text-services/MyDapytains) | http://rs4.ethz.ch/dts/ | `1.0` | [![Validate Digital Editions at ETHZ/UZH](https://github.com/distributed-text-services/validator/actions/workflows/pydts.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/ethz-uzh.yml) |
